@@ -9,7 +9,7 @@ folder_path = {"Long_words": "/home/tusharsingh/DATAs/speech_EEG/Long_words",
 Labels = {"Long_words": {1: "cooperate",2: "independent"},
         "Short_Long_words": {1:"cooperate",2:"in"},
         "Short_words": {1:"out",2:"in",3:"up"},
-        "Vowels": {1:"/a/",2:"/i/",3:"/u/"}}
+        "Vowels": {1:"a",2:"i",3:"u"}}
 
 eeg_image_folder_path = {"Long_words": "/home/tusharsingh/DATAs/speech_EEG/EEG_image/Long_words",
         "Short_Long_words": "/home/tusharsingh/DATAs/speech_EEG/EEG_image/Short_Long_words",
@@ -137,8 +137,9 @@ def parllel_feature_extracting(folder_name):
         cores = 40
         per_core = N // cores
         for i in range(0, N, per_core):
-            executor.submit(eeg_image_folder_maker, eeg_image_folder_path[folder_name], data, i, i + per_core)
-
+            print(".", end="")
+            executor.submit(eeg_image_folder_maker, eeg_image_folder_path[folder_name], data, i, min(N,i + per_core))
+    print("\nSuccesfully Done -> ", len(os.listdir(eeg_image_folder_path[folder_name])) == N)
 
 if __name__ == "__main__":
     # parllel_feature_extracting('Long_words')

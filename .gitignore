@@ -13,3 +13,6 @@
 /.vscode
 /.vscode-server
 /DATAs
+/miniconda3
+.conda
+.wget-hsts

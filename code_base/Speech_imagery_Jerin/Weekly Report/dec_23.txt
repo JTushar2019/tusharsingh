@@ -1,0 +1,32 @@
+Weeks Work
+
+Monday:
+Read "Sub-band Mean Phase Coherence for Automated Epileptic Seizure Detection" to understand the used feature.
+Implemented Data Augmentation function for specified Sliding Window
+Implemented MPC (Mean Phase Coherence) feature extraction
+Implemented MSC (Magnitude Squared Coherence) feature extraction
+Implemented alpha beta gamma band extractor for EEG's.
+
+
+Tuesday:
+Implemented EEG MPC_MSC image maker as proposed by Jerrin's Thesis (Done)
+Learnt some pytorch as I have only used TensorFlow in the past
+As feature extraction is time intensive(1.7 sec per 1 sec EEG) so i have decided to pre-process the EEG's and store them first and then feed it into PyTorch.
+Implemented the above in parallel processing(AI server has 96 cores lying ideal) way to speed up the feature extraction.
+Implemented custom Detest, and Data-loader class for PyTorch
+
+
+Wednesday:
+Got some issue with python environment, installed and configured Anaconda.
+Figuring out way to split data for training testing and validation through PyTorch.
+Learning PyTorch from PyTorch Pocket Book Reference by O'Really.
+Built ResNet pre-trained architecture as Jerrin's Thesis with PyTorch.
+Started Training. With few rounds of iteration, training acc increases up to 85 but testing stays at almost chance.
+I have planned to implement it in TensorFlow as there i have much experience in tweaking learning and weight initialisation strategies.
+
+
+Thursday:
+
+
+
+Friday:
