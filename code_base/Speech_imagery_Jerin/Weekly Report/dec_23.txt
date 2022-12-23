@@ -18,15 +18,20 @@ Implemented custom Detest, and Data-loader class for PyTorch
 
 Wednesday:
 Got some issue with python environment, installed and configured Anaconda.
-Figuring out way to split data for training testing and validation through PyTorch.
+Implemented Test Train Split given subject number
 Learning PyTorch from PyTorch Pocket Book Reference by O'Really.
 Built ResNet pre-trained architecture as Jerrin's Thesis with PyTorch.
-Started Training. With few rounds of iteration, training acc increases up to 85 but testing stays at almost chance.
-I have planned to implement it in TensorFlow as there i have much experience in tweaking learning and weight initialisation strategies.
+Started Training. With few rounds of iteration, training acc increases up to 98 but testing stays at almost chance. Somethings wrong in my code maybe.
 
 
 Thursday:
-
+Learning PyTorch for better utilisatation of library in proper training
+Sent Email to Jerrin regarding my doubt on training procedure in his thesis.
+Realised that training was supposed to be done on augmented data with crossvalidation and testing on complete 5 sec EEG. Hence doing modification in data aggregation methods.
+Dividing data approprietly for 10 Kfold crossvalidation and also doing preprocessing on them before storing them. getting issue with multiprocessing.
+fixed the multiprocessing issue, and leaving it for the night for all feature extraction across all folds and all types of classification.
 
 
 Friday:
+Last Night Run resulted in memory overlow issue, so i cant store all the preprocessed data across different categories of classification and their 10 cross folds of test and trained sepeately at the same time
+Modifying code so that after making kth fold then do pre-process it and them train and test on it. Also making sure, no repeated feature extraction is done for a data point.
