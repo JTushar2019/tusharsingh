@@ -1,33 +1,6 @@
-import scipy.io as sio
 import numpy as np
 import scipy
-import os
-import re
-import random
-import concurrent.futures
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import StratifiedKFold
-
-folder_path = {"Long_words": "/home/tusharsingh/DATAs/speech_EEG/Long_words",
-               "Short_Long_words": "/home/tusharsingh/DATAs/speech_EEG/Short_Long_words",
-               "Short_words": "/home/tusharsingh/DATAs/speech_EEG/Short_words",
-               "Vowels": "/home/tusharsingh/DATAs/speech_EEG/Vowels"}
-
-words_dict = {
-    "Long_words": ["cooperate", "independent"],
-    "Short_Long_words": ["cooperate", "in"],
-    "Short_words": ["out", "in", "up"],
-    "Vowels": ["a", "i", "u"]
-}
-
-numeric_labels = {
-    "Long_words": {"cooperate": 0, "independent": 1},
-    "Short_Long_words": {"cooperate": 0, "in": 1},
-    "Short_words": {"out": 0, "in": 1, "up": 2},
-    "Vowels": {"a": 0, "i": 1, "u": 2}
-
-}
-
+from global_variables import *
 
 # retrieves the MPC(Mean Phase Coherance) feature matrix for given EEG 64 channel
 def MPC(eeg):
@@ -37,8 +10,8 @@ def MPC(eeg):
     def MPC_feature(i, j):
         signal_a = np.unwrap(np.angle(scipy.signal.hilbert(eeg[i])))
         signal_b = np.unwrap(np.angle(scipy.signal.hilbert(eeg[j])))
-        phase_diff = np.exp((signal_a - signal_b) * 1j)
-        return np.absolute(np.mean(phase_diff))
+        phase_diff = np.absolute(np.exp((signal_a - signal_b) * 1j))
+        return np.mean(phase_diff)
 
     for i in range(channels):
         for j in range(channels):
@@ -52,32 +25,38 @@ def MPC(eeg):
 # retrieves the MSC(Magnitude Phase Coherance) feature matrix for given EEG 64 channel
 def MSC(eeg):
     channels = eeg.shape[0]
-    msc_matrix = np.zeros((channels, channels), dtype=float)
-
+    msc_matrix = np.zeros((channels, channels, 3), dtype=float)
     for i in range(channels):
         for j in range(channels):
             if i <= j:
-                msc_matrix[i, j] = np.mean(scipy.signal.coherence(
-                    eeg[i], eeg[j], window=scipy.signal.windows.hamming(32), fs=256)[1])
+                temp = scipy.signal.coherence(
+                    eeg[i], eeg[j], window = scipy.signal.windows.hamming(51) , nfft = 256, fs=256)
+                t1 = (temp[0] <= 8).astype(bool)
+                t2 = (temp[0] <= 13).astype(bool)
+                t3 = (temp[0] <= 30).astype(bool)
+                t4 = (temp[0] <= 70).astype(bool)
+                alpha = np.mean(temp[1][~t1 & t2])
+                beta = np.mean(temp[1][~t2 & t3])
+                gamma = np.mean(temp[1][~t3 & t4])
+                msc_matrix[i,j,0] = alpha
+                msc_matrix[i,j,1] = beta
+                msc_matrix[i,j,2] = gamma
             else:
-                msc_matrix[i, j] = msc_matrix[j, i]
+                msc_matrix[i, j, 0] = msc_matrix[j, i, 0]
+                msc_matrix[i, j, 1] = msc_matrix[j, i, 1]
+                msc_matrix[i, j, 2] = msc_matrix[j, i, 2]
     return msc_matrix
 
 
 # alpha beta gamma filtering for every eeg electrode
 def alpha_beta_gamma_extractor(eeg):
-    a = scipy.signal.butter(8, [8, 13], 'bandpass', fs=256, output='sos')
-    b = scipy.signal.butter(8, [13, 30], 'bandpass', fs=256, output='sos')
-    g = scipy.signal.butter(8, [30, 70], 'bandpass', fs=256, output='sos')
+    a = scipy.signal.butter(1, [8, 13], 'bandpass', fs=256, output='sos')
+    b = scipy.signal.butter(1, [13, 30], 'bandpass', fs=256, output='sos')
+    g = scipy.signal.butter(1, [30, 70], 'bandpass', fs=256, output='sos')
 
-    alpha = np.zeros_like(eeg)
-    beta = np.zeros_like(eeg)
-    gamma = np.zeros_like(eeg)
-
-    for i in range(eeg.shape[0]):
-        alpha[i] = scipy.signal.sosfilt(a, eeg[i])
-        beta[i] = scipy.signal.sosfilt(b, eeg[i])
-        gamma[i] = scipy.signal.sosfilt(g, eeg[i])
+    alpha = scipy.signal.sosfilt(a, eeg, axis = 1)
+    beta = scipy.signal.sosfilt(b, eeg, axis = 1)
+    gamma = scipy.signal.sosfilt(g, eeg, axis = 1)
 
     return [alpha, beta, gamma]
 
@@ -85,15 +64,23 @@ def alpha_beta_gamma_extractor(eeg):
 # reutrn Image form of the eeg from alpha beta gamma bands and MPC and MSC feature matrix
 def EEG_Image(eeg, **kwargs):
     eeg_channles = alpha_beta_gamma_extractor(eeg)
-    Image = np.zeros((eeg.shape[0], eeg.shape[0], 3), dtype=float)
+    Image = MSC(eeg)
     for i in range(3):
         eeg_mpc = MPC(eeg_channles[i])
-        eeg_msc = MPC(eeg_channles[i])
         n = eeg_mpc.shape[0]
         for p in range(n):
-            for q in range(n):
-                if p < q:
-                    Image[p, q, i] = eeg_mpc[p, q]
-                elif p > q:
-                    Image[p, q, i] = eeg_msc[p, q]
+            Image[p,p,i] = 0
+            for q in range(p + 1, n):
+                Image[p, q, i] = eeg_mpc[p, q]
     return Image
+
+
+if __name__ == "__main__":
+    from pre_processing import load_EEG
+    eeg_path, label = load_EEG("Long_words", 2)
+    eeg = eeg_path[0]
+    with open(eeg, 'rb') as f:
+        eeg = np.load(f)
+    alpha, beta, gamma = alpha_beta_gamma_extractor(eeg)
+
+    print(EEG_Image(eeg)[:,:,0])

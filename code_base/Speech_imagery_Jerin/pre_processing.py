@@ -1,15 +1,9 @@
 from feature_extr import *
-import scipy.io as sio
 import numpy as np
-import scipy
 import os
-import shutil
 import re
-import random
 import concurrent.futures
-from sklearn.model_selection import train_test_split
-from sklearn.model_selection import StratifiedKFold
-from torch.utils.data import Dataset, DataLoader
+import scipy.io as sio
 
 matrix_to_load = "eeg_data_wrt_task_rep_no_eog_256Hz_last_beep"
 
@@ -30,47 +24,53 @@ def load_EEG(type, subject_no):
         if not os.path.exists(temp):
             os.mkdir(temp)
         X = []
+        Y = []
         for index, eeg in np.ndenumerate(mat):
             temp2 = f"{temp}/{words[index[0]]}_{index[1] + 1}.npy"
             X.append(temp2)
+            Y.append(words[index[0]])
             if not os.path.exists(temp2):
                 np.save(temp2, eeg)
-    return X
+    return np.array(X), np.array(Y)
 
 
-def get_train_preprocessed_data(X_test, pre_process, transformer):
+def get_train_preprocessed_data(X_test,Y_test, pre_process, transformer):
     window_size = 256
     stride = 64
     new_X = []
+    new_Y = []
 
-    with concurrent.futures.ProcessPoolExecutor(max_workers = os.cpu_count() - 20) as executor:
+    with concurrent.futures.ProcessPoolExecutor(max_workers = int(os.cpu_count()*0.80)) as executor:
         futures = []
         for i in range(len(X_test)):
             futures.append(executor.submit(
-                pre_process, X_test[i], transformer, window_size, stride))
+                pre_process, X_test[i], Y_test[i], transformer, window_size, stride))
         for future in concurrent.futures.as_completed(futures):
-            new_X.extend(future.result())
+            new_X.extend(future.result()[0])
+            new_Y.extend(future.result()[1])
 
-    return new_X, [each.split("_")[0] for each in new_X]
+    return new_X, new_Y
 
 
-def get_test_preprocessed_data(X_test, pre_process, transformer):
+def get_test_preprocessed_data(X_test, Y_test, pre_process, transformer):
     window_size = 256
     stride = 64
     new_X = []
+    new_Y = []
 
-    with concurrent.futures.ProcessPoolExecutor(max_workers = os.cpu_count() - 20) as executor:
+    with concurrent.futures.ProcessPoolExecutor(max_workers = int(os.cpu_count()*0.80)) as executor:
         futures = []
         for i in range(len(X_test)):
             futures.append(executor.submit(
-                pre_process, X_test[i], transformer, window_size, stride))
+                pre_process, X_test[i], Y_test[i],transformer, window_size, stride))
         for future in concurrent.futures.as_completed(futures):
-            new_X.extend(future.result())
+            new_X.extend(future.result()[0])
+            new_Y.extend(future.result()[1])
 
-    return new_X, [each.split("_")[0] for each in new_X]
+    return new_X, new_Y
 
 
-def train_pre_process(X, transformer,  window_size, stride):
+def train_pre_process(X,Y, transformer,  window_size, stride):
     new_X = []
     with open(X, 'rb') as f:
         eeg = np.load(f)
@@ -80,17 +80,17 @@ def train_pre_process(X, transformer,  window_size, stride):
         if os.path.exists(new_X[-1]): continue
         with open(new_X[-1], "wb") as f:
             np.save(f, transformer(eeg[:, start:start + window_size]))
-    return new_X
+    return new_X, [Y]*len(new_X)
 
 
-def test_pre_process(X, transformer,  window_size, stride):
+def test_pre_process(X,Y, transformer,  *arg):
     with open(X, 'rb') as f:
         eeg = np.load(f)
     temp = X.removesuffix(".npy")
     new_X = f"{temp}_test.npy"
     if not os.path.exists(new_X):
         np.save(new_X, transformer(eeg))
-    return new_X
+    return new_X, Y
 
 
 if __name__ == "__main__":
