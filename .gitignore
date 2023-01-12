@@ -12,6 +12,7 @@
 /.python_history
 /.vscode
 /.vscode-server
+/.keras
 /DATAs
 /miniconda3
 /.conda
