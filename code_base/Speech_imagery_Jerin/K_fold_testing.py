@@ -43,7 +43,7 @@ if __name__ == "__main__":
     print("\n\n\n\ndate and time =", dt_string)
     parser = argparse.ArgumentParser()
     parser.add_argument('--type', type=str, default='Long_words')
-    parser.add_argument('--subj_no', type=int, default=2)
+    # parser.add_argument('--subj_no', type=int, default=2)
     parser.add_argument('--device', type=str, default='cuda:0')
     parser.add_argument('--kfolds', type=int, default=10)
     parser.add_argument('--batch_size', type=int, default=64)
@@ -52,9 +52,9 @@ if __name__ == "__main__":
     print(args)
 
     subjects = [2,3,6,7,9,11]
-    for each in subjects[1:]:
+    for each in subjects:
         print()
-        print("="*150)
+        print("="*70)
         mean, variance = K_fold_evaluation(args.type, each, args.device, \
             args.kfolds, args.batch_size, args.random_seed)
         print(f"{each} K-fold mean: ", mean*100)

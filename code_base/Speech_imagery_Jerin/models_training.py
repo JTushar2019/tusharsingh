@@ -22,11 +22,11 @@ def model_maker(num_classes):
     return Jerrin_model
 
 
-def train_model(model, train_loader, val_loader, device, max_epoc=100, patience=80):
+def train_model(model, train_loader, val_loader, device, max_epoc=100, patience=30):
 
     best_model_wts = copy.deepcopy(model.state_dict())
     model.to(device)
-    optimizer = optim.Adam(model.parameters(), lr=1e-3)
+    optimizer = optim.Adam(model.parameters(), lr=1e-5)
     loss = nn.CrossEntropyLoss(reduction = 'sum')
     best_loss = 1
     temp_patience = patience

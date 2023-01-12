@@ -10,8 +10,8 @@ def MPC(eeg):
     def MPC_feature(i, j):
         signal_a = np.unwrap(np.angle(scipy.signal.hilbert(eeg[i])))
         signal_b = np.unwrap(np.angle(scipy.signal.hilbert(eeg[j])))
-        phase_diff = np.absolute(np.exp((signal_a - signal_b) * 1j))
-        return np.mean(phase_diff)
+        phase_diff = np.mean(np.exp((signal_a - signal_b) * -1j))
+        return np.absolute(phase_diff)
 
     for i in range(channels):
         for j in range(channels):
@@ -50,9 +50,9 @@ def MSC(eeg):
 
 # alpha beta gamma filtering for every eeg electrode
 def alpha_beta_gamma_extractor(eeg):
-    a = scipy.signal.butter(1, [8, 13], 'bandpass', fs=256, output='sos')
-    b = scipy.signal.butter(1, [13, 30], 'bandpass', fs=256, output='sos')
-    g = scipy.signal.butter(1, [30, 70], 'bandpass', fs=256, output='sos')
+    a = scipy.signal.butter(10, [8, 13], 'bandpass', fs=256, output='sos')
+    b = scipy.signal.butter(10, [13, 30], 'bandpass', fs=256, output='sos')
+    g = scipy.signal.butter(10, [30, 70], 'bandpass', fs=256, output='sos')
 
     alpha = scipy.signal.sosfilt(a, eeg, axis = 1)
     beta = scipy.signal.sosfilt(b, eeg, axis = 1)
@@ -77,10 +77,18 @@ def EEG_Image(eeg, **kwargs):
 
 if __name__ == "__main__":
     from pre_processing import load_EEG
+    from PIL import Image
+    import matplotlib.pyplot as plt
+
+
     eeg_path, label = load_EEG("Long_words", 2)
     eeg = eeg_path[0]
     with open(eeg, 'rb') as f:
         eeg = np.load(f)
     alpha, beta, gamma = alpha_beta_gamma_extractor(eeg)
 
-    print(EEG_Image(eeg)[:,:,0])
+    img = EEG_Image(eeg)
+    plt.imshow(img,aspect=1)
+    plt.show()
+
+    # print(EEG_Image(eeg)[:,:,0])
