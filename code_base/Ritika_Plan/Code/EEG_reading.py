@@ -1,3 +1,4 @@
+from collections import Counter
 import shutil
 from global_variables import *
 import scipy.io as sio
@@ -44,8 +45,8 @@ def modify_and_store_EEG(X, Y, time_window=30):
     os.mkdir(store_path)
     new_X, new_Y = [], []
 
-    window_size = time_window * sampling_frequency
-    print(window_size)
+    window_size = int(time_window * sampling_frequency)
+    # print(window_size)
 
     with concurrent.futures.ProcessPoolExecutor(max_workers=int(max(1, os.cpu_count()*0.80))) as executor:
         futures = []
@@ -83,27 +84,34 @@ def data_augment(x, y, window_size, store_path):
     return X, Y
 
 
-if __name__ == '__main__':
-    from collections import Counter
+def preprocess_whole_data():
+    print("pre-processing data...")
     X, Y = complete_data_path()
     print(Counter(Y))
-    print(len(X), len(Y))
-    print(f'min sampling_rate {sampling_frequency}')
-    print(f'max highpass = {highpass} \nmin lowpass = {lowpass}')
-    # print(X[:2])
-
+    print(f'observed min sampling_rate {sampling_frequency}')
+    print(f'observed max highpass = {highpass} \nobserved min lowpass = {lowpass}')
+    
     X, Y = modify_and_store_EEG(X, Y, 30)
     X = np.array(X)
     Y = np.array(Y)
-    working_data_path = "/home/tusharsingh/code_base/Ritika_Plan/Data"
+    
+    print(f'total 30sec samples - {X.shape[0]}')
+    temp = np.load(X[0])
+    print(f'single sample dimention = {temp.shape}')
+
+    working_data_path = f'{data_folder_path}/..'
     with open(f'{working_data_path}/X.npy', 'wb') as f:
         np.save(f, X)
     with open(f'{working_data_path}/Y.npy', 'wb') as f:
         np.save(f, Y)
 
-    print(X[:2])
-    print(Y[:2])
-    print(X.shape, Y.shape)
+    print(f'X.npy, Y.npy are stored at \n{working_data_path}')
+    return X, Y
+
+
+
+if __name__ == '__main__':
+    preprocess_whole_data()
 
 
 {'Nocturnal frontal lobe epilepsy': 38, 'REM behavior disorder': 22, 'Periodic leg movements': 10,
