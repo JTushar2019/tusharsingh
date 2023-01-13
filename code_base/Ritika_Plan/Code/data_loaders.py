@@ -47,7 +47,7 @@ class EEG_Dataset(Dataset):
 
     def __getitem__(self, idx):
         with open(self.X[idx], 'rb') as f:
-            eeg = np.load(f)
+            eeg = np.load(f).astype(np.float32)
         return eeg, self.Y[idx]
 
 
@@ -70,9 +70,9 @@ def EEG_Dataloaders(split_ratio = 0.8, batch_size = 32):
 
 
 if __name__ == '__main__':
-    # X_train, X_val, X_test, y_train, y_val, y_test = train_val_test_split()
-    # print(y_train.shape, y_val.shape, y_test.shape)
-    # print(X_train.shape, X_val.shape, X_test.shape)
-    # print(X_train[0])
+    X_train, X_val, X_test, y_train, y_val, y_test = train_val_test_split()
+    print(y_train.shape, y_val.shape, y_test.shape)
+    print(X_train.shape, X_val.shape, X_test.shape)
+    print(X_train[0])
     # train_data_loader, val_data_loader, test_data_loader = EEG_Dataloaders()
     # print(train_data_loader)

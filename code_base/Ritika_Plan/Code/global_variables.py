@@ -1,4 +1,4 @@
-sampling_frequency = 1000
+sampling_frequency = 256
 highpass = 0.3
 lowpass = 30
 data_folder_path = "/home/tusharsingh/code_base/Ritika_Plan/Data/cap-sleep-database-1.0.0"
