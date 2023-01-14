@@ -89,12 +89,13 @@ def preprocess_whole_data():
     X, Y = complete_data_path()
     print(Counter(Y))
     print(f'observed min sampling_rate {sampling_frequency}')
-    print(f'observed max highpass = {highpass} \nobserved min lowpass = {lowpass}')
-    
+    print(
+        f'observed max highpass = {highpass} \nobserved min lowpass = {lowpass}')
+
     X, Y = modify_and_store_EEG(X, Y, 30)
     X = np.array(X)
     Y = np.array(Y)
-    
+
     print(f'total 30sec samples - {X.shape[0]}')
     temp = np.load(X[0])
     print(f'single sample dimention = {temp.shape}')
@@ -109,10 +110,13 @@ def preprocess_whole_data():
     return X, Y
 
 
-
 if __name__ == '__main__':
     preprocess_whole_data()
 
 
 {'Nocturnal frontal lobe epilepsy': 38, 'REM behavior disorder': 22, 'Periodic leg movements': 10,
     'Insomnia': 9, 'controls': 6, 'Narcolepsy': 5, 'Sleep-disordered breathing': 4, 'Bruxism': 2}
+
+
+{'Nocturnal frontal lobe epilepsy': 38, 'REM behavior disorder': 22, 'Periodic leg movements': 10,
+    'Insomnia': 9, 'control': 6, 'Narcolepsy': 5, 'Sleep-disordered breathing': 4}

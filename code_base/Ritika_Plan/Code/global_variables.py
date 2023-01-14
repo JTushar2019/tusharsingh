@@ -12,14 +12,14 @@ decided_channels = set(['P4O2', 'ROCLOC', 'EMG1EMG2'])
 dicided_channels_name = ['P4-O2', 'ROC-LOC', 'EMG1-EMG2']
 
 pathology_dict = {
-    'brux': 'Bruxism',
-    'ins': 'Insomnia',
-    'n': 'control',
-    'narco':  'Narcolepsy',
+    # 'brux': 'Bruxism',
+    # 'ins': 'Insomnia',
+    # 'n': 'control',
+    # 'narco':  'Narcolepsy',
     'nfle': 'Nocturnal frontal lobe epilepsy',
     'plm': 'Periodic leg movements',
     'rbd': 'REM behavior disorder',
-    'sdb': 'Sleep-disordered breathing'
+    # 'sdb': 'Sleep-disordered breathing'
 }
 
 # [('C4A1', 102),

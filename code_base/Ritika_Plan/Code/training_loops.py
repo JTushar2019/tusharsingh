@@ -4,7 +4,7 @@ import copy
 
 
 
-def train_model(model, train_loader, val_loader, device, max_epoc=100, patience=100):
+def train_model(model, train_loader, val_loader, device, max_epoc=100, patience=30):
 
     best_model_wts = copy.deepcopy(model.state_dict())
     model.to(device)
@@ -45,7 +45,7 @@ def train_model(model, train_loader, val_loader, device, max_epoc=100, patience=
 
         if ep % 5 == 0 or ep == (max_epoc - 1):
             print(f'\t epoch:{ep}, T.acc:{training_acc*100:.3f}, V.acc:{validation_acc*100:.3f}')
-            print(f'\t\t T.loss:{training_loss:.5f}, V.loss:{validation_loss:.5f}')
+            print(f'\t\t\tT.loss:{training_loss:.5f}, V.loss:{validation_loss:.5f}')
 
 
         if validation_loss > best_loss :
@@ -53,7 +53,7 @@ def train_model(model, train_loader, val_loader, device, max_epoc=100, patience=
             if patience <= 0:
                 print('Early stopping :(')
                 print(f'\t epoch:{ep}, T.acc:{training_acc*100:.3f}, V.acc:{validation_acc*100:.3f}')
-                print(f'\t\t T.loss:{training_loss:.5f}, V.loss:{validation_loss:.5f}')
+                print(f'\t\t\tT.loss:{training_loss:.5f}, V.loss:{validation_loss:.5f}')
                 break
         else:
             best_loss = validation_loss

@@ -152,3 +152,228 @@ Early stopping :(
 	 epoch:99, T.acc:57.718, V.acc:47.690
 		 T.loss:1.69682, V.loss:1.79713
 Test_fold: Tloss: 2.07889, Tacc: 11.567
+
+
+
+date and time = 14/01/2023 14:23:36
+picked channels = ['C4-A1', 'ROC-LOC', 'EMG1-EMG2']
+DataParallel(
+  (module): Model(
+    (seq_layer1): Sequential(
+      (0): Conv1d(3, 64, kernel_size=(128,), stride=(16,))
+      (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+      (3): MaxPool1d(kernel_size=8, stride=8, padding=0, dilation=1, ceil_mode=False)
+      (4): Dropout(p=0.3, inplace=False)
+      (5): Conv1d(64, 128, kernel_size=(8,), stride=(1,))
+      (6): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (7): ReLU()
+      (8): Conv1d(128, 128, kernel_size=(8,), stride=(1,))
+      (9): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (10): ReLU()
+      (11): Conv1d(128, 128, kernel_size=(8,), stride=(1,))
+      (12): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (13): ReLU()
+      (14): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+    )
+    (seq_layer2): Sequential(
+      (0): Conv1d(3, 64, kernel_size=(1024,), stride=(128,))
+      (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+      (3): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+      (4): Dropout(p=0.3, inplace=False)
+      (5): Conv1d(64, 128, kernel_size=(6,), stride=(1,))
+      (6): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (7): ReLU()
+      (8): Conv1d(128, 128, kernel_size=(6,), stride=(1,))
+      (9): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (10): ReLU()
+      (11): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (fullyConnected): Sequential(
+      (0): Flatten(start_dim=1, end_dim=-1)
+      (1): Linear(in_features=1280, out_features=1024, bias=True)
+      (2): ReLU()
+      (3): Dropout(p=0.3, inplace=False)
+      (4): Linear(in_features=1024, out_features=512, bias=True)
+      (5): ReLU()
+      (6): Dropout(p=0.3, inplace=False)
+      (7): Linear(in_features=512, out_features=64, bias=True)
+      (8): ReLU()
+      (9): Dropout(p=0.3, inplace=False)
+      (10): Linear(in_features=64, out_features=7, bias=True)
+      (11): Softmax(dim=-1)
+    )
+  )
+)
+	 epoch:0, T.acc:37.430, V.acc:37.737
+		 T.loss:1.79101, V.loss:1.78805
+	 epoch:5, T.acc:37.734, V.acc:37.737
+		 T.loss:1.78809, V.loss:1.78805
+	 epoch:10, T.acc:37.734, V.acc:37.737
+		 T.loss:1.78809, V.loss:1.78805
+	 epoch:15, T.acc:37.734, V.acc:37.737
+		 T.loss:1.78809, V.loss:1.78805
+	 epoch:20, T.acc:37.734, V.acc:37.737
+		 T.loss:1.78809, V.loss:1.78805
+
+
+
+
+date and time = 14/01/2023 14:57:22
+picked channels = ['C4-A1', 'ROC-LOC', 'EMG1-EMG2']
+DataParallel(
+  (module): Model(
+    (seq_layer1): Sequential(
+      (0): Conv1d(3, 64, kernel_size=(128,), stride=(16,))
+      (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+      (3): MaxPool1d(kernel_size=8, stride=8, padding=0, dilation=1, ceil_mode=False)
+      (4): Dropout(p=0.3, inplace=False)
+      (5): Conv1d(64, 128, kernel_size=(8,), stride=(1,))
+      (6): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (7): ReLU()
+      (8): Conv1d(128, 128, kernel_size=(8,), stride=(1,))
+      (9): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (10): ReLU()
+      (11): Conv1d(128, 128, kernel_size=(8,), stride=(1,))
+      (12): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (13): ReLU()
+      (14): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+    )
+    (seq_layer2): Sequential(
+      (0): Conv1d(3, 64, kernel_size=(1024,), stride=(128,))
+      (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+      (3): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+      (4): Dropout(p=0.3, inplace=False)
+      (5): Conv1d(64, 128, kernel_size=(6,), stride=(1,))
+      (6): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (7): ReLU()
+      (8): Conv1d(128, 128, kernel_size=(6,), stride=(1,))
+      (9): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (10): ReLU()
+      (11): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (fullyConnected): Sequential(
+      (0): Flatten(start_dim=1, end_dim=-1)
+      (1): Linear(in_features=1280, out_features=1024, bias=True)
+      (2): ReLU()
+      (3): Dropout(p=0.3, inplace=False)
+      (4): Linear(in_features=1024, out_features=512, bias=True)
+      (5): ReLU()
+      (6): Dropout(p=0.3, inplace=False)
+      (7): Linear(in_features=512, out_features=64, bias=True)
+      (8): ReLU()
+      (9): Dropout(p=0.3, inplace=False)
+      (10): Linear(in_features=64, out_features=3, bias=True)
+      (11): Softmax(dim=-1)
+    )
+  )
+)
+	 epoch:0, T.acc:76.991, V.acc:34.329
+		 T.loss:0.77928, V.loss:1.19919
+	 epoch:5, T.acc:82.356, V.acc:54.066
+		 T.loss:0.72709, V.loss:1.00731
+	 epoch:10, T.acc:85.330, V.acc:14.511
+		 T.loss:0.69656, V.loss:1.28128
+	 epoch:15, T.acc:87.522, V.acc:16.791
+		 T.loss:0.67454, V.loss:1.32061
+	 epoch:20, T.acc:87.152, V.acc:52.207
+		 T.loss:0.67878, V.loss:1.02937
+	 epoch:25, T.acc:87.789, V.acc:52.207
+		 T.loss:0.67166, V.loss:1.02937
+	 epoch:30, T.acc:88.575, V.acc:14.657
+		 T.loss:0.66422, V.loss:1.40397
+	 epoch:35, T.acc:88.696, V.acc:52.207
+		 T.loss:0.66314, V.loss:1.02937
+	 epoch:40, T.acc:87.976, V.acc:52.207
+		 T.loss:0.67101, V.loss:1.02937
+	 epoch:45, T.acc:88.128, V.acc:52.224
+		 T.loss:0.66932, V.loss:1.02921
+	 epoch:50, T.acc:88.727, V.acc:37.510
+		 T.loss:0.66252, V.loss:1.17498
+	 epoch:55, T.acc:89.510, V.acc:33.306
+		 T.loss:0.65563, V.loss:1.21838
+	 epoch:60, T.acc:89.557, V.acc:24.119
+		 T.loss:0.65518, V.loss:1.30963
+	 epoch:65, T.acc:89.043, V.acc:52.207
+		 T.loss:0.66011, V.loss:1.02937
+	 epoch:70, T.acc:89.045, V.acc:21.904
+		 T.loss:0.65984, V.loss:1.13715
+	 epoch:75, T.acc:88.670, V.acc:15.136
+		 T.loss:0.66368, V.loss:1.39697
+	 epoch:80, T.acc:88.315, V.acc:52.207
+		 T.loss:0.66736, V.loss:1.02937
+	 epoch:85, T.acc:89.234, V.acc:34.037
+		 T.loss:0.65772, V.loss:1.21095
+	 epoch:90, T.acc:89.877, V.acc:33.339
+		 T.loss:0.65179, V.loss:1.21806
+
+
+
+date and time = 14/01/2023 15:31:06
+picked channels = ['P4-O2', 'ROC-LOC', 'EMG1-EMG2']
+classes : dict_values(['Nocturnal frontal lobe epilepsy', 'Periodic leg movements', 'REM behavior disorder'])
+DataParallel(
+  (module): Model(
+    (seq_layer1): Sequential(
+      (0): Conv1d(3, 64, kernel_size=(128,), stride=(16,))
+      (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+      (3): MaxPool1d(kernel_size=8, stride=8, padding=0, dilation=1, ceil_mode=False)
+      (4): Dropout(p=0.5, inplace=False)
+      (5): Conv1d(64, 128, kernel_size=(8,), stride=(1,))
+      (6): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (7): ReLU()
+      (8): Conv1d(128, 128, kernel_size=(8,), stride=(1,))
+      (9): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (10): ReLU()
+      (11): Conv1d(128, 128, kernel_size=(8,), stride=(1,))
+      (12): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (13): ReLU()
+      (14): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+    )
+    (seq_layer2): Sequential(
+      (0): Conv1d(3, 64, kernel_size=(1024,), stride=(128,))
+      (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+      (3): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+      (4): Dropout(p=0.5, inplace=False)
+      (5): Conv1d(64, 128, kernel_size=(6,), stride=(1,))
+      (6): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (7): ReLU()
+      (8): Conv1d(128, 128, kernel_size=(6,), stride=(1,))
+      (9): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (10): ReLU()
+      (11): MaxPool1d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (fullyConnected): Sequential(
+      (0): Flatten(start_dim=1, end_dim=-1)
+      (1): Linear(in_features=1280, out_features=512, bias=True)
+      (2): ReLU()
+      (3): Dropout(p=0.5, inplace=False)
+      (4): Linear(in_features=512, out_features=64, bias=True)
+      (5): ReLU()
+      (6): Dropout(p=0.5, inplace=False)
+      (7): Linear(in_features=64, out_features=3, bias=True)
+      (8): Softmax(dim=-1)
+    )
+  )
+)
+	 epoch:0, T.acc:77.628, V.acc:52.207
+			T.loss:0.77464, V.loss:1.02937
+	 epoch:5, T.acc:81.816, V.acc:39.661
+			T.loss:0.73274, V.loss:1.04873
+	 epoch:10, T.acc:82.346, V.acc:52.207
+			T.loss:0.72711, V.loss:1.02937
+	 epoch:15, T.acc:83.309, V.acc:14.535
+			T.loss:0.71723, V.loss:1.37516
+	 epoch:20, T.acc:84.131, V.acc:14.486
+			T.loss:0.70936, V.loss:1.40653
+	 epoch:25, T.acc:84.606, V.acc:16.053
+			T.loss:0.70443, V.loss:1.39079
+Early stopping :(
+	 epoch:29, T.acc:84.963, V.acc:37.762
+			T.loss:0.70097, V.loss:1.15692
+Test_fold: Tloss: 1.10018, Tacc: 33.307

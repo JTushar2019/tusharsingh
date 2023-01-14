@@ -7,11 +7,13 @@ import sys
 from datetime import datetime
 
 
-############# logging part
+# ############# logging part
 now = datetime.now()
-dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+dt_string = now.strftime("%d_%m_%Y %H:%M:%S")
 sys.stdout = open('/home/tusharsingh/code_base/Ritika_Plan/Code/tracking.txt', "a")
 print("\n\n\n\ndate and time =", dt_string)
+print(f'picked channels = {dicided_channels_name}')
+print(f'classes : {pathology_dict.values()}')
 #############
 
 
@@ -23,7 +25,7 @@ model = nn.DataParallel(Model())
 # model.load_state_dict(torch.load(path))
 
 print(model)
-model = train_model(model, train_loader, val_loader, device, max_epoc=1000)
+model = train_model(model, train_loader, val_loader, device, max_epoc=100)
 score = test_model(model, test_loader, device)
 
 

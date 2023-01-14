@@ -53,20 +53,20 @@ class EEG_Dataset(Dataset):
         return eeg, self.Y[idx]
 
 
-def EEG_Dataloaders(split_ratio = 0.8, batch_size = 128):
+def EEG_Dataloaders(split_ratio = 0.8, batch_size = 512):
     X_train, X_val, X_test, y_train, y_val, y_test = train_val_test_split(split_ratio)
 
     train_data_loader = EEG_Dataset(X_train, y_train)
     train = DataLoader(train_data_loader, batch_size=batch_size,
-                       shuffle=True, num_workers=16)
+                       shuffle=True, num_workers=32)
     
     val_data_loader = EEG_Dataset(X_val, y_val)
     val = DataLoader(val_data_loader, batch_size=batch_size,
-                     shuffle=True, num_workers=16)
+                     shuffle=True, num_workers=32)
     
     test_data_loader = EEG_Dataset(X_test, y_test)
     test = DataLoader(test_data_loader, batch_size=batch_size,
-                      shuffle=True, num_workers=16)
+                      shuffle=True, num_workers=32)
 
     return train, val, test
 
@@ -78,4 +78,3 @@ if __name__ == '__main__':
     print(X_train[0])
     train_data_loader, val_data_loader, test_data_loader = EEG_Dataloaders()
     print(train_data_loader)
-    print(dir(val_data_loader.dataset['Y']))
