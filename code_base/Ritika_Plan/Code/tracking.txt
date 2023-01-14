@@ -1,0 +1,154 @@
+date and time = 14/01/2023 00:39:48
+DataParallel(
+  (module): Model(
+    (seq_layer1): Sequential(
+      (0): Conv1d(3, 64, kernel_size=(128,), stride=(16,))
+      (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+      (3): MaxPool1d(kernel_size=8, stride=8, padding=0, dilation=1, ceil_mode=False)
+      (4): Dropout(p=0.3, inplace=False)
+      (5): Conv1d(64, 128, kernel_size=(8,), stride=(1,))
+      (6): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (7): ReLU()
+      (8): Conv1d(128, 128, kernel_size=(8,), stride=(1,))
+      (9): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (10): ReLU()
+      (11): Conv1d(128, 128, kernel_size=(8,), stride=(1,))
+      (12): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (13): ReLU()
+      (14): Flatten(start_dim=1, end_dim=-1)
+      (15): Linear(in_features=4864, out_features=1024, bias=True)
+      (16): ReLU()
+      (17): Dropout(p=0.3, inplace=False)
+      (18): Linear(in_features=1024, out_features=512, bias=True)
+      (19): ReLU()
+      (20): Dropout(p=0.3, inplace=False)
+      (21): Linear(in_features=512, out_features=64, bias=True)
+      (22): ReLU()
+      (23): Dropout(p=0.3, inplace=False)
+      (24): Linear(in_features=64, out_features=8, bias=True)
+      (25): Softmax(dim=-1)
+    )
+  )
+)
+	 epoch:0, T.acc:52.856, V.acc:11.567
+		 T.loss:1.74468, V.loss:2.15834
+	 epoch:5, T.acc:52.111, V.acc:39.703
+		 T.loss:1.75289, V.loss:1.87698
+	 epoch:10, T.acc:51.112, V.acc:46.822
+		 T.loss:1.76288, V.loss:1.80576
+	 epoch:15, T.acc:53.002, V.acc:37.106
+		 T.loss:1.74398, V.loss:1.90295
+	 epoch:20, T.acc:50.726, V.acc:47.539
+		 T.loss:1.76675, V.loss:1.79862
+	 epoch:25, T.acc:51.962, V.acc:56.012
+		 T.loss:1.75439, V.loss:1.71389
+	 epoch:30, T.acc:50.993, V.acc:45.781
+		 T.loss:1.76407, V.loss:1.81619
+	 epoch:35, T.acc:50.836, V.acc:49.858
+		 T.loss:1.76565, V.loss:1.77543
+	 epoch:40, T.acc:52.292, V.acc:44.220
+		 T.loss:1.75109, V.loss:1.83181
+	 epoch:45, T.acc:54.224, V.acc:49.413
+		 T.loss:1.73178, V.loss:1.77989
+	 epoch:50, T.acc:50.711, V.acc:37.204
+		 T.loss:1.76689, V.loss:1.90197
+	 epoch:55, T.acc:49.932, V.acc:51.732
+		 T.loss:1.77469, V.loss:1.75669
+	 epoch:60, T.acc:45.380, V.acc:41.062
+		 T.loss:1.82021, V.loss:1.86339
+	 epoch:65, T.acc:49.425, V.acc:51.316
+		 T.loss:1.77976, V.loss:1.76085
+	 epoch:70, T.acc:55.071, V.acc:57.810
+		 T.loss:1.72330, V.loss:1.69590
+	 epoch:75, T.acc:53.998, V.acc:53.901
+		 T.loss:1.73403, V.loss:1.73500
+	 epoch:80, T.acc:54.894, V.acc:54.132
+		 T.loss:1.72506, V.loss:1.73269
+	 epoch:85, T.acc:50.499, V.acc:50.252
+		 T.loss:1.76902, V.loss:1.77149
+	 epoch:90, T.acc:52.772, V.acc:37.204
+		 T.loss:1.74629, V.loss:1.90197
+	 epoch:95, T.acc:52.140, V.acc:57.440
+		 T.loss:1.75260, V.loss:1.69961
+Early stopping :(
+	 epoch:99, T.acc:54.701, V.acc:54.942
+		 T.loss:1.72700, V.loss:1.72459
+Test_fold: Tloss: 2.08024, Tacc: 11.567
+
+
+
+date and time = 14/01/2023 10:27:59
+DataParallel(
+  (module): Model(
+    (seq_layer1): Sequential(
+      (0): Conv1d(3, 64, kernel_size=(128,), stride=(32,))
+      (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (2): ReLU()
+      (3): MaxPool1d(kernel_size=8, stride=8, padding=0, dilation=1, ceil_mode=False)
+      (4): Dropout(p=0.3, inplace=False)
+      (5): Conv1d(64, 128, kernel_size=(8,), stride=(1,))
+      (6): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (7): ReLU()
+      (8): Conv1d(128, 128, kernel_size=(8,), stride=(1,))
+      (9): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (10): ReLU()
+      (11): Conv1d(128, 128, kernel_size=(8,), stride=(1,))
+      (12): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (13): ReLU()
+      (14): Flatten(start_dim=1, end_dim=-1)
+      (15): Linear(in_features=1024, out_features=512, bias=True)
+      (16): ReLU()
+      (17): Dropout(p=0.3, inplace=False)
+      (18): Linear(in_features=512, out_features=64, bias=True)
+      (19): ReLU()
+      (20): Dropout(p=0.3, inplace=False)
+      (21): Linear(in_features=64, out_features=8, bias=True)
+      (22): Softmax(dim=-1)
+    )
+  )
+)
+	 epoch:0, T.acc:55.816, V.acc:11.532
+		 T.loss:1.71620, V.loss:2.15869
+	 epoch:5, T.acc:57.931, V.acc:38.876
+		 T.loss:1.69446, V.loss:1.88487
+	 epoch:10, T.acc:57.860, V.acc:11.567
+		 T.loss:1.69533, V.loss:2.15834
+	 epoch:15, T.acc:58.102, V.acc:37.742
+		 T.loss:1.69280, V.loss:1.89653
+	 epoch:20, T.acc:57.968, V.acc:39.153
+		 T.loss:1.69422, V.loss:1.88198
+	 epoch:25, T.acc:57.970, V.acc:11.567
+		 T.loss:1.69427, V.loss:2.15834
+	 epoch:30, T.acc:58.216, V.acc:38.656
+		 T.loss:1.69182, V.loss:1.88741
+	 epoch:35, T.acc:58.083, V.acc:53.525
+		 T.loss:1.69318, V.loss:1.73882
+	 epoch:40, T.acc:57.617, V.acc:38.054
+		 T.loss:1.69780, V.loss:1.89346
+	 epoch:45, T.acc:57.582, V.acc:11.567
+		 T.loss:1.69818, V.loss:2.15834
+	 epoch:50, T.acc:58.201, V.acc:38.748
+		 T.loss:1.69197, V.loss:1.88649
+	 epoch:55, T.acc:57.604, V.acc:44.861
+		 T.loss:1.69794, V.loss:1.82541
+	 epoch:60, T.acc:57.789, V.acc:57.203
+		 T.loss:1.69608, V.loss:1.70199
+	 epoch:65, T.acc:57.084, V.acc:41.091
+		 T.loss:1.70315, V.loss:1.86311
+	 epoch:70, T.acc:58.266, V.acc:53.976
+		 T.loss:1.69133, V.loss:1.73423
+	 epoch:75, T.acc:57.286, V.acc:38.662
+		 T.loss:1.70114, V.loss:1.88735
+	 epoch:80, T.acc:57.685, V.acc:24.967
+		 T.loss:1.69713, V.loss:2.02436
+	 epoch:85, T.acc:57.801, V.acc:39.500
+		 T.loss:1.69600, V.loss:1.87889
+	 epoch:90, T.acc:56.397, V.acc:57.157
+		 T.loss:1.71004, V.loss:1.70244
+	 epoch:95, T.acc:56.057, V.acc:45.908
+		 T.loss:1.71341, V.loss:1.81492
+Early stopping :(
+	 epoch:99, T.acc:57.718, V.acc:47.690
+		 T.loss:1.69682, V.loss:1.79713
+Test_fold: Tloss: 2.07889, Tacc: 11.567
