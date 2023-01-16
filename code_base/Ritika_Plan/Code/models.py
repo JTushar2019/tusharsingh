@@ -18,15 +18,15 @@ class Model(nn.Module):
             nn.MaxPool1d(8, 8),
             nn.Dropout(p = 0.5),
 
-            nn.Conv1d(64, 128, 8, 1),
+            nn.Conv1d(64, 128, 6, 1),
             nn.BatchNorm1d(128),
             nn.ReLU(),
             
-            nn.Conv1d(128, 128, 8, 1),
+            nn.Conv1d(128, 128, 6, 1),
             nn.BatchNorm1d(128),
             nn.ReLU(),
             
-            nn.Conv1d(128, 128, 8, 1),
+            nn.Conv1d(128, 128, 6, 1),
             nn.BatchNorm1d(128),
             nn.ReLU(),
             
@@ -41,11 +41,11 @@ class Model(nn.Module):
             nn.MaxPool1d(4, 4),
             nn.Dropout(p = 0.5),
 
-            nn.Conv1d(64, 128, 6, 1),
+            nn.Conv1d(64, 128, 3, 1),
             nn.BatchNorm1d(128),
             nn.ReLU(),
 
-            nn.Conv1d(128, 128, 6, 1),
+            nn.Conv1d(128, 128, 3, 1),
             nn.BatchNorm1d(128),
             nn.ReLU(),
             
@@ -55,8 +55,8 @@ class Model(nn.Module):
 
         self.fullyConnected = nn.Sequential(
             nn.Flatten(),
-            # nn.LazyLinear(1024),
-            nn.Linear(1280,512),
+            # nn.LazyLinear(512),
+            nn.Linear(1920,512),
             nn.ReLU(),
             nn.Dropout(p = 0.5),
             nn.Linear(512,64),
@@ -81,7 +81,7 @@ class Model(nn.Module):
 if __name__ == '__main__':
     import torchinfo
     model = Model()
-    x = torchinfo.summary(model, (3, 7680), batch_dim = 0, col_names = ("input_size", "output_size", "num_params", "kernel_size"), verbose = 0)
+    x = torchinfo.summary(model, (len(dicided_channels_name), 7680), batch_dim = 0, col_names = ("input_size", "output_size", "num_params", "kernel_size"), verbose = 0)
     print(x)
     print(model)
 

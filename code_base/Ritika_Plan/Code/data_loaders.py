@@ -58,15 +58,15 @@ def EEG_Dataloaders(split_ratio = 0.8, batch_size = 512):
 
     train_data_loader = EEG_Dataset(X_train, y_train)
     train = DataLoader(train_data_loader, batch_size=batch_size,
-                       shuffle=True, num_workers=32)
+                       shuffle=True, num_workers=8)
     
     val_data_loader = EEG_Dataset(X_val, y_val)
     val = DataLoader(val_data_loader, batch_size=batch_size,
-                     shuffle=True, num_workers=32)
+                     shuffle=True, num_workers=8)
     
     test_data_loader = EEG_Dataset(X_test, y_test)
     test = DataLoader(test_data_loader, batch_size=batch_size,
-                      shuffle=True, num_workers=32)
+                      shuffle=True, num_workers=8)
 
     return train, val, test
 

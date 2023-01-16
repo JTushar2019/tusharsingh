@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter, defaultdict
 import shutil
 from global_variables import *
 import scipy.io as sio
@@ -38,29 +38,32 @@ def complete_data_path():
     return X, Y
 
 
-def modify_and_store_EEG(X, Y, time_window=30):
+def modify_and_store_EEG(X, Y, pathology_distribution):
     store_path = temp_folder_path
     if os.path.exists(store_path):
         shutil.rmtree(store_path)
     os.mkdir(store_path)
     new_X, new_Y = [], []
 
-    window_size = int(time_window * sampling_frequency)
-    # print(window_size)
-
     with concurrent.futures.ProcessPoolExecutor(max_workers=int(max(1, os.cpu_count()*0.80))) as executor:
         futures = []
         for x, y in zip(X, Y):
             futures.append(executor.submit(
-                data_augment, x, y, window_size, store_path))
+                data_augment, x, y, store_path))
         for future in concurrent.futures.as_completed(futures):
-            new_X.extend(future.result()[0])
-            new_Y.extend(future.result()[1])
+            x = future.result()[0]
+            y = future.result()[1]
+            pathology_distribution[y[0]] += len(x)
+            new_X.extend(x)
+            new_Y.extend(y)
 
     return new_X, new_Y
 
 
-def data_augment(x, y, window_size, store_path):
+def data_augment(x, y, store_path):
+    global window_size, stride
+    window_size = int(time_window * sampling_frequency)
+    stride = int(time_overlap * sampling_frequency)
     eeg = mne.io.read_raw(x, preload=True, verbose=False)
     eeg = eeg.pick_channels(dicided_channels_name)
     eeg = eeg.filter(highpass, lowpass, verbose=False)
@@ -69,8 +72,7 @@ def data_augment(x, y, window_size, store_path):
 
     eeg_file_name = x.split('/')[-1].removesuffix(".edf")
     X = []
-    Y = []
-    for start in range(0, eeg.shape[1], window_size):
+    for start in range(0, eeg.shape[1], stride):
         end = start + window_size
         if end >= eeg.shape[1]:
             continue
@@ -79,8 +81,7 @@ def data_augment(x, y, window_size, store_path):
         with open(name, 'wb') as f:
             np.save(f, temp)
         X.append(name)
-        Y.append(y)
-
+    Y = [y]*len(X)
     return X, Y
 
 
@@ -92,13 +93,19 @@ def preprocess_whole_data():
     print(
         f'observed max highpass = {highpass} \nobserved min lowpass = {lowpass}')
 
-    X, Y = modify_and_store_EEG(X, Y, 30)
+    pathology_distribution = defaultdict(int)
+    X, Y = modify_and_store_EEG(X, Y, pathology_distribution)
     X = np.array(X)
     Y = np.array(Y)
 
     print(f'total 30sec samples - {X.shape[0]}')
     temp = np.load(X[0])
     print(f'single sample dimention = {temp.shape}')
+    print(f'pathology_distribution in %')
+    for each in pathology_distribution:
+        pathology_distribution[each] = 100 * (pathology_distribution[each] / X.shape[0])    
+        print(f"{each} : {pathology_distribution[each]:0.2f}%")
+
 
     working_data_path = f'{data_folder_path}/..'
     with open(f'{working_data_path}/X.npy', 'wb') as f:
@@ -112,11 +119,3 @@ def preprocess_whole_data():
 
 if __name__ == '__main__':
     preprocess_whole_data()
-
-
-{'Nocturnal frontal lobe epilepsy': 38, 'REM behavior disorder': 22, 'Periodic leg movements': 10,
-    'Insomnia': 9, 'controls': 6, 'Narcolepsy': 5, 'Sleep-disordered breathing': 4, 'Bruxism': 2}
-
-
-{'Nocturnal frontal lobe epilepsy': 38, 'REM behavior disorder': 22, 'Periodic leg movements': 10,
-    'Insomnia': 9, 'control': 6, 'Narcolepsy': 5, 'Sleep-disordered breathing': 4}

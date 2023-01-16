@@ -1,20 +1,25 @@
 sampling_frequency = 256
 highpass = 0.3
 lowpass = 30
+
+time_window = 30
+time_overlap = 15
+
+
 data_folder_path = "/home/tusharsingh/code_base/Ritika_Plan/Data/cap-sleep-database-1.0.0"
 temp_folder_path = "/home/tusharsingh/code_base/Ritika_Plan/Data/Temp"
 
 channels = ['C4A1', 'F4C4', 'C4P4', 'P4O2', 'ROCLOC', 'EMG1EMG2', 'ECG1ECG2', 'SX1SX2', 'Fp2F4', 'HR', 'DX1DX2', 'SAO2', 'PLETH', 'STAT',
                     'F3C3', 'C3P3', 'P3O1', 'FP1F3', 'F8T4', 'F7T3', 'T4T6', 'T3T5', 'TORACE', 'MIC', 'ADDOME', 'Position', 'C3A2', 'FP2F4', 'Pleth', 'Ox Status']
 
-decided_channels = set(['P4O2', 'ROCLOC', 'EMG1EMG2'])
+decided_channels = set(['P4O2', 'C4A1', 'ROCLOC', 'EMG1EMG2'])
 
-dicided_channels_name = ['P4-O2', 'ROC-LOC', 'EMG1-EMG2']
+dicided_channels_name = ['P4-O2', 'C4-A1', 'ROC-LOC', 'EMG1-EMG2']
 
 pathology_dict = {
     # 'brux': 'Bruxism',
     # 'ins': 'Insomnia',
-    # 'n': 'control',
+    'n': 'control',
     # 'narco':  'Narcolepsy',
     'nfle': 'Nocturnal frontal lobe epilepsy',
     'plm': 'Periodic leg movements',
