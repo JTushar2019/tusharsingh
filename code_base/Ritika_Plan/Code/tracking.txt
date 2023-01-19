@@ -538,3 +538,164 @@ Model(
 Early stopping :(
 	 epoch:29, T.acc:78.515, V.acc:48.221
 			T.loss:0.95825, V.loss:1.26144
+
+
+
+Model(
+  (seq_layer1): Sequential(
+    (0): Conv1d(1, 64, kernel_size=(128,), stride=(16,))
+    (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): MaxPool1d(kernel_size=8, stride=8, padding=0, dilation=1, ceil_mode=False)
+    (4): Dropout(p=0.5, inplace=False)
+    (5): Conv1d(64, 128, kernel_size=(8,), stride=(1,))
+    (6): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (7): ReLU()
+    (8): Conv1d(128, 128, kernel_size=(8,), stride=(1,))
+    (9): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (10): ReLU()
+    (11): Conv1d(128, 128, kernel_size=(8,), stride=(1,))
+    (12): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (13): ReLU()
+    (14): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+  )
+  (seq_layer2): Sequential(
+    (0): Conv1d(1, 64, kernel_size=(1024,), stride=(128,))
+    (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): MaxPool1d(kernel_size=4, stride=4, padding=0, dilation=1, ceil_mode=False)
+    (4): Dropout(p=0.5, inplace=False)
+    (5): Conv1d(64, 128, kernel_size=(6,), stride=(1,))
+    (6): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (7): ReLU()
+    (8): Conv1d(128, 128, kernel_size=(6,), stride=(1,))
+    (9): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (10): ReLU()
+  )
+  (fullyConnected): Sequential(
+    (0): Flatten(start_dim=1, end_dim=-1)
+    (1): Dropout(p=0.5, inplace=False)
+    (2): Linear(in_features=1536, out_features=512, bias=True)
+    (3): ReLU()
+    (4): Dropout(p=0.5, inplace=False)
+    (5): Linear(in_features=512, out_features=64, bias=True)
+    (6): ReLU()
+    (7): Dropout(p=0.5, inplace=False)
+    (8): Linear(in_features=64, out_features=2, bias=True)
+    (9): Softmax(dim=-1)
+  )
+
+
+picked channels = ['P4-O2']
+total 30sec samples - 131688
+pathology_distribution in %
+REM behavior disorder : 38.95%
+Nocturnal frontal lobe epilepsy : 61.05%
+T_B_Acc_score: 0.29147
+
+picked channels = ['P4-O2', 'C4-A1']
+total 30sec samples - 131688
+pathology_distribution in %
+Nocturnal frontal lobe epilepsy : 61.05%
+REM behavior disorder : 38.95%
+T_B_Acc_score: 0.00271
+
+picked channels = ['P4-O2', 'C4-A1', 'ROC-LOC']
+total 30sec samples - 131688
+pathology_distribution in %
+Nocturnal frontal lobe epilepsy : 61.05%
+REM behavior disorder : 38.95%
+T_B_Acc_score: 0.93421
+
+picked channels = ['P4-O2', 'C4-A1', 'ROC-LOC', 'EMG1-EMG2']
+total 30sec samples - 131688
+pathology_distribution in %
+Nocturnal frontal lobe epilepsy : 61.05%
+REM behavior disorder : 38.95%
+T_B_Acc_score: 0.84204
+
+picked channels = ['C4-A1', 'ROC-LOC', 'EMG1-EMG2']
+total 30sec samples - 131688
+pathology_distribution in %
+Nocturnal frontal lobe epilepsy : 61.05%
+REM behavior disorder : 38.95%
+T_B_Acc_score: 0.84204
+
+picked channels = ['C4-A1', 'ROC-LOC', 'EMG1-EMG2']
+total 30sec samples - 131688
+pathology_distribution in %
+Nocturnal frontal lobe epilepsy : 61.05%
+REM behavior disorder : 38.95%
+T_B_Acc_score: 0.31547
+
+picked channels = ['ROC-LOC', 'EMG1-EMG2']
+total 30sec samples - 131688
+pathology_distribution in %
+Nocturnal frontal lobe epilepsy : 61.05%
+REM behavior disorder : 38.95%
+T_B_Acc_score: 0.10636
+
+picked channels = ['EMG1-EMG2']
+total 30sec samples - 131688
+pathology_distribution in %
+Nocturnal frontal lobe epilepsy : 61.05%
+REM behavior disorder : 38.95%
+T_B_Acc_score: 0.01997
+=====================================================================
+
+picked channels = ['P4-O2']
+total 30sec samples - 153994
+pathology_distribution in %
+Periodic leg movements : 14.48%
+Nocturnal frontal lobe epilepsy : 52.21%
+REM behavior disorder : 33.31%
+T_B_Acc_score: 0.00000
+
+picked channels = ['P4-O2', 'C4-A1']
+total 30sec samples - 153994
+pathology_distribution in %
+Periodic leg movements : 14.48%
+Nocturnal frontal lobe epilepsy : 52.21%
+REM behavior disorder : 33.31%
+T_B_Acc_score: 0.00000
+
+picked channels = ['P4-O2', 'C4-A1', 'ROC-LOC']
+total 30sec samples - 153994
+pathology_distribution in %
+Nocturnal frontal lobe epilepsy : 52.21%
+Periodic leg movements : 14.48%
+REM behavior disorder : 33.31%
+T_B_Acc_score: 0.00000
+
+picked channels = ['P4-O2', 'C4-A1', 'ROC-LOC', 'EMG1-EMG2']
+total 30sec samples - 153994
+pathology_distribution in %
+Periodic leg movements : 14.48%
+Nocturnal frontal lobe epilepsy : 52.21%
+REM behavior disorder : 33.31%
+T_B_Acc_score: 0.00000
+
+picked channels = ['C4-A1', 'ROC-LOC', 'EMG1-EMG2']
+total 30sec samples - 153994
+pathology_distribution in %
+Periodic leg movements : 14.48%
+Nocturnal frontal lobe epilepsy : 52.21%
+REM behavior disorder : 33.31%
+T_B_Acc_score: 0.00000
+
+picked channels = ['ROC-LOC', 'EMG1-EMG2']
+total 30sec samples - 153994
+pathology_distribution in %
+Nocturnal frontal lobe epilepsy : 52.21%
+Periodic leg movements : 14.48%
+REM behavior disorder : 33.31%
+T_B_Acc_score: 0.00000
+
+
+picked channels = ['P4-O2', 'C4-A1', 'ROC-LOC']
+single sample dimention = (3, 7680)
+pathology_distribution in %
+REM behavior disorder : 30.17%
+Nocturnal frontal lobe epilepsy : 37.84%
+control : 31.99%
+T_B_Acc_score: 0.41967

@@ -11,58 +11,40 @@ class Model(nn.Module):
         sfeq = sampling_frequency
         
         self.seq_layer1 = nn.Sequential(
-            nn.Conv1d(inputchannel, 64, sfeq // 2, sfeq // 16),
-            nn.BatchNorm1d(64),
-            nn.ReLU(),
-
-            nn.MaxPool1d(8, 8),
-            nn.Dropout(p = 0.5),
-
-            nn.Conv1d(64, 128, 6, 1),
-            nn.BatchNorm1d(128),
-            nn.ReLU(),
-            
-            nn.Conv1d(128, 128, 6, 1),
-            nn.BatchNorm1d(128),
-            nn.ReLU(),
-            
-            nn.Conv1d(128, 128, 6, 1),
-            nn.BatchNorm1d(128),
-            nn.ReLU(),
-            
+            nn.Conv1d(inputchannel, 128, sfeq, sfeq // 16),
             nn.MaxPool1d(4, 4),
+
+            nn.Conv1d(128, 64, 8, 1),
+            nn.MaxPool1d(4, 4),
+            
+            nn.Conv1d(64, 32, 8, 1),
+            nn.MaxPool1d(4, 4),
+
+            nn.Flatten()
 
         )
         self.seq_layer2 = nn.Sequential(
-            nn.Conv1d(inputchannel, 64, sfeq * 4, sfeq // 2),
-            nn.BatchNorm1d(64),
-            nn.ReLU(),
-
+            nn.Conv1d(inputchannel, 64, sfeq * 2, stride = sfeq // 4),
             nn.MaxPool1d(4, 4),
-            nn.Dropout(p = 0.5),
 
-            nn.Conv1d(64, 128, 3, 1),
-            nn.BatchNorm1d(128),
-            nn.ReLU(),
+            nn.Conv1d(64, 32, 4),
+            nn.MaxPool1d(4, 4),
 
-            nn.Conv1d(128, 128, 3, 1),
-            nn.BatchNorm1d(128),
-            nn.ReLU(),
-            
+            nn.Conv1d(32, 16, 4),
             nn.MaxPool1d(2, 2),
+
+            nn.Flatten()
             
          )
 
         self.fullyConnected = nn.Sequential(
-            nn.Flatten(),
+            nn.Dropout(0.3),
             # nn.LazyLinear(512),
-            nn.Linear(1920,512),
-            nn.ReLU(),
-            nn.Dropout(p = 0.5),
-            nn.Linear(512,64),
-            nn.ReLU(),
-            nn.Dropout(p = 0.5),
+            nn.Linear(176,64),
+            nn.LeakyReLU(),
+            nn.Dropout(p = 0.3),
             nn.Linear(64,num_classes),
+            nn.Sigmoid(),
             nn.Softmax(dim=-1)            
         )
 
@@ -72,13 +54,15 @@ class Model(nn.Module):
         x1 = self.seq_layer1(x)
         x2 = self.seq_layer2(x2)
 
-        x = torch.cat((x1, x2),2)
+        x = torch.cat((x1, x2),1)
         x = self.fullyConnected(x)
         return x
 
 
 
 if __name__ == '__main__':
+    import os
+    os.environ["CUDA_VISIBLE_DEVICES"] = "2"
     import torchinfo
     model = Model()
     x = torchinfo.summary(model, (len(dicided_channels_name), 7680), batch_dim = 0, col_names = ("input_size", "output_size", "num_params", "kernel_size"), verbose = 0)

@@ -1,0 +1,2467 @@
+date and time = 18_01_2023 20:01:55
+picked channels = ['EEG P4-O2', 'ROC-LOC']
+pre-processing data...
+Counter({'control': 6, 'Narcolepsy': 5})
+observed min sampling_rate 256
+observed max highpass = 0.30000001192092896 
+observed min lowpass = 30
+total 30sec samples - 12738
+single sample dimention = (2, 7680)
+pathology_distribution in %
+Narcolepsy : 46.59%
+control : 53.41%
+X.npy, Y.npy are stored at 
+/home/tusharsingh/code_base/Ritika_Plan/Data/modified_data/..
+
+
+NOW TRAINING
+	Epoch:0
+	T.B_Acc_score:0.497, V.B_Acc_score:0.50000
+			T.Cross_Entr_loss:0.69192, V.Cross_Entr_loss:0.69170
+
+	Epoch:10
+	T.B_Acc_score:0.500, V.B_Acc_score:0.50000
+			T.Cross_Entr_loss:0.69047, V.Cross_Entr_loss:0.68961
+
+	Epoch:20
+	T.B_Acc_score:0.694, V.B_Acc_score:0.69174
+			T.Cross_Entr_loss:0.62429, V.Cross_Entr_loss:0.62226
+
+	Epoch:30
+	T.B_Acc_score:0.724, V.B_Acc_score:0.73816
+			T.Cross_Entr_loss:0.61053, V.Cross_Entr_loss:0.60632
+
+	Epoch:40
+	T.B_Acc_score:0.711, V.B_Acc_score:0.73635
+			T.Cross_Entr_loss:0.61473, V.Cross_Entr_loss:0.60705
+
+	Epoch:50
+	T.B_Acc_score:0.745, V.B_Acc_score:0.74744
+			T.Cross_Entr_loss:0.60124, V.Cross_Entr_loss:0.60102
+
+	Epoch:60
+	T.B_Acc_score:0.739, V.B_Acc_score:0.74250
+			T.Cross_Entr_loss:0.60268, V.Cross_Entr_loss:0.60320
+
+	Epoch:70
+	T.B_Acc_score:0.738, V.B_Acc_score:0.74353
+			T.Cross_Entr_loss:0.60418, V.Cross_Entr_loss:0.60072
+
+	Epoch:80
+	T.B_Acc_score:0.740, V.B_Acc_score:0.74036
+			T.Cross_Entr_loss:0.60294, V.Cross_Entr_loss:0.60181
+
+	Epoch:90
+	T.B_Acc_score:0.743, V.B_Acc_score:0.75014
+			T.Cross_Entr_loss:0.60112, V.Cross_Entr_loss:0.59878
+
+	Epoch:100
+	T.B_Acc_score:0.743, V.B_Acc_score:0.74828
+			T.Cross_Entr_loss:0.60078, V.Cross_Entr_loss:0.59868
+
+	Epoch:110
+	T.B_Acc_score:0.742, V.B_Acc_score:0.72737
+			T.Cross_Entr_loss:0.60205, V.Cross_Entr_loss:0.60688
+
+	Epoch:120
+	T.B_Acc_score:0.754, V.B_Acc_score:0.74938
+			T.Cross_Entr_loss:0.59641, V.Cross_Entr_loss:0.59876
+
+	Epoch:130
+	T.B_Acc_score:0.746, V.B_Acc_score:0.74063
+			T.Cross_Entr_loss:0.60005, V.Cross_Entr_loss:0.60332
+
+	Epoch:140
+	T.B_Acc_score:0.752, V.B_Acc_score:0.74318
+			T.Cross_Entr_loss:0.59714, V.Cross_Entr_loss:0.60137
+
+	Epoch:150
+	T.B_Acc_score:0.747, V.B_Acc_score:0.74636
+			T.Cross_Entr_loss:0.59894, V.Cross_Entr_loss:0.59922
+
+	Epoch:160
+	T.B_Acc_score:0.751, V.B_Acc_score:0.74510
+			T.Cross_Entr_loss:0.59786, V.Cross_Entr_loss:0.60158
+
+	Epoch:170
+	T.B_Acc_score:0.753, V.B_Acc_score:0.73535
+			T.Cross_Entr_loss:0.59700, V.Cross_Entr_loss:0.60301
+
+	Epoch:180
+	T.B_Acc_score:0.761, V.B_Acc_score:0.75368
+			T.Cross_Entr_loss:0.59361, V.Cross_Entr_loss:0.59661
+
+	Epoch:190
+	T.B_Acc_score:0.761, V.B_Acc_score:0.73125
+			T.Cross_Entr_loss:0.59349, V.Cross_Entr_loss:0.60522
+
+	Epoch:200
+	T.B_Acc_score:0.761, V.B_Acc_score:0.74054
+			T.Cross_Entr_loss:0.59343, V.Cross_Entr_loss:0.60401
+
+	Epoch:210
+	T.B_Acc_score:0.762, V.B_Acc_score:0.73778
+			T.Cross_Entr_loss:0.59250, V.Cross_Entr_loss:0.60257
+
+	Epoch:220
+	T.B_Acc_score:0.768, V.B_Acc_score:0.75274
+			T.Cross_Entr_loss:0.59024, V.Cross_Entr_loss:0.59754
+
+Early stopping :(
+	Epoch:228
+	T.B_Acc_score:0.76618, V.B_Acc_score:0.74618
+			T.Cross_Entr_loss:0.59116, V.Cross_Entr_loss:0.59913
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.58842, T_B_Acc_score: 0.77156
+----------------------------------------------------------------------------------------------------
+
+
+
+
+date and time = 18_01_2023 21:05:21
+picked channels = ['EEG P4-O2', 'ROC-LOC']
+pre-processing data...
+Counter({'Nocturnal frontal lobe epilepsy': 38, 'control': 6})
+observed min sampling_rate 256
+observed max highpass = 0.5 
+observed min lowpass = 30
+total 30sec samples - 47220
+single sample dimention = (2, 7680)
+pathology_distribution in %
+Nocturnal frontal lobe epilepsy : 56.78%
+control : 43.22%
+X.npy, Y.npy are stored at 
+/home/tusharsingh/code_base/Ritika_Plan/Data/modified_data/..
+
+
+NOW TRAINING
+	Epoch:0
+	T.B_Acc_score:0.500, V.B_Acc_score:0.50000
+			T.Cross_Entr_loss:0.68573, V.Cross_Entr_loss:0.68560
+
+	Epoch:10
+	T.B_Acc_score:0.514, V.B_Acc_score:0.51146
+			T.Cross_Entr_loss:0.67994, V.Cross_Entr_loss:0.68052
+
+	Epoch:20
+	T.B_Acc_score:0.514, V.B_Acc_score:0.51259
+			T.Cross_Entr_loss:0.67954, V.Cross_Entr_loss:0.68001
+
+	Epoch:30
+	T.B_Acc_score:0.513, V.B_Acc_score:0.51236
+			T.Cross_Entr_loss:0.67999, V.Cross_Entr_loss:0.67994
+
+	Epoch:40
+	T.B_Acc_score:0.515, V.B_Acc_score:0.51216
+			T.Cross_Entr_loss:0.67879, V.Cross_Entr_loss:0.68150
+
+	Epoch:50
+	T.B_Acc_score:0.515, V.B_Acc_score:0.51236
+			T.Cross_Entr_loss:0.67727, V.Cross_Entr_loss:0.67831
+
+	Epoch:60
+	T.B_Acc_score:0.568, V.B_Acc_score:0.55809
+			T.Cross_Entr_loss:0.66675, V.Cross_Entr_loss:0.67849
+
+	Epoch:70
+	T.B_Acc_score:0.583, V.B_Acc_score:0.57721
+			T.Cross_Entr_loss:0.66105, V.Cross_Entr_loss:0.66163
+
+	Epoch:80
+	T.B_Acc_score:0.591, V.B_Acc_score:0.58967
+			T.Cross_Entr_loss:0.65655, V.Cross_Entr_loss:0.65644
+
+	Epoch:90
+	T.B_Acc_score:0.598, V.B_Acc_score:0.59709
+			T.Cross_Entr_loss:0.65230, V.Cross_Entr_loss:0.65351
+
+	Epoch:100
+	T.B_Acc_score:0.605, V.B_Acc_score:0.59954
+			T.Cross_Entr_loss:0.65104, V.Cross_Entr_loss:0.65376
+
+	Epoch:110
+	T.B_Acc_score:0.610, V.B_Acc_score:0.57806
+			T.Cross_Entr_loss:0.64867, V.Cross_Entr_loss:0.65841
+
+	Epoch:120
+	T.B_Acc_score:0.611, V.B_Acc_score:0.59590
+			T.Cross_Entr_loss:0.64857, V.Cross_Entr_loss:0.65869
+
+	Epoch:130
+	T.B_Acc_score:0.612, V.B_Acc_score:0.60220
+			T.Cross_Entr_loss:0.64723, V.Cross_Entr_loss:0.64991
+
+	Epoch:140
+	T.B_Acc_score:0.616, V.B_Acc_score:0.60506
+			T.Cross_Entr_loss:0.64539, V.Cross_Entr_loss:0.65346
+
+	Epoch:150
+	T.B_Acc_score:0.619, V.B_Acc_score:0.61021
+			T.Cross_Entr_loss:0.64466, V.Cross_Entr_loss:0.64784
+
+	Epoch:160
+	T.B_Acc_score:0.623, V.B_Acc_score:0.60792
+			T.Cross_Entr_loss:0.64185, V.Cross_Entr_loss:0.64751
+
+	Epoch:170
+	T.B_Acc_score:0.634, V.B_Acc_score:0.62624
+			T.Cross_Entr_loss:0.63932, V.Cross_Entr_loss:0.64265
+
+	Epoch:180
+	T.B_Acc_score:0.644, V.B_Acc_score:0.63318
+			T.Cross_Entr_loss:0.63659, V.Cross_Entr_loss:0.64096
+
+	Epoch:190
+	T.B_Acc_score:0.650, V.B_Acc_score:0.63940
+			T.Cross_Entr_loss:0.63400, V.Cross_Entr_loss:0.63791
+
+	Epoch:200
+	T.B_Acc_score:0.656, V.B_Acc_score:0.63723
+			T.Cross_Entr_loss:0.63239, V.Cross_Entr_loss:0.63900
+
+	Epoch:210
+	T.B_Acc_score:0.661, V.B_Acc_score:0.65129
+			T.Cross_Entr_loss:0.62925, V.Cross_Entr_loss:0.63537
+
+	Epoch:220
+	T.B_Acc_score:0.668, V.B_Acc_score:0.65485
+			T.Cross_Entr_loss:0.62670, V.Cross_Entr_loss:0.63403
+
+	Epoch:230
+	T.B_Acc_score:0.672, V.B_Acc_score:0.65056
+			T.Cross_Entr_loss:0.62499, V.Cross_Entr_loss:0.63399
+
+	Epoch:240
+	T.B_Acc_score:0.679, V.B_Acc_score:0.65720
+			T.Cross_Entr_loss:0.62228, V.Cross_Entr_loss:0.63044
+
+	Epoch:250
+	T.B_Acc_score:0.679, V.B_Acc_score:0.64846
+			T.Cross_Entr_loss:0.62254, V.Cross_Entr_loss:0.63390
+
+	Epoch:260
+	T.B_Acc_score:0.688, V.B_Acc_score:0.66647
+			T.Cross_Entr_loss:0.61918, V.Cross_Entr_loss:0.62774
+
+	Epoch:270
+	T.B_Acc_score:0.688, V.B_Acc_score:0.66711
+			T.Cross_Entr_loss:0.61910, V.Cross_Entr_loss:0.62776
+
+	Epoch:280
+	T.B_Acc_score:0.694, V.B_Acc_score:0.66997
+			T.Cross_Entr_loss:0.61648, V.Cross_Entr_loss:0.62655
+
+	Epoch:290
+	T.B_Acc_score:0.698, V.B_Acc_score:0.66896
+			T.Cross_Entr_loss:0.61406, V.Cross_Entr_loss:0.62850
+
+	Epoch:300
+	T.B_Acc_score:0.698, V.B_Acc_score:0.67231
+			T.Cross_Entr_loss:0.61404, V.Cross_Entr_loss:0.62458
+
+	Epoch:310
+	T.B_Acc_score:0.703, V.B_Acc_score:0.67266
+			T.Cross_Entr_loss:0.61214, V.Cross_Entr_loss:0.62537
+
+	Epoch:320
+	T.B_Acc_score:0.714, V.B_Acc_score:0.67922
+			T.Cross_Entr_loss:0.60776, V.Cross_Entr_loss:0.62219
+
+	Epoch:330
+	T.B_Acc_score:0.714, V.B_Acc_score:0.67634
+			T.Cross_Entr_loss:0.60798, V.Cross_Entr_loss:0.62542
+
+	Epoch:340
+	T.B_Acc_score:0.717, V.B_Acc_score:0.68360
+			T.Cross_Entr_loss:0.60626, V.Cross_Entr_loss:0.62275
+
+	Epoch:350
+	T.B_Acc_score:0.723, V.B_Acc_score:0.68014
+			T.Cross_Entr_loss:0.60363, V.Cross_Entr_loss:0.62230
+
+	Epoch:360
+	T.B_Acc_score:0.725, V.B_Acc_score:0.68897
+			T.Cross_Entr_loss:0.60257, V.Cross_Entr_loss:0.61951
+
+	Epoch:370
+	T.B_Acc_score:0.732, V.B_Acc_score:0.67860
+			T.Cross_Entr_loss:0.59979, V.Cross_Entr_loss:0.62258
+
+	Epoch:380
+	T.B_Acc_score:0.736, V.B_Acc_score:0.69248
+			T.Cross_Entr_loss:0.59798, V.Cross_Entr_loss:0.61772
+
+	Epoch:390
+	T.B_Acc_score:0.737, V.B_Acc_score:0.69488
+			T.Cross_Entr_loss:0.59775, V.Cross_Entr_loss:0.61803
+
+	Epoch:400
+	T.B_Acc_score:0.738, V.B_Acc_score:0.69935
+			T.Cross_Entr_loss:0.59731, V.Cross_Entr_loss:0.61415
+
+	Epoch:410
+	T.B_Acc_score:0.747, V.B_Acc_score:0.69821
+			T.Cross_Entr_loss:0.59391, V.Cross_Entr_loss:0.61478
+
+	Epoch:420
+	T.B_Acc_score:0.745, V.B_Acc_score:0.68466
+			T.Cross_Entr_loss:0.59458, V.Cross_Entr_loss:0.62310
+
+	Epoch:430
+	T.B_Acc_score:0.750, V.B_Acc_score:0.70628
+			T.Cross_Entr_loss:0.59191, V.Cross_Entr_loss:0.61291
+
+	Epoch:440
+	T.B_Acc_score:0.752, V.B_Acc_score:0.70422
+			T.Cross_Entr_loss:0.59141, V.Cross_Entr_loss:0.61315
+
+	Epoch:450
+	T.B_Acc_score:0.759, V.B_Acc_score:0.69442
+			T.Cross_Entr_loss:0.58856, V.Cross_Entr_loss:0.61476
+
+	Epoch:460
+	T.B_Acc_score:0.764, V.B_Acc_score:0.70992
+			T.Cross_Entr_loss:0.58616, V.Cross_Entr_loss:0.60999
+
+	Epoch:470
+	T.B_Acc_score:0.769, V.B_Acc_score:0.71014
+			T.Cross_Entr_loss:0.58406, V.Cross_Entr_loss:0.60911
+
+	Epoch:480
+	T.B_Acc_score:0.771, V.B_Acc_score:0.71505
+			T.Cross_Entr_loss:0.58346, V.Cross_Entr_loss:0.60785
+
+	Epoch:490
+	T.B_Acc_score:0.781, V.B_Acc_score:0.72101
+			T.Cross_Entr_loss:0.58032, V.Cross_Entr_loss:0.60748
+
+	Epoch:499
+	T.B_Acc_score:0.786, V.B_Acc_score:0.70963
+			T.Cross_Entr_loss:0.57820, V.Cross_Entr_loss:0.61865
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.60336, T_B_Acc_score: 0.72604
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+date and time = 18_01_2023 21:44:48
+picked channels = ['EEG P4-O2', 'ROC-LOC']
+
+
+NOW TRAINING
+	Epoch:0
+	T.B_Acc_score:0.784, V.B_Acc_score:0.71181
+			T.Cross_Entr_loss:0.57946, V.Cross_Entr_loss:0.60747
+
+	Epoch:10
+	T.B_Acc_score:0.785, V.B_Acc_score:0.71567
+			T.Cross_Entr_loss:0.57928, V.Cross_Entr_loss:0.60716
+
+	Epoch:20
+	T.B_Acc_score:0.794, V.B_Acc_score:0.72379
+			T.Cross_Entr_loss:0.57630, V.Cross_Entr_loss:0.60599
+
+	Epoch:30
+	T.B_Acc_score:0.795, V.B_Acc_score:0.72032
+			T.Cross_Entr_loss:0.57544, V.Cross_Entr_loss:0.61111
+
+	Epoch:40
+	T.B_Acc_score:0.805, V.B_Acc_score:0.72011
+			T.Cross_Entr_loss:0.57134, V.Cross_Entr_loss:0.60877
+
+	Epoch:50
+	T.B_Acc_score:0.810, V.B_Acc_score:0.73269
+			T.Cross_Entr_loss:0.56924, V.Cross_Entr_loss:0.60544
+
+	Epoch:60
+	T.B_Acc_score:0.807, V.B_Acc_score:0.72626
+			T.Cross_Entr_loss:0.57010, V.Cross_Entr_loss:0.60374
+
+	Epoch:70
+	T.B_Acc_score:0.818, V.B_Acc_score:0.73732
+			T.Cross_Entr_loss:0.56633, V.Cross_Entr_loss:0.60209
+
+	Epoch:80
+	T.B_Acc_score:0.821, V.B_Acc_score:0.74349
+			T.Cross_Entr_loss:0.56463, V.Cross_Entr_loss:0.59775
+
+	Epoch:90
+	T.B_Acc_score:0.823, V.B_Acc_score:0.73698
+			T.Cross_Entr_loss:0.56425, V.Cross_Entr_loss:0.60397
+
+	Epoch:100
+	T.B_Acc_score:0.829, V.B_Acc_score:0.74467
+			T.Cross_Entr_loss:0.56142, V.Cross_Entr_loss:0.59931
+
+	Epoch:110
+	T.B_Acc_score:0.832, V.B_Acc_score:0.74964
+			T.Cross_Entr_loss:0.55998, V.Cross_Entr_loss:0.59744
+
+	Epoch:120
+	T.B_Acc_score:0.828, V.B_Acc_score:0.73528
+			T.Cross_Entr_loss:0.56164, V.Cross_Entr_loss:0.60634
+
+	Epoch:130
+	T.B_Acc_score:0.835, V.B_Acc_score:0.74684
+			T.Cross_Entr_loss:0.55931, V.Cross_Entr_loss:0.60012
+
+	Epoch:140
+	T.B_Acc_score:0.845, V.B_Acc_score:0.74967
+			T.Cross_Entr_loss:0.55470, V.Cross_Entr_loss:0.59731
+
+	Epoch:150
+	T.B_Acc_score:0.846, V.B_Acc_score:0.75680
+			T.Cross_Entr_loss:0.55433, V.Cross_Entr_loss:0.59284
+
+	Epoch:160
+	T.B_Acc_score:0.848, V.B_Acc_score:0.76229
+			T.Cross_Entr_loss:0.55342, V.Cross_Entr_loss:0.59170
+
+	Epoch:170
+	T.B_Acc_score:0.848, V.B_Acc_score:0.75170
+			T.Cross_Entr_loss:0.55339, V.Cross_Entr_loss:0.59827
+
+	Epoch:180
+	T.B_Acc_score:0.849, V.B_Acc_score:0.75675
+			T.Cross_Entr_loss:0.55306, V.Cross_Entr_loss:0.59440
+
+	Epoch:190
+	T.B_Acc_score:0.855, V.B_Acc_score:0.75915
+			T.Cross_Entr_loss:0.55020, V.Cross_Entr_loss:0.59156
+
+	Epoch:200
+	T.B_Acc_score:0.862, V.B_Acc_score:0.76524
+			T.Cross_Entr_loss:0.54716, V.Cross_Entr_loss:0.58940
+
+	Epoch:210
+	T.B_Acc_score:0.857, V.B_Acc_score:0.75483
+			T.Cross_Entr_loss:0.54921, V.Cross_Entr_loss:0.59676
+
+	Epoch:220
+	T.B_Acc_score:0.861, V.B_Acc_score:0.76875
+			T.Cross_Entr_loss:0.54723, V.Cross_Entr_loss:0.58913
+
+	Epoch:230
+	T.B_Acc_score:0.868, V.B_Acc_score:0.77316
+			T.Cross_Entr_loss:0.54466, V.Cross_Entr_loss:0.58641
+
+	Epoch:240
+	T.B_Acc_score:0.872, V.B_Acc_score:0.77001
+			T.Cross_Entr_loss:0.54331, V.Cross_Entr_loss:0.59065
+
+	Epoch:250
+	T.B_Acc_score:0.872, V.B_Acc_score:0.77242
+			T.Cross_Entr_loss:0.54271, V.Cross_Entr_loss:0.58685
+
+	Epoch:260
+	T.B_Acc_score:0.871, V.B_Acc_score:0.77428
+			T.Cross_Entr_loss:0.54297, V.Cross_Entr_loss:0.58804
+
+	Epoch:270
+	T.B_Acc_score:0.871, V.B_Acc_score:0.76168
+			T.Cross_Entr_loss:0.54309, V.Cross_Entr_loss:0.59551
+
+	Epoch:280
+	T.B_Acc_score:0.876, V.B_Acc_score:0.77276
+			T.Cross_Entr_loss:0.54108, V.Cross_Entr_loss:0.58711
+
+	Epoch:290
+	T.B_Acc_score:0.879, V.B_Acc_score:0.77553
+			T.Cross_Entr_loss:0.53972, V.Cross_Entr_loss:0.58746
+
+	Epoch:300
+	T.B_Acc_score:0.873, V.B_Acc_score:0.77266
+			T.Cross_Entr_loss:0.54208, V.Cross_Entr_loss:0.58897
+
+	Epoch:310
+	T.B_Acc_score:0.880, V.B_Acc_score:0.77950
+			T.Cross_Entr_loss:0.53897, V.Cross_Entr_loss:0.58466
+
+	Epoch:320
+	T.B_Acc_score:0.879, V.B_Acc_score:0.76970
+			T.Cross_Entr_loss:0.53990, V.Cross_Entr_loss:0.58855
+
+	Epoch:330
+	T.B_Acc_score:0.882, V.B_Acc_score:0.75827
+			T.Cross_Entr_loss:0.53829, V.Cross_Entr_loss:0.59863
+
+	Epoch:340
+	T.B_Acc_score:0.883, V.B_Acc_score:0.77567
+			T.Cross_Entr_loss:0.53809, V.Cross_Entr_loss:0.58847
+
+	Epoch:350
+	T.B_Acc_score:0.879, V.B_Acc_score:0.77433
+			T.Cross_Entr_loss:0.53987, V.Cross_Entr_loss:0.58984
+
+	Epoch:360
+	T.B_Acc_score:0.887, V.B_Acc_score:0.76661
+			T.Cross_Entr_loss:0.53623, V.Cross_Entr_loss:0.59427
+
+	Epoch:370
+	T.B_Acc_score:0.887, V.B_Acc_score:0.76715
+			T.Cross_Entr_loss:0.53575, V.Cross_Entr_loss:0.59440
+
+	Epoch:380
+	T.B_Acc_score:0.891, V.B_Acc_score:0.76963
+			T.Cross_Entr_loss:0.53400, V.Cross_Entr_loss:0.59308
+
+	Epoch:390
+	T.B_Acc_score:0.889, V.B_Acc_score:0.77329
+			T.Cross_Entr_loss:0.53515, V.Cross_Entr_loss:0.59001
+
+	Epoch:400
+	T.B_Acc_score:0.892, V.B_Acc_score:0.77935
+			T.Cross_Entr_loss:0.53409, V.Cross_Entr_loss:0.58782
+
+	Epoch:410
+	T.B_Acc_score:0.893, V.B_Acc_score:0.78530
+			T.Cross_Entr_loss:0.53351, V.Cross_Entr_loss:0.58429
+
+	Epoch:420
+	T.B_Acc_score:0.895, V.B_Acc_score:0.76597
+			T.Cross_Entr_loss:0.53287, V.Cross_Entr_loss:0.59552
+
+	Epoch:430
+	T.B_Acc_score:0.896, V.B_Acc_score:0.78582
+			T.Cross_Entr_loss:0.53204, V.Cross_Entr_loss:0.58391
+
+	Epoch:440
+	T.B_Acc_score:0.893, V.B_Acc_score:0.76085
+			T.Cross_Entr_loss:0.53332, V.Cross_Entr_loss:0.59840
+
+	Epoch:450
+	T.B_Acc_score:0.894, V.B_Acc_score:0.77027
+			T.Cross_Entr_loss:0.53288, V.Cross_Entr_loss:0.59280
+
+	Epoch:460
+	T.B_Acc_score:0.899, V.B_Acc_score:0.78403
+			T.Cross_Entr_loss:0.53079, V.Cross_Entr_loss:0.58538
+
+	Epoch:470
+	T.B_Acc_score:0.899, V.B_Acc_score:0.77789
+			T.Cross_Entr_loss:0.53089, V.Cross_Entr_loss:0.58885
+
+	Epoch:480
+	T.B_Acc_score:0.895, V.B_Acc_score:0.78706
+			T.Cross_Entr_loss:0.53290, V.Cross_Entr_loss:0.58188
+
+	Epoch:490
+	T.B_Acc_score:0.899, V.B_Acc_score:0.79791
+			T.Cross_Entr_loss:0.53111, V.Cross_Entr_loss:0.57755
+
+	Epoch:499
+	T.B_Acc_score:0.901, V.B_Acc_score:0.79674
+			T.Cross_Entr_loss:0.53014, V.Cross_Entr_loss:0.57770
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.57548, T_B_Acc_score: 0.79940
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+date and time = 18_01_2023 22:22:36
+picked channels = ['EEG P4-O2', 'ROC-LOC']
+
+
+NOW TRAINING
+	Epoch:0
+	T.B_Acc_score:0.897, V.B_Acc_score:0.79168
+			T.Cross_Entr_loss:0.53116, V.Cross_Entr_loss:0.58085
+
+	Epoch:10
+	T.B_Acc_score:0.905, V.B_Acc_score:0.78942
+			T.Cross_Entr_loss:0.52810, V.Cross_Entr_loss:0.58224
+
+	Epoch:20
+	T.B_Acc_score:0.905, V.B_Acc_score:0.78904
+			T.Cross_Entr_loss:0.52821, V.Cross_Entr_loss:0.58321
+
+	Epoch:30
+	T.B_Acc_score:0.905, V.B_Acc_score:0.79014
+			T.Cross_Entr_loss:0.52762, V.Cross_Entr_loss:0.58201
+
+	Epoch:40
+	T.B_Acc_score:0.906, V.B_Acc_score:0.78974
+			T.Cross_Entr_loss:0.52765, V.Cross_Entr_loss:0.58278
+
+	Epoch:50
+	T.B_Acc_score:0.907, V.B_Acc_score:0.78951
+			T.Cross_Entr_loss:0.52736, V.Cross_Entr_loss:0.58290
+
+	Epoch:60
+	T.B_Acc_score:0.906, V.B_Acc_score:0.79135
+			T.Cross_Entr_loss:0.52770, V.Cross_Entr_loss:0.58170
+
+	Epoch:70
+	T.B_Acc_score:0.907, V.B_Acc_score:0.79088
+			T.Cross_Entr_loss:0.52701, V.Cross_Entr_loss:0.58206
+
+	Epoch:80
+	T.B_Acc_score:0.908, V.B_Acc_score:0.78889
+			T.Cross_Entr_loss:0.52688, V.Cross_Entr_loss:0.58279
+
+	Epoch:90
+	T.B_Acc_score:0.908, V.B_Acc_score:0.79044
+			T.Cross_Entr_loss:0.52651, V.Cross_Entr_loss:0.58202
+
+	Epoch:100
+	T.B_Acc_score:0.908, V.B_Acc_score:0.79063
+			T.Cross_Entr_loss:0.52688, V.Cross_Entr_loss:0.58206
+
+	Epoch:110
+	T.B_Acc_score:0.908, V.B_Acc_score:0.79094
+			T.Cross_Entr_loss:0.52693, V.Cross_Entr_loss:0.58207
+
+	Epoch:120
+	T.B_Acc_score:0.908, V.B_Acc_score:0.79248
+			T.Cross_Entr_loss:0.52665, V.Cross_Entr_loss:0.58099
+
+	Epoch:130
+	T.B_Acc_score:0.907, V.B_Acc_score:0.78830
+			T.Cross_Entr_loss:0.52701, V.Cross_Entr_loss:0.58306
+
+	Epoch:140
+	T.B_Acc_score:0.909, V.B_Acc_score:0.79091
+			T.Cross_Entr_loss:0.52647, V.Cross_Entr_loss:0.58174
+
+	Epoch:150
+	T.B_Acc_score:0.909, V.B_Acc_score:0.79169
+			T.Cross_Entr_loss:0.52647, V.Cross_Entr_loss:0.58156
+
+	Epoch:160
+	T.B_Acc_score:0.907, V.B_Acc_score:0.78942
+			T.Cross_Entr_loss:0.52690, V.Cross_Entr_loss:0.58256
+
+	Epoch:170
+	T.B_Acc_score:0.909, V.B_Acc_score:0.79037
+			T.Cross_Entr_loss:0.52655, V.Cross_Entr_loss:0.58217
+
+	Epoch:180
+	T.B_Acc_score:0.908, V.B_Acc_score:0.79111
+			T.Cross_Entr_loss:0.52671, V.Cross_Entr_loss:0.58190
+
+	Epoch:190
+	T.B_Acc_score:0.909, V.B_Acc_score:0.78873
+			T.Cross_Entr_loss:0.52655, V.Cross_Entr_loss:0.58282
+
+	Epoch:200
+	T.B_Acc_score:0.909, V.B_Acc_score:0.79017
+			T.Cross_Entr_loss:0.52627, V.Cross_Entr_loss:0.58220
+
+	Epoch:210
+	T.B_Acc_score:0.909, V.B_Acc_score:0.79201
+			T.Cross_Entr_loss:0.52630, V.Cross_Entr_loss:0.58121
+
+Early stopping :(
+	Epoch:213
+	T.B_Acc_score:0.90902, V.B_Acc_score:0.79169
+			T.Cross_Entr_loss:0.52639, V.Cross_Entr_loss:0.58154
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.57874, T_B_Acc_score: 0.79729
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+date and time = 18_01_2023 22:58:23
+picked channels = ['EEG P4-O2', 'ROC-LOC']
+pre-processing data...
+Counter({'Periodic leg movements': 10, 'control': 6})
+observed min sampling_rate 256
+observed max highpass = 0.30000001192092896 
+observed min lowpass = 30
+total 30sec samples - 21360
+single sample dimention = (2, 7680)
+pathology_distribution in %
+Periodic leg movements : 52.22%
+control : 47.78%
+X.npy, Y.npy are stored at 
+/home/tusharsingh/code_base/Ritika_Plan/Data/modified_data/..
+
+
+NOW TRAINING
+	Epoch:0
+	T.B_Acc_score:0.500, V.B_Acc_score:0.50000
+			T.Cross_Entr_loss:0.69259, V.Cross_Entr_loss:0.69216
+
+	Epoch:10
+	T.B_Acc_score:0.514, V.B_Acc_score:0.51400
+			T.Cross_Entr_loss:0.68758, V.Cross_Entr_loss:0.68508
+
+	Epoch:20
+	T.B_Acc_score:0.568, V.B_Acc_score:0.60279
+			T.Cross_Entr_loss:0.67341, V.Cross_Entr_loss:0.67068
+
+	Epoch:30
+	T.B_Acc_score:0.584, V.B_Acc_score:0.59128
+			T.Cross_Entr_loss:0.67223, V.Cross_Entr_loss:0.67044
+
+	Epoch:40
+	T.B_Acc_score:0.602, V.B_Acc_score:0.62220
+			T.Cross_Entr_loss:0.66000, V.Cross_Entr_loss:0.64945
+
+	Epoch:50
+	T.B_Acc_score:0.675, V.B_Acc_score:0.70496
+			T.Cross_Entr_loss:0.63691, V.Cross_Entr_loss:0.62625
+
+	Epoch:60
+	T.B_Acc_score:0.680, V.B_Acc_score:0.70446
+			T.Cross_Entr_loss:0.63370, V.Cross_Entr_loss:0.62428
+
+	Epoch:70
+	T.B_Acc_score:0.699, V.B_Acc_score:0.72240
+			T.Cross_Entr_loss:0.62413, V.Cross_Entr_loss:0.61370
+
+	Epoch:80
+	T.B_Acc_score:0.728, V.B_Acc_score:0.74667
+			T.Cross_Entr_loss:0.61240, V.Cross_Entr_loss:0.60554
+
+	Epoch:90
+	T.B_Acc_score:0.731, V.B_Acc_score:0.74391
+			T.Cross_Entr_loss:0.61117, V.Cross_Entr_loss:0.60665
+
+	Epoch:100
+	T.B_Acc_score:0.743, V.B_Acc_score:0.75680
+			T.Cross_Entr_loss:0.60679, V.Cross_Entr_loss:0.59903
+
+	Epoch:110
+	T.B_Acc_score:0.742, V.B_Acc_score:0.76760
+			T.Cross_Entr_loss:0.60618, V.Cross_Entr_loss:0.59581
+
+	Epoch:120
+	T.B_Acc_score:0.752, V.B_Acc_score:0.72654
+			T.Cross_Entr_loss:0.60139, V.Cross_Entr_loss:0.61324
+
+	Epoch:130
+	T.B_Acc_score:0.737, V.B_Acc_score:0.74032
+			T.Cross_Entr_loss:0.60957, V.Cross_Entr_loss:0.60986
+
+	Epoch:140
+	T.B_Acc_score:0.762, V.B_Acc_score:0.75964
+			T.Cross_Entr_loss:0.59676, V.Cross_Entr_loss:0.59775
+
+	Epoch:150
+	T.B_Acc_score:0.767, V.B_Acc_score:0.77179
+			T.Cross_Entr_loss:0.59506, V.Cross_Entr_loss:0.59479
+
+	Epoch:160
+	T.B_Acc_score:0.772, V.B_Acc_score:0.77144
+			T.Cross_Entr_loss:0.59341, V.Cross_Entr_loss:0.59291
+
+	Epoch:170
+	T.B_Acc_score:0.774, V.B_Acc_score:0.77495
+			T.Cross_Entr_loss:0.59189, V.Cross_Entr_loss:0.59233
+
+	Epoch:180
+	T.B_Acc_score:0.774, V.B_Acc_score:0.79228
+			T.Cross_Entr_loss:0.59164, V.Cross_Entr_loss:0.58580
+
+	Epoch:190
+	T.B_Acc_score:0.783, V.B_Acc_score:0.78321
+			T.Cross_Entr_loss:0.58789, V.Cross_Entr_loss:0.58588
+
+	Epoch:200
+	T.B_Acc_score:0.786, V.B_Acc_score:0.79237
+			T.Cross_Entr_loss:0.58648, V.Cross_Entr_loss:0.58381
+
+	Epoch:210
+	T.B_Acc_score:0.790, V.B_Acc_score:0.78939
+			T.Cross_Entr_loss:0.58476, V.Cross_Entr_loss:0.58590
+
+	Epoch:220
+	T.B_Acc_score:0.792, V.B_Acc_score:0.79093
+			T.Cross_Entr_loss:0.58354, V.Cross_Entr_loss:0.58419
+
+	Epoch:230
+	T.B_Acc_score:0.797, V.B_Acc_score:0.79332
+			T.Cross_Entr_loss:0.58153, V.Cross_Entr_loss:0.58216
+
+	Epoch:240
+	T.B_Acc_score:0.800, V.B_Acc_score:0.79931
+			T.Cross_Entr_loss:0.58041, V.Cross_Entr_loss:0.58112
+
+	Epoch:250
+	T.B_Acc_score:0.797, V.B_Acc_score:0.79616
+			T.Cross_Entr_loss:0.58153, V.Cross_Entr_loss:0.58170
+
+	Epoch:260
+	T.B_Acc_score:0.802, V.B_Acc_score:0.80274
+			T.Cross_Entr_loss:0.57935, V.Cross_Entr_loss:0.57960
+
+	Epoch:270
+	T.B_Acc_score:0.797, V.B_Acc_score:0.79921
+			T.Cross_Entr_loss:0.58082, V.Cross_Entr_loss:0.57962
+
+	Epoch:280
+	T.B_Acc_score:0.805, V.B_Acc_score:0.80723
+			T.Cross_Entr_loss:0.57803, V.Cross_Entr_loss:0.57821
+
+	Epoch:290
+	T.B_Acc_score:0.811, V.B_Acc_score:0.80090
+			T.Cross_Entr_loss:0.57544, V.Cross_Entr_loss:0.57961
+
+	Epoch:300
+	T.B_Acc_score:0.808, V.B_Acc_score:0.80111
+			T.Cross_Entr_loss:0.57634, V.Cross_Entr_loss:0.57893
+
+	Epoch:310
+	T.B_Acc_score:0.815, V.B_Acc_score:0.80312
+			T.Cross_Entr_loss:0.57456, V.Cross_Entr_loss:0.57837
+
+	Epoch:320
+	T.B_Acc_score:0.810, V.B_Acc_score:0.80474
+			T.Cross_Entr_loss:0.57528, V.Cross_Entr_loss:0.57743
+
+	Epoch:330
+	T.B_Acc_score:0.817, V.B_Acc_score:0.80687
+			T.Cross_Entr_loss:0.57242, V.Cross_Entr_loss:0.57575
+
+	Epoch:340
+	T.B_Acc_score:0.813, V.B_Acc_score:0.80933
+			T.Cross_Entr_loss:0.57408, V.Cross_Entr_loss:0.57524
+
+	Epoch:350
+	T.B_Acc_score:0.806, V.B_Acc_score:0.80611
+			T.Cross_Entr_loss:0.57713, V.Cross_Entr_loss:0.57700
+
+	Epoch:360
+	T.B_Acc_score:0.817, V.B_Acc_score:0.80778
+			T.Cross_Entr_loss:0.57209, V.Cross_Entr_loss:0.57532
+
+	Epoch:370
+	T.B_Acc_score:0.823, V.B_Acc_score:0.80957
+			T.Cross_Entr_loss:0.57003, V.Cross_Entr_loss:0.57561
+
+	Epoch:380
+	T.B_Acc_score:0.824, V.B_Acc_score:0.81072
+			T.Cross_Entr_loss:0.56817, V.Cross_Entr_loss:0.57464
+
+	Epoch:390
+	T.B_Acc_score:0.831, V.B_Acc_score:0.80829
+			T.Cross_Entr_loss:0.56615, V.Cross_Entr_loss:0.57592
+
+	Epoch:400
+	T.B_Acc_score:0.831, V.B_Acc_score:0.81264
+			T.Cross_Entr_loss:0.56606, V.Cross_Entr_loss:0.57521
+
+	Epoch:410
+	T.B_Acc_score:0.832, V.B_Acc_score:0.81156
+			T.Cross_Entr_loss:0.56567, V.Cross_Entr_loss:0.57479
+
+	Epoch:420
+	T.B_Acc_score:0.823, V.B_Acc_score:0.80677
+			T.Cross_Entr_loss:0.56967, V.Cross_Entr_loss:0.57547
+
+	Epoch:430
+	T.B_Acc_score:0.835, V.B_Acc_score:0.81203
+			T.Cross_Entr_loss:0.56441, V.Cross_Entr_loss:0.57536
+
+	Epoch:440
+	T.B_Acc_score:0.836, V.B_Acc_score:0.81306
+			T.Cross_Entr_loss:0.56390, V.Cross_Entr_loss:0.57293
+
+	Epoch:450
+	T.B_Acc_score:0.837, V.B_Acc_score:0.80677
+			T.Cross_Entr_loss:0.56365, V.Cross_Entr_loss:0.57692
+
+	Epoch:460
+	T.B_Acc_score:0.841, V.B_Acc_score:0.81526
+			T.Cross_Entr_loss:0.56144, V.Cross_Entr_loss:0.57329
+
+	Epoch:470
+	T.B_Acc_score:0.842, V.B_Acc_score:0.81984
+			T.Cross_Entr_loss:0.56109, V.Cross_Entr_loss:0.57191
+
+	Epoch:480
+	T.B_Acc_score:0.832, V.B_Acc_score:0.81936
+			T.Cross_Entr_loss:0.56538, V.Cross_Entr_loss:0.57105
+
+	Epoch:490
+	T.B_Acc_score:0.848, V.B_Acc_score:0.81897
+			T.Cross_Entr_loss:0.55889, V.Cross_Entr_loss:0.57118
+
+	Epoch:499
+	T.B_Acc_score:0.843, V.B_Acc_score:0.81380
+			T.Cross_Entr_loss:0.56070, V.Cross_Entr_loss:0.57369
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.57177, T_B_Acc_score: 0.81805
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+date and time = 18_01_2023 23:28:14
+picked channels = ['EEG P4-O2', 'ROC-LOC']
+
+
+
+NOW TRAINING
+	Epoch:0
+	T.B_Acc_score:0.834, V.B_Acc_score:0.83583
+			T.Cross_Entr_loss:0.56418, V.Cross_Entr_loss:0.56422
+
+	Epoch:10
+	T.B_Acc_score:0.836, V.B_Acc_score:0.83685
+			T.Cross_Entr_loss:0.56320, V.Cross_Entr_loss:0.56308
+
+	Epoch:20
+	T.B_Acc_score:0.840, V.B_Acc_score:0.82358
+			T.Cross_Entr_loss:0.56274, V.Cross_Entr_loss:0.56841
+
+	Epoch:30
+	T.B_Acc_score:0.840, V.B_Acc_score:0.84269
+			T.Cross_Entr_loss:0.56272, V.Cross_Entr_loss:0.56168
+
+	Epoch:40
+	T.B_Acc_score:0.841, V.B_Acc_score:0.83427
+			T.Cross_Entr_loss:0.56237, V.Cross_Entr_loss:0.56389
+
+	Epoch:50
+	T.B_Acc_score:0.846, V.B_Acc_score:0.81779
+			T.Cross_Entr_loss:0.55966, V.Cross_Entr_loss:0.57164
+
+	Epoch:60
+	T.B_Acc_score:0.845, V.B_Acc_score:0.81921
+			T.Cross_Entr_loss:0.55989, V.Cross_Entr_loss:0.57079
+
+	Epoch:70
+	T.B_Acc_score:0.841, V.B_Acc_score:0.83397
+			T.Cross_Entr_loss:0.56082, V.Cross_Entr_loss:0.56314
+
+	Epoch:80
+	T.B_Acc_score:0.847, V.B_Acc_score:0.81291
+			T.Cross_Entr_loss:0.55845, V.Cross_Entr_loss:0.57456
+
+	Epoch:90
+	T.B_Acc_score:0.849, V.B_Acc_score:0.83359
+			T.Cross_Entr_loss:0.55785, V.Cross_Entr_loss:0.56410
+
+	Epoch:100
+	T.B_Acc_score:0.841, V.B_Acc_score:0.83882
+			T.Cross_Entr_loss:0.56129, V.Cross_Entr_loss:0.56335
+
+	Epoch:110
+	T.B_Acc_score:0.848, V.B_Acc_score:0.83705
+			T.Cross_Entr_loss:0.55821, V.Cross_Entr_loss:0.56344
+
+	Epoch:120
+	T.B_Acc_score:0.848, V.B_Acc_score:0.83278
+			T.Cross_Entr_loss:0.55835, V.Cross_Entr_loss:0.56538
+
+	Epoch:130
+	T.B_Acc_score:0.850, V.B_Acc_score:0.84302
+			T.Cross_Entr_loss:0.55709, V.Cross_Entr_loss:0.56143
+
+	Epoch:140
+	T.B_Acc_score:0.851, V.B_Acc_score:0.84139
+			T.Cross_Entr_loss:0.55645, V.Cross_Entr_loss:0.56196
+
+	Epoch:150
+	T.B_Acc_score:0.855, V.B_Acc_score:0.83834
+			T.Cross_Entr_loss:0.55517, V.Cross_Entr_loss:0.56227
+
+	Epoch:160
+	T.B_Acc_score:0.859, V.B_Acc_score:0.84070
+			T.Cross_Entr_loss:0.55370, V.Cross_Entr_loss:0.56166
+
+	Epoch:170
+	T.B_Acc_score:0.859, V.B_Acc_score:0.83328
+			T.Cross_Entr_loss:0.55323, V.Cross_Entr_loss:0.56373
+
+	Epoch:180
+	T.B_Acc_score:0.843, V.B_Acc_score:0.80418
+			T.Cross_Entr_loss:0.56061, V.Cross_Entr_loss:0.57852
+
+	Epoch:190
+	T.B_Acc_score:0.851, V.B_Acc_score:0.84029
+			T.Cross_Entr_loss:0.55704, V.Cross_Entr_loss:0.56190
+
+	Epoch:200
+	T.B_Acc_score:0.857, V.B_Acc_score:0.82973
+			T.Cross_Entr_loss:0.55427, V.Cross_Entr_loss:0.56643
+
+	Epoch:210
+	T.B_Acc_score:0.865, V.B_Acc_score:0.83476
+			T.Cross_Entr_loss:0.55054, V.Cross_Entr_loss:0.56355
+
+	Epoch:220
+	T.B_Acc_score:0.862, V.B_Acc_score:0.84121
+			T.Cross_Entr_loss:0.55136, V.Cross_Entr_loss:0.56132
+
+	Epoch:230
+	T.B_Acc_score:0.863, V.B_Acc_score:0.83447
+			T.Cross_Entr_loss:0.55173, V.Cross_Entr_loss:0.56361
+
+	Epoch:240
+	T.B_Acc_score:0.867, V.B_Acc_score:0.82872
+			T.Cross_Entr_loss:0.54943, V.Cross_Entr_loss:0.56627
+
+	Epoch:250
+	T.B_Acc_score:0.864, V.B_Acc_score:0.83859
+			T.Cross_Entr_loss:0.55103, V.Cross_Entr_loss:0.56231
+
+	Epoch:260
+	T.B_Acc_score:0.864, V.B_Acc_score:0.81767
+			T.Cross_Entr_loss:0.55123, V.Cross_Entr_loss:0.57152
+
+	Epoch:270
+	T.B_Acc_score:0.865, V.B_Acc_score:0.83284
+			T.Cross_Entr_loss:0.55062, V.Cross_Entr_loss:0.56463
+
+	Epoch:280
+	T.B_Acc_score:0.875, V.B_Acc_score:0.83543
+			T.Cross_Entr_loss:0.54572, V.Cross_Entr_loss:0.56322
+
+	Epoch:290
+	T.B_Acc_score:0.866, V.B_Acc_score:0.84161
+			T.Cross_Entr_loss:0.55034, V.Cross_Entr_loss:0.56098
+
+	Epoch:300
+	T.B_Acc_score:0.867, V.B_Acc_score:0.82345
+			T.Cross_Entr_loss:0.54908, V.Cross_Entr_loss:0.56881
+
+	Epoch:310
+	T.B_Acc_score:0.870, V.B_Acc_score:0.83378
+			T.Cross_Entr_loss:0.54769, V.Cross_Entr_loss:0.56538
+
+	Epoch:320
+	T.B_Acc_score:0.873, V.B_Acc_score:0.83641
+			T.Cross_Entr_loss:0.54683, V.Cross_Entr_loss:0.56270
+
+	Epoch:330
+	T.B_Acc_score:0.877, V.B_Acc_score:0.83444
+			T.Cross_Entr_loss:0.54547, V.Cross_Entr_loss:0.56507
+
+	Epoch:340
+	T.B_Acc_score:0.875, V.B_Acc_score:0.83065
+			T.Cross_Entr_loss:0.54565, V.Cross_Entr_loss:0.56673
+
+	Epoch:350
+	T.B_Acc_score:0.880, V.B_Acc_score:0.83960
+			T.Cross_Entr_loss:0.54381, V.Cross_Entr_loss:0.56139
+
+	Epoch:360
+	T.B_Acc_score:0.880, V.B_Acc_score:0.83805
+			T.Cross_Entr_loss:0.54341, V.Cross_Entr_loss:0.56305
+
+	Epoch:370
+	T.B_Acc_score:0.878, V.B_Acc_score:0.83736
+			T.Cross_Entr_loss:0.54462, V.Cross_Entr_loss:0.56198
+
+	Epoch:380
+	T.B_Acc_score:0.871, V.B_Acc_score:0.83041
+			T.Cross_Entr_loss:0.54773, V.Cross_Entr_loss:0.56460
+
+	Epoch:390
+	T.B_Acc_score:0.879, V.B_Acc_score:0.83201
+			T.Cross_Entr_loss:0.54428, V.Cross_Entr_loss:0.56569
+
+	Epoch:400
+	T.B_Acc_score:0.879, V.B_Acc_score:0.84473
+			T.Cross_Entr_loss:0.54352, V.Cross_Entr_loss:0.55874
+
+	Epoch:410
+	T.B_Acc_score:0.881, V.B_Acc_score:0.82800
+			T.Cross_Entr_loss:0.54288, V.Cross_Entr_loss:0.56753
+
+	Epoch:420
+	T.B_Acc_score:0.886, V.B_Acc_score:0.84129
+			T.Cross_Entr_loss:0.54082, V.Cross_Entr_loss:0.56045
+
+	Epoch:430
+	T.B_Acc_score:0.879, V.B_Acc_score:0.83313
+			T.Cross_Entr_loss:0.54392, V.Cross_Entr_loss:0.56441
+
+	Epoch:440
+	T.B_Acc_score:0.876, V.B_Acc_score:0.83095
+			T.Cross_Entr_loss:0.54529, V.Cross_Entr_loss:0.56673
+
+	Epoch:450
+	T.B_Acc_score:0.885, V.B_Acc_score:0.84530
+			T.Cross_Entr_loss:0.54134, V.Cross_Entr_loss:0.55946
+
+	Epoch:460
+	T.B_Acc_score:0.886, V.B_Acc_score:0.84217
+			T.Cross_Entr_loss:0.54116, V.Cross_Entr_loss:0.56090
+
+	Epoch:470
+	T.B_Acc_score:0.883, V.B_Acc_score:0.84216
+			T.Cross_Entr_loss:0.54273, V.Cross_Entr_loss:0.56061
+
+	Epoch:480
+	T.B_Acc_score:0.889, V.B_Acc_score:0.84031
+			T.Cross_Entr_loss:0.53952, V.Cross_Entr_loss:0.56167
+
+	Epoch:490
+	T.B_Acc_score:0.883, V.B_Acc_score:0.83410
+			T.Cross_Entr_loss:0.54229, V.Cross_Entr_loss:0.56314
+
+	Epoch:499
+	T.B_Acc_score:0.883, V.B_Acc_score:0.84380
+			T.Cross_Entr_loss:0.54214, V.Cross_Entr_loss:0.56037
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.56124, T_B_Acc_score: 0.84068
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+date and time = 19_01_2023 00:02:22
+picked channels = ['EEG P4-O2', 'ROC-LOC']
+pre-processing data...
+Counter({'Insomnia': 9, 'control': 6})
+observed min sampling_rate 256
+observed max highpass = 0.30000001192092896 
+observed min lowpass = 30
+total 30sec samples - 23841
+single sample dimention = (2, 7680)
+pathology_distribution in %
+Insomnia : 52.43%
+control : 47.57%
+X.npy, Y.npy are stored at 
+/home/tusharsingh/code_base/Ritika_Plan/Data/modified_data/..
+
+
+NOW TRAINING
+	Epoch:0
+	T.B_Acc_score:0.500, V.B_Acc_score:0.50000
+			T.Cross_Entr_loss:0.69266, V.Cross_Entr_loss:0.69197
+
+	Epoch:10
+	T.B_Acc_score:0.601, V.B_Acc_score:0.59408
+			T.Cross_Entr_loss:0.67012, V.Cross_Entr_loss:0.67258
+
+	Epoch:20
+	T.B_Acc_score:0.657, V.B_Acc_score:0.70072
+			T.Cross_Entr_loss:0.64564, V.Cross_Entr_loss:0.63094
+
+	Epoch:30
+	T.B_Acc_score:0.725, V.B_Acc_score:0.74300
+			T.Cross_Entr_loss:0.61599, V.Cross_Entr_loss:0.60774
+
+	Epoch:40
+	T.B_Acc_score:0.745, V.B_Acc_score:0.76526
+			T.Cross_Entr_loss:0.60697, V.Cross_Entr_loss:0.59885
+
+	Epoch:50
+	T.B_Acc_score:0.755, V.B_Acc_score:0.74645
+			T.Cross_Entr_loss:0.60121, V.Cross_Entr_loss:0.60500
+
+	Epoch:60
+	T.B_Acc_score:0.766, V.B_Acc_score:0.76914
+			T.Cross_Entr_loss:0.59612, V.Cross_Entr_loss:0.59723
+
+	Epoch:70
+	T.B_Acc_score:0.774, V.B_Acc_score:0.77929
+			T.Cross_Entr_loss:0.59293, V.Cross_Entr_loss:0.59271
+
+	Epoch:80
+	T.B_Acc_score:0.784, V.B_Acc_score:0.78463
+			T.Cross_Entr_loss:0.58835, V.Cross_Entr_loss:0.58838
+
+	Epoch:90
+	T.B_Acc_score:0.792, V.B_Acc_score:0.77408
+			T.Cross_Entr_loss:0.58441, V.Cross_Entr_loss:0.59184
+
+	Epoch:100
+	T.B_Acc_score:0.793, V.B_Acc_score:0.78214
+			T.Cross_Entr_loss:0.58385, V.Cross_Entr_loss:0.59009
+
+	Epoch:110
+	T.B_Acc_score:0.795, V.B_Acc_score:0.75619
+			T.Cross_Entr_loss:0.58335, V.Cross_Entr_loss:0.60203
+
+	Epoch:120
+	T.B_Acc_score:0.803, V.B_Acc_score:0.78918
+			T.Cross_Entr_loss:0.57972, V.Cross_Entr_loss:0.58668
+
+	Epoch:130
+	T.B_Acc_score:0.808, V.B_Acc_score:0.79161
+			T.Cross_Entr_loss:0.57707, V.Cross_Entr_loss:0.58361
+
+	Epoch:140
+	T.B_Acc_score:0.811, V.B_Acc_score:0.80270
+			T.Cross_Entr_loss:0.57560, V.Cross_Entr_loss:0.57988
+
+	Epoch:150
+	T.B_Acc_score:0.816, V.B_Acc_score:0.79031
+			T.Cross_Entr_loss:0.57386, V.Cross_Entr_loss:0.58563
+
+	Epoch:160
+	T.B_Acc_score:0.813, V.B_Acc_score:0.80667
+			T.Cross_Entr_loss:0.57510, V.Cross_Entr_loss:0.57835
+
+	Epoch:170
+	T.B_Acc_score:0.826, V.B_Acc_score:0.80817
+			T.Cross_Entr_loss:0.56930, V.Cross_Entr_loss:0.57841
+
+	Epoch:180
+	T.B_Acc_score:0.828, V.B_Acc_score:0.80409
+			T.Cross_Entr_loss:0.56873, V.Cross_Entr_loss:0.57789
+
+	Epoch:190
+	T.B_Acc_score:0.833, V.B_Acc_score:0.80626
+			T.Cross_Entr_loss:0.56576, V.Cross_Entr_loss:0.57698
+
+	Epoch:200
+	T.B_Acc_score:0.832, V.B_Acc_score:0.80208
+			T.Cross_Entr_loss:0.56597, V.Cross_Entr_loss:0.57846
+
+	Epoch:210
+	T.B_Acc_score:0.831, V.B_Acc_score:0.80684
+			T.Cross_Entr_loss:0.56629, V.Cross_Entr_loss:0.57679
+
+	Epoch:220
+	T.B_Acc_score:0.845, V.B_Acc_score:0.81613
+			T.Cross_Entr_loss:0.56146, V.Cross_Entr_loss:0.57335
+
+	Epoch:230
+	T.B_Acc_score:0.840, V.B_Acc_score:0.81561
+			T.Cross_Entr_loss:0.56274, V.Cross_Entr_loss:0.57309
+
+	Epoch:240
+	T.B_Acc_score:0.853, V.B_Acc_score:0.81792
+			T.Cross_Entr_loss:0.55696, V.Cross_Entr_loss:0.57163
+
+	Epoch:250
+	T.B_Acc_score:0.857, V.B_Acc_score:0.81443
+			T.Cross_Entr_loss:0.55559, V.Cross_Entr_loss:0.57514
+
+	Epoch:260
+	T.B_Acc_score:0.844, V.B_Acc_score:0.81319
+			T.Cross_Entr_loss:0.56067, V.Cross_Entr_loss:0.57478
+
+	Epoch:270
+	T.B_Acc_score:0.857, V.B_Acc_score:0.81872
+			T.Cross_Entr_loss:0.55537, V.Cross_Entr_loss:0.57263
+
+	Epoch:280
+	T.B_Acc_score:0.854, V.B_Acc_score:0.82203
+			T.Cross_Entr_loss:0.55695, V.Cross_Entr_loss:0.57059
+
+	Epoch:290
+	T.B_Acc_score:0.864, V.B_Acc_score:0.82150
+			T.Cross_Entr_loss:0.55181, V.Cross_Entr_loss:0.57098
+
+	Epoch:300
+	T.B_Acc_score:0.865, V.B_Acc_score:0.81719
+			T.Cross_Entr_loss:0.55163, V.Cross_Entr_loss:0.57101
+
+	Epoch:310
+	T.B_Acc_score:0.865, V.B_Acc_score:0.82848
+			T.Cross_Entr_loss:0.55150, V.Cross_Entr_loss:0.56792
+
+	Epoch:320
+	T.B_Acc_score:0.874, V.B_Acc_score:0.83058
+			T.Cross_Entr_loss:0.54719, V.Cross_Entr_loss:0.56700
+
+	Epoch:330
+	T.B_Acc_score:0.874, V.B_Acc_score:0.82892
+			T.Cross_Entr_loss:0.54755, V.Cross_Entr_loss:0.56681
+
+	Epoch:340
+	T.B_Acc_score:0.874, V.B_Acc_score:0.82075
+			T.Cross_Entr_loss:0.54719, V.Cross_Entr_loss:0.57074
+
+	Epoch:350
+	T.B_Acc_score:0.882, V.B_Acc_score:0.82492
+			T.Cross_Entr_loss:0.54384, V.Cross_Entr_loss:0.56839
+
+	Epoch:360
+	T.B_Acc_score:0.875, V.B_Acc_score:0.82642
+			T.Cross_Entr_loss:0.54639, V.Cross_Entr_loss:0.56977
+
+	Epoch:370
+	T.B_Acc_score:0.884, V.B_Acc_score:0.83834
+			T.Cross_Entr_loss:0.54236, V.Cross_Entr_loss:0.56340
+
+	Epoch:380
+	T.B_Acc_score:0.889, V.B_Acc_score:0.83480
+			T.Cross_Entr_loss:0.53989, V.Cross_Entr_loss:0.56365
+
+	Epoch:390
+	T.B_Acc_score:0.888, V.B_Acc_score:0.81498
+			T.Cross_Entr_loss:0.54064, V.Cross_Entr_loss:0.57451
+
+	Epoch:400
+	T.B_Acc_score:0.896, V.B_Acc_score:0.84270
+			T.Cross_Entr_loss:0.53756, V.Cross_Entr_loss:0.56166
+
+	Epoch:410
+	T.B_Acc_score:0.889, V.B_Acc_score:0.83514
+			T.Cross_Entr_loss:0.53982, V.Cross_Entr_loss:0.56376
+
+	Epoch:420
+	T.B_Acc_score:0.893, V.B_Acc_score:0.83181
+			T.Cross_Entr_loss:0.53776, V.Cross_Entr_loss:0.56617
+
+	Epoch:430
+	T.B_Acc_score:0.887, V.B_Acc_score:0.83317
+			T.Cross_Entr_loss:0.54127, V.Cross_Entr_loss:0.56483
+
+	Epoch:440
+	T.B_Acc_score:0.901, V.B_Acc_score:0.84144
+			T.Cross_Entr_loss:0.53458, V.Cross_Entr_loss:0.56314
+
+	Epoch:450
+	T.B_Acc_score:0.899, V.B_Acc_score:0.84130
+			T.Cross_Entr_loss:0.53533, V.Cross_Entr_loss:0.56133
+
+	Epoch:460
+	T.B_Acc_score:0.901, V.B_Acc_score:0.84311
+			T.Cross_Entr_loss:0.53458, V.Cross_Entr_loss:0.56086
+
+	Epoch:470
+	T.B_Acc_score:0.905, V.B_Acc_score:0.84368
+			T.Cross_Entr_loss:0.53263, V.Cross_Entr_loss:0.55993
+
+	Epoch:480
+	T.B_Acc_score:0.903, V.B_Acc_score:0.83897
+			T.Cross_Entr_loss:0.53317, V.Cross_Entr_loss:0.56284
+
+	Epoch:490
+	T.B_Acc_score:0.911, V.B_Acc_score:0.84940
+			T.Cross_Entr_loss:0.53064, V.Cross_Entr_loss:0.55820
+
+	Epoch:500
+	T.B_Acc_score:0.908, V.B_Acc_score:0.83955
+			T.Cross_Entr_loss:0.53088, V.Cross_Entr_loss:0.56235
+
+	Epoch:510
+	T.B_Acc_score:0.905, V.B_Acc_score:0.83814
+			T.Cross_Entr_loss:0.53260, V.Cross_Entr_loss:0.56148
+
+	Epoch:520
+	T.B_Acc_score:0.911, V.B_Acc_score:0.84850
+			T.Cross_Entr_loss:0.52962, V.Cross_Entr_loss:0.55948
+
+	Epoch:530
+	T.B_Acc_score:0.910, V.B_Acc_score:0.84169
+			T.Cross_Entr_loss:0.53058, V.Cross_Entr_loss:0.56171
+
+	Epoch:540
+	T.B_Acc_score:0.908, V.B_Acc_score:0.84111
+			T.Cross_Entr_loss:0.53111, V.Cross_Entr_loss:0.56220
+
+	Epoch:550
+	T.B_Acc_score:0.903, V.B_Acc_score:0.80854
+			T.Cross_Entr_loss:0.53306, V.Cross_Entr_loss:0.57783
+
+	Epoch:560
+	T.B_Acc_score:0.911, V.B_Acc_score:0.84557
+			T.Cross_Entr_loss:0.52940, V.Cross_Entr_loss:0.55966
+
+	Epoch:570
+	T.B_Acc_score:0.917, V.B_Acc_score:0.84166
+			T.Cross_Entr_loss:0.52691, V.Cross_Entr_loss:0.56165
+
+	Epoch:580
+	T.B_Acc_score:0.915, V.B_Acc_score:0.84024
+			T.Cross_Entr_loss:0.52747, V.Cross_Entr_loss:0.56140
+
+	Epoch:590
+	T.B_Acc_score:0.912, V.B_Acc_score:0.84572
+			T.Cross_Entr_loss:0.52877, V.Cross_Entr_loss:0.55805
+
+	Epoch:600
+	T.B_Acc_score:0.919, V.B_Acc_score:0.85194
+			T.Cross_Entr_loss:0.52628, V.Cross_Entr_loss:0.55623
+
+	Epoch:610
+	T.B_Acc_score:0.919, V.B_Acc_score:0.85239
+			T.Cross_Entr_loss:0.52640, V.Cross_Entr_loss:0.55573
+
+	Epoch:620
+	T.B_Acc_score:0.924, V.B_Acc_score:0.85166
+			T.Cross_Entr_loss:0.52363, V.Cross_Entr_loss:0.55615
+
+	Epoch:630
+	T.B_Acc_score:0.924, V.B_Acc_score:0.84883
+			T.Cross_Entr_loss:0.52371, V.Cross_Entr_loss:0.55818
+
+	Epoch:640
+	T.B_Acc_score:0.928, V.B_Acc_score:0.84041
+			T.Cross_Entr_loss:0.52215, V.Cross_Entr_loss:0.56295
+
+	Epoch:650
+	T.B_Acc_score:0.924, V.B_Acc_score:0.84120
+			T.Cross_Entr_loss:0.52382, V.Cross_Entr_loss:0.56007
+
+	Epoch:660
+	T.B_Acc_score:0.926, V.B_Acc_score:0.83798
+			T.Cross_Entr_loss:0.52259, V.Cross_Entr_loss:0.56422
+
+	Epoch:670
+	T.B_Acc_score:0.931, V.B_Acc_score:0.85623
+			T.Cross_Entr_loss:0.52061, V.Cross_Entr_loss:0.55448
+
+	Epoch:680
+	T.B_Acc_score:0.934, V.B_Acc_score:0.84812
+			T.Cross_Entr_loss:0.51910, V.Cross_Entr_loss:0.55804
+
+	Epoch:690
+	T.B_Acc_score:0.931, V.B_Acc_score:0.83985
+			T.Cross_Entr_loss:0.52046, V.Cross_Entr_loss:0.56152
+
+	Epoch:700
+	T.B_Acc_score:0.935, V.B_Acc_score:0.85749
+			T.Cross_Entr_loss:0.51875, V.Cross_Entr_loss:0.55398
+
+	Epoch:710
+	T.B_Acc_score:0.932, V.B_Acc_score:0.85067
+			T.Cross_Entr_loss:0.52014, V.Cross_Entr_loss:0.55680
+
+	Epoch:720
+	T.B_Acc_score:0.934, V.B_Acc_score:0.84218
+			T.Cross_Entr_loss:0.51909, V.Cross_Entr_loss:0.56139
+
+	Epoch:730
+	T.B_Acc_score:0.924, V.B_Acc_score:0.84562
+			T.Cross_Entr_loss:0.52374, V.Cross_Entr_loss:0.55965
+
+	Epoch:740
+	T.B_Acc_score:0.929, V.B_Acc_score:0.85394
+			T.Cross_Entr_loss:0.52133, V.Cross_Entr_loss:0.55591
+
+	Epoch:750
+	T.B_Acc_score:0.937, V.B_Acc_score:0.85952
+			T.Cross_Entr_loss:0.51790, V.Cross_Entr_loss:0.55271
+
+	Epoch:760
+	T.B_Acc_score:0.904, V.B_Acc_score:0.81785
+			T.Cross_Entr_loss:0.53250, V.Cross_Entr_loss:0.57379
+
+	Epoch:770
+	T.B_Acc_score:0.941, V.B_Acc_score:0.85232
+			T.Cross_Entr_loss:0.51621, V.Cross_Entr_loss:0.55698
+
+	Epoch:780
+	T.B_Acc_score:0.934, V.B_Acc_score:0.85247
+			T.Cross_Entr_loss:0.51917, V.Cross_Entr_loss:0.55628
+
+	Epoch:790
+	T.B_Acc_score:0.941, V.B_Acc_score:0.85699
+			T.Cross_Entr_loss:0.51610, V.Cross_Entr_loss:0.55406
+
+	Epoch:800
+	T.B_Acc_score:0.938, V.B_Acc_score:0.85575
+			T.Cross_Entr_loss:0.51704, V.Cross_Entr_loss:0.55458
+
+	Epoch:810
+	T.B_Acc_score:0.935, V.B_Acc_score:0.85348
+			T.Cross_Entr_loss:0.51852, V.Cross_Entr_loss:0.55613
+
+	Epoch:820
+	T.B_Acc_score:0.937, V.B_Acc_score:0.85389
+			T.Cross_Entr_loss:0.51773, V.Cross_Entr_loss:0.55527
+
+Early stopping :(
+	Epoch:825
+	T.B_Acc_score:0.94130, V.B_Acc_score:0.84669
+			T.Cross_Entr_loss:0.51555, V.Cross_Entr_loss:0.55945
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.55105, T_B_Acc_score: 0.86322
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+date and time = 19_01_2023 01:00:44
+picked channels = ['EEG P4-O2', 'ROC-LOC']
+pre-processing data...
+Counter({'REM behavior disorder': 22, 'control': 6})
+observed min sampling_rate 256
+observed max highpass = 0.30000001192092896 
+observed min lowpass = 30
+total 30sec samples - 30710
+single sample dimention = (2, 7680)
+pathology_distribution in %
+REM behavior disorder : 55.70%
+control : 44.30%
+X.npy, Y.npy are stored at 
+/home/tusharsingh/code_base/Ritika_Plan/Data/modified_data/..
+
+
+NOW TRAINING
+	Epoch:0
+	T.B_Acc_score:0.499, V.B_Acc_score:0.50000
+			T.Cross_Entr_loss:0.68810, V.Cross_Entr_loss:0.68721
+
+	Epoch:10
+	T.B_Acc_score:0.869, V.B_Acc_score:0.82902
+			T.Cross_Entr_loss:0.55100, V.Cross_Entr_loss:0.55787
+
+	Epoch:20
+	T.B_Acc_score:0.910, V.B_Acc_score:0.86149
+			T.Cross_Entr_loss:0.53158, V.Cross_Entr_loss:0.54738
+
+	Epoch:30
+	T.B_Acc_score:0.907, V.B_Acc_score:0.86234
+			T.Cross_Entr_loss:0.53162, V.Cross_Entr_loss:0.55637
+
+	Epoch:40
+	T.B_Acc_score:0.908, V.B_Acc_score:0.85800
+			T.Cross_Entr_loss:0.53123, V.Cross_Entr_loss:0.55878
+
+	Epoch:50
+	T.B_Acc_score:0.921, V.B_Acc_score:0.88954
+			T.Cross_Entr_loss:0.52517, V.Cross_Entr_loss:0.54279
+
+	Epoch:60
+	T.B_Acc_score:0.913, V.B_Acc_score:0.91862
+			T.Cross_Entr_loss:0.52862, V.Cross_Entr_loss:0.52577
+
+	Epoch:70
+	T.B_Acc_score:0.919, V.B_Acc_score:0.89297
+			T.Cross_Entr_loss:0.52577, V.Cross_Entr_loss:0.54096
+
+	Epoch:80
+	T.B_Acc_score:0.921, V.B_Acc_score:0.91414
+			T.Cross_Entr_loss:0.52499, V.Cross_Entr_loss:0.53017
+
+	Epoch:90
+	T.B_Acc_score:0.914, V.B_Acc_score:0.92327
+			T.Cross_Entr_loss:0.52877, V.Cross_Entr_loss:0.52388
+
+	Epoch:100
+	T.B_Acc_score:0.917, V.B_Acc_score:0.92183
+			T.Cross_Entr_loss:0.52691, V.Cross_Entr_loss:0.52402
+
+	Epoch:110
+	T.B_Acc_score:0.920, V.B_Acc_score:0.92090
+			T.Cross_Entr_loss:0.52565, V.Cross_Entr_loss:0.52596
+
+	Epoch:120
+	T.B_Acc_score:0.922, V.B_Acc_score:0.89845
+			T.Cross_Entr_loss:0.52486, V.Cross_Entr_loss:0.53852
+
+	Epoch:130
+	T.B_Acc_score:0.924, V.B_Acc_score:0.92359
+			T.Cross_Entr_loss:0.52370, V.Cross_Entr_loss:0.52455
+
+	Epoch:140
+	T.B_Acc_score:0.919, V.B_Acc_score:0.88174
+			T.Cross_Entr_loss:0.52625, V.Cross_Entr_loss:0.53907
+
+	Epoch:150
+	T.B_Acc_score:0.924, V.B_Acc_score:0.92691
+			T.Cross_Entr_loss:0.52372, V.Cross_Entr_loss:0.52262
+
+	Epoch:160
+	T.B_Acc_score:0.923, V.B_Acc_score:0.90954
+			T.Cross_Entr_loss:0.52420, V.Cross_Entr_loss:0.52808
+
+	Epoch:170
+	T.B_Acc_score:0.925, V.B_Acc_score:0.91839
+			T.Cross_Entr_loss:0.52352, V.Cross_Entr_loss:0.52790
+
+	Epoch:180
+	T.B_Acc_score:0.935, V.B_Acc_score:0.92598
+			T.Cross_Entr_loss:0.51883, V.Cross_Entr_loss:0.52306
+
+	Epoch:190
+	T.B_Acc_score:0.933, V.B_Acc_score:0.91985
+			T.Cross_Entr_loss:0.51993, V.Cross_Entr_loss:0.52710
+
+	Epoch:200
+	T.B_Acc_score:0.934, V.B_Acc_score:0.92897
+			T.Cross_Entr_loss:0.51920, V.Cross_Entr_loss:0.52236
+
+	Epoch:210
+	T.B_Acc_score:0.941, V.B_Acc_score:0.92008
+			T.Cross_Entr_loss:0.51643, V.Cross_Entr_loss:0.52688
+
+	Epoch:220
+	T.B_Acc_score:0.937, V.B_Acc_score:0.92568
+			T.Cross_Entr_loss:0.51792, V.Cross_Entr_loss:0.52389
+
+	Epoch:230
+	T.B_Acc_score:0.939, V.B_Acc_score:0.93057
+			T.Cross_Entr_loss:0.51705, V.Cross_Entr_loss:0.52073
+
+	Epoch:240
+	T.B_Acc_score:0.938, V.B_Acc_score:0.92759
+			T.Cross_Entr_loss:0.51712, V.Cross_Entr_loss:0.52263
+
+	Epoch:250
+	T.B_Acc_score:0.942, V.B_Acc_score:0.92691
+			T.Cross_Entr_loss:0.51609, V.Cross_Entr_loss:0.52188
+
+	Epoch:260
+	T.B_Acc_score:0.941, V.B_Acc_score:0.93006
+			T.Cross_Entr_loss:0.51602, V.Cross_Entr_loss:0.52158
+
+	Epoch:270
+	T.B_Acc_score:0.942, V.B_Acc_score:0.90590
+			T.Cross_Entr_loss:0.51565, V.Cross_Entr_loss:0.53463
+
+	Epoch:280
+	T.B_Acc_score:0.944, V.B_Acc_score:0.92839
+			T.Cross_Entr_loss:0.51473, V.Cross_Entr_loss:0.52288
+
+	Epoch:290
+	T.B_Acc_score:0.948, V.B_Acc_score:0.93334
+			T.Cross_Entr_loss:0.51291, V.Cross_Entr_loss:0.51925
+
+	Epoch:300
+	T.B_Acc_score:0.947, V.B_Acc_score:0.93542
+			T.Cross_Entr_loss:0.51340, V.Cross_Entr_loss:0.51873
+
+	Epoch:310
+	T.B_Acc_score:0.945, V.B_Acc_score:0.92999
+			T.Cross_Entr_loss:0.51427, V.Cross_Entr_loss:0.52042
+
+	Epoch:320
+	T.B_Acc_score:0.948, V.B_Acc_score:0.93412
+			T.Cross_Entr_loss:0.51298, V.Cross_Entr_loss:0.51928
+
+	Epoch:330
+	T.B_Acc_score:0.951, V.B_Acc_score:0.92789
+			T.Cross_Entr_loss:0.51157, V.Cross_Entr_loss:0.52324
+
+	Epoch:340
+	T.B_Acc_score:0.949, V.B_Acc_score:0.93349
+			T.Cross_Entr_loss:0.51292, V.Cross_Entr_loss:0.51917
+
+	Epoch:350
+	T.B_Acc_score:0.949, V.B_Acc_score:0.92679
+			T.Cross_Entr_loss:0.51275, V.Cross_Entr_loss:0.52346
+
+	Epoch:360
+	T.B_Acc_score:0.950, V.B_Acc_score:0.93776
+			T.Cross_Entr_loss:0.51182, V.Cross_Entr_loss:0.51716
+
+	Epoch:370
+	T.B_Acc_score:0.953, V.B_Acc_score:0.93609
+			T.Cross_Entr_loss:0.51060, V.Cross_Entr_loss:0.51875
+
+	Epoch:380
+	T.B_Acc_score:0.954, V.B_Acc_score:0.91854
+			T.Cross_Entr_loss:0.51018, V.Cross_Entr_loss:0.52838
+
+	Epoch:390
+	T.B_Acc_score:0.953, V.B_Acc_score:0.93762
+			T.Cross_Entr_loss:0.51054, V.Cross_Entr_loss:0.51726
+
+	Epoch:400
+	T.B_Acc_score:0.955, V.B_Acc_score:0.93222
+			T.Cross_Entr_loss:0.50999, V.Cross_Entr_loss:0.52061
+
+	Epoch:410
+	T.B_Acc_score:0.954, V.B_Acc_score:0.93996
+			T.Cross_Entr_loss:0.51020, V.Cross_Entr_loss:0.51676
+
+	Epoch:420
+	T.B_Acc_score:0.955, V.B_Acc_score:0.93473
+			T.Cross_Entr_loss:0.51007, V.Cross_Entr_loss:0.51958
+
+	Epoch:430
+	T.B_Acc_score:0.956, V.B_Acc_score:0.93663
+			T.Cross_Entr_loss:0.50952, V.Cross_Entr_loss:0.51814
+
+	Epoch:440
+	T.B_Acc_score:0.954, V.B_Acc_score:0.93491
+			T.Cross_Entr_loss:0.51024, V.Cross_Entr_loss:0.51915
+
+	Epoch:450
+	T.B_Acc_score:0.957, V.B_Acc_score:0.92812
+			T.Cross_Entr_loss:0.50899, V.Cross_Entr_loss:0.52269
+
+	Epoch:460
+	T.B_Acc_score:0.957, V.B_Acc_score:0.93705
+			T.Cross_Entr_loss:0.50899, V.Cross_Entr_loss:0.51821
+
+	Epoch:470
+	T.B_Acc_score:0.957, V.B_Acc_score:0.93682
+			T.Cross_Entr_loss:0.50904, V.Cross_Entr_loss:0.51810
+
+	Epoch:480
+	T.B_Acc_score:0.956, V.B_Acc_score:0.93784
+			T.Cross_Entr_loss:0.50912, V.Cross_Entr_loss:0.51733
+
+	Epoch:490
+	T.B_Acc_score:0.955, V.B_Acc_score:0.93490
+			T.Cross_Entr_loss:0.50968, V.Cross_Entr_loss:0.51915
+
+	Epoch:500
+	T.B_Acc_score:0.956, V.B_Acc_score:0.93531
+			T.Cross_Entr_loss:0.50933, V.Cross_Entr_loss:0.51899
+
+	Epoch:510
+	T.B_Acc_score:0.958, V.B_Acc_score:0.93822
+			T.Cross_Entr_loss:0.50850, V.Cross_Entr_loss:0.51724
+
+Early stopping :(
+	Epoch:510
+	T.B_Acc_score:0.95786, V.B_Acc_score:0.93822
+			T.Cross_Entr_loss:0.50850, V.Cross_Entr_loss:0.51724
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.51664, T_B_Acc_score: 0.93917
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+date and time = 19_01_2023 07:08:12
+picked channels = ['EEG P4-O2', 'ROC-LOC']
+pre-processing data...
+Counter({'control': 6, 'Sleep-disordered breathing': 4})
+observed min sampling_rate 256
+observed max highpass = 0.5 
+observed min lowpass = 30
+total 30sec samples - 13245
+single sample dimention = (2, 7680)
+pathology_distribution in %
+Sleep-disordered breathing : 48.63%
+control : 51.37%
+X.npy, Y.npy are stored at 
+/home/tusharsingh/code_base/Ritika_Plan/Data/modified_data/..
+
+
+NOW TRAINING
+	Epoch:0
+	T.B_Acc_score:0.500, V.B_Acc_score:0.50000
+			T.Cross_Entr_loss:0.69305, V.Cross_Entr_loss:0.69277
+
+	Epoch:10
+	T.B_Acc_score:0.503, V.B_Acc_score:0.50048
+			T.Cross_Entr_loss:0.69204, V.Cross_Entr_loss:0.69120
+
+	Epoch:20
+	T.B_Acc_score:0.716, V.B_Acc_score:0.72165
+			T.Cross_Entr_loss:0.61929, V.Cross_Entr_loss:0.61495
+
+	Epoch:30
+	T.B_Acc_score:0.741, V.B_Acc_score:0.75411
+			T.Cross_Entr_loss:0.60682, V.Cross_Entr_loss:0.60236
+
+	Epoch:40
+	T.B_Acc_score:0.745, V.B_Acc_score:0.70926
+			T.Cross_Entr_loss:0.60442, V.Cross_Entr_loss:0.61768
+
+	Epoch:50
+	T.B_Acc_score:0.751, V.B_Acc_score:0.75722
+			T.Cross_Entr_loss:0.60154, V.Cross_Entr_loss:0.60177
+
+	Epoch:60
+	T.B_Acc_score:0.755, V.B_Acc_score:0.70475
+			T.Cross_Entr_loss:0.60009, V.Cross_Entr_loss:0.62317
+
+	Epoch:70
+	T.B_Acc_score:0.768, V.B_Acc_score:0.77426
+			T.Cross_Entr_loss:0.59376, V.Cross_Entr_loss:0.59246
+
+	Epoch:80
+	T.B_Acc_score:0.776, V.B_Acc_score:0.78342
+			T.Cross_Entr_loss:0.59098, V.Cross_Entr_loss:0.58790
+
+	Epoch:90
+	T.B_Acc_score:0.770, V.B_Acc_score:0.77186
+			T.Cross_Entr_loss:0.59316, V.Cross_Entr_loss:0.59060
+
+	Epoch:100
+	T.B_Acc_score:0.796, V.B_Acc_score:0.71965
+			T.Cross_Entr_loss:0.58207, V.Cross_Entr_loss:0.61658
+
+	Epoch:110
+	T.B_Acc_score:0.809, V.B_Acc_score:0.80555
+			T.Cross_Entr_loss:0.57678, V.Cross_Entr_loss:0.57651
+
+	Epoch:120
+	T.B_Acc_score:0.793, V.B_Acc_score:0.77512
+			T.Cross_Entr_loss:0.58290, V.Cross_Entr_loss:0.59264
+
+	Epoch:130
+	T.B_Acc_score:0.809, V.B_Acc_score:0.80409
+			T.Cross_Entr_loss:0.57573, V.Cross_Entr_loss:0.57736
+
+	Epoch:140
+	T.B_Acc_score:0.835, V.B_Acc_score:0.81981
+			T.Cross_Entr_loss:0.56393, V.Cross_Entr_loss:0.56976
+
+	Epoch:150
+	T.B_Acc_score:0.849, V.B_Acc_score:0.85473
+			T.Cross_Entr_loss:0.55796, V.Cross_Entr_loss:0.55688
+
+	Epoch:160
+	T.B_Acc_score:0.869, V.B_Acc_score:0.86785
+			T.Cross_Entr_loss:0.54981, V.Cross_Entr_loss:0.55016
+
+	Epoch:170
+	T.B_Acc_score:0.879, V.B_Acc_score:0.87601
+			T.Cross_Entr_loss:0.54528, V.Cross_Entr_loss:0.54684
+
+	Epoch:180
+	T.B_Acc_score:0.887, V.B_Acc_score:0.87979
+			T.Cross_Entr_loss:0.54209, V.Cross_Entr_loss:0.54457
+
+	Epoch:190
+	T.B_Acc_score:0.896, V.B_Acc_score:0.87385
+			T.Cross_Entr_loss:0.53824, V.Cross_Entr_loss:0.54617
+
+	Epoch:200
+	T.B_Acc_score:0.888, V.B_Acc_score:0.88131
+			T.Cross_Entr_loss:0.54090, V.Cross_Entr_loss:0.54346
+
+	Epoch:210
+	T.B_Acc_score:0.890, V.B_Acc_score:0.88635
+			T.Cross_Entr_loss:0.53938, V.Cross_Entr_loss:0.54182
+
+	Epoch:220
+	T.B_Acc_score:0.909, V.B_Acc_score:0.88413
+			T.Cross_Entr_loss:0.53096, V.Cross_Entr_loss:0.54178
+
+	Epoch:230
+	T.B_Acc_score:0.909, V.B_Acc_score:0.88097
+			T.Cross_Entr_loss:0.53101, V.Cross_Entr_loss:0.54267
+
+	Epoch:240
+	T.B_Acc_score:0.913, V.B_Acc_score:0.89140
+			T.Cross_Entr_loss:0.52914, V.Cross_Entr_loss:0.53856
+
+	Epoch:250
+	T.B_Acc_score:0.919, V.B_Acc_score:0.85872
+			T.Cross_Entr_loss:0.52651, V.Cross_Entr_loss:0.55370
+
+	Epoch:260
+	T.B_Acc_score:0.922, V.B_Acc_score:0.89355
+			T.Cross_Entr_loss:0.52547, V.Cross_Entr_loss:0.53781
+
+	Epoch:270
+	T.B_Acc_score:0.921, V.B_Acc_score:0.89063
+			T.Cross_Entr_loss:0.52549, V.Cross_Entr_loss:0.53918
+
+	Epoch:280
+	T.B_Acc_score:0.926, V.B_Acc_score:0.89141
+			T.Cross_Entr_loss:0.52411, V.Cross_Entr_loss:0.53862
+
+	Epoch:290
+	T.B_Acc_score:0.928, V.B_Acc_score:0.89790
+			T.Cross_Entr_loss:0.52258, V.Cross_Entr_loss:0.53644
+
+	Epoch:300
+	T.B_Acc_score:0.933, V.B_Acc_score:0.90115
+			T.Cross_Entr_loss:0.52041, V.Cross_Entr_loss:0.53342
+
+	Epoch:310
+	T.B_Acc_score:0.924, V.B_Acc_score:0.90448
+			T.Cross_Entr_loss:0.52453, V.Cross_Entr_loss:0.53308
+
+	Epoch:320
+	T.B_Acc_score:0.936, V.B_Acc_score:0.89682
+			T.Cross_Entr_loss:0.51923, V.Cross_Entr_loss:0.53667
+
+	Epoch:330
+	T.B_Acc_score:0.935, V.B_Acc_score:0.90475
+			T.Cross_Entr_loss:0.51923, V.Cross_Entr_loss:0.53234
+
+	Epoch:340
+	T.B_Acc_score:0.940, V.B_Acc_score:0.89139
+			T.Cross_Entr_loss:0.51727, V.Cross_Entr_loss:0.53891
+
+	Epoch:350
+	T.B_Acc_score:0.936, V.B_Acc_score:0.90593
+			T.Cross_Entr_loss:0.51867, V.Cross_Entr_loss:0.53282
+
+	Epoch:360
+	T.B_Acc_score:0.943, V.B_Acc_score:0.90975
+			T.Cross_Entr_loss:0.51555, V.Cross_Entr_loss:0.53119
+
+	Epoch:370
+	T.B_Acc_score:0.941, V.B_Acc_score:0.89635
+			T.Cross_Entr_loss:0.51627, V.Cross_Entr_loss:0.53538
+
+	Epoch:380
+	T.B_Acc_score:0.943, V.B_Acc_score:0.89208
+			T.Cross_Entr_loss:0.51552, V.Cross_Entr_loss:0.53957
+
+	Epoch:390
+	T.B_Acc_score:0.946, V.B_Acc_score:0.90271
+			T.Cross_Entr_loss:0.51382, V.Cross_Entr_loss:0.53294
+
+	Epoch:400
+	T.B_Acc_score:0.929, V.B_Acc_score:0.88938
+			T.Cross_Entr_loss:0.52139, V.Cross_Entr_loss:0.54024
+
+	Epoch:410
+	T.B_Acc_score:0.949, V.B_Acc_score:0.90710
+			T.Cross_Entr_loss:0.51297, V.Cross_Entr_loss:0.53067
+
+	Epoch:420
+	T.B_Acc_score:0.951, V.B_Acc_score:0.91043
+			T.Cross_Entr_loss:0.51170, V.Cross_Entr_loss:0.52972
+
+	Epoch:430
+	T.B_Acc_score:0.944, V.B_Acc_score:0.89119
+			T.Cross_Entr_loss:0.51494, V.Cross_Entr_loss:0.53901
+
+	Epoch:440
+	T.B_Acc_score:0.950, V.B_Acc_score:0.91255
+			T.Cross_Entr_loss:0.51221, V.Cross_Entr_loss:0.52956
+
+	Epoch:450
+	T.B_Acc_score:0.956, V.B_Acc_score:0.91451
+			T.Cross_Entr_loss:0.50928, V.Cross_Entr_loss:0.52869
+
+	Epoch:460
+	T.B_Acc_score:0.955, V.B_Acc_score:0.91031
+			T.Cross_Entr_loss:0.50999, V.Cross_Entr_loss:0.53086
+
+	Epoch:470
+	T.B_Acc_score:0.952, V.B_Acc_score:0.90733
+			T.Cross_Entr_loss:0.51084, V.Cross_Entr_loss:0.53044
+
+	Epoch:480
+	T.B_Acc_score:0.952, V.B_Acc_score:0.90419
+			T.Cross_Entr_loss:0.51093, V.Cross_Entr_loss:0.53214
+
+	Epoch:490
+	T.B_Acc_score:0.942, V.B_Acc_score:0.90539
+			T.Cross_Entr_loss:0.51601, V.Cross_Entr_loss:0.53209
+
+	Epoch:500
+	T.B_Acc_score:0.957, V.B_Acc_score:0.90669
+			T.Cross_Entr_loss:0.50914, V.Cross_Entr_loss:0.53114
+
+	Epoch:510
+	T.B_Acc_score:0.957, V.B_Acc_score:0.91406
+			T.Cross_Entr_loss:0.50887, V.Cross_Entr_loss:0.52859
+
+	Epoch:520
+	T.B_Acc_score:0.953, V.B_Acc_score:0.89019
+			T.Cross_Entr_loss:0.51089, V.Cross_Entr_loss:0.53969
+
+	Epoch:530
+	T.B_Acc_score:0.951, V.B_Acc_score:0.90886
+			T.Cross_Entr_loss:0.51136, V.Cross_Entr_loss:0.53055
+
+	Epoch:540
+	T.B_Acc_score:0.957, V.B_Acc_score:0.91599
+			T.Cross_Entr_loss:0.50867, V.Cross_Entr_loss:0.52757
+
+	Epoch:550
+	T.B_Acc_score:0.962, V.B_Acc_score:0.91286
+			T.Cross_Entr_loss:0.50652, V.Cross_Entr_loss:0.52900
+
+	Epoch:560
+	T.B_Acc_score:0.961, V.B_Acc_score:0.90636
+			T.Cross_Entr_loss:0.50717, V.Cross_Entr_loss:0.53198
+
+	Epoch:570
+	T.B_Acc_score:0.962, V.B_Acc_score:0.90970
+			T.Cross_Entr_loss:0.50686, V.Cross_Entr_loss:0.53036
+
+	Epoch:580
+	T.B_Acc_score:0.950, V.B_Acc_score:0.90422
+			T.Cross_Entr_loss:0.51169, V.Cross_Entr_loss:0.53266
+
+	Epoch:590
+	T.B_Acc_score:0.959, V.B_Acc_score:0.91149
+			T.Cross_Entr_loss:0.50776, V.Cross_Entr_loss:0.53072
+
+	Epoch:600
+	T.B_Acc_score:0.960, V.B_Acc_score:0.91003
+			T.Cross_Entr_loss:0.50754, V.Cross_Entr_loss:0.52985
+
+	Epoch:610
+	T.B_Acc_score:0.964, V.B_Acc_score:0.91391
+			T.Cross_Entr_loss:0.50561, V.Cross_Entr_loss:0.52846
+
+	Epoch:620
+	T.B_Acc_score:0.965, V.B_Acc_score:0.91531
+			T.Cross_Entr_loss:0.50542, V.Cross_Entr_loss:0.52778
+
+	Epoch:630
+	T.B_Acc_score:0.958, V.B_Acc_score:0.90778
+			T.Cross_Entr_loss:0.50816, V.Cross_Entr_loss:0.53073
+
+	Epoch:640
+	T.B_Acc_score:0.964, V.B_Acc_score:0.91763
+			T.Cross_Entr_loss:0.50587, V.Cross_Entr_loss:0.52734
+
+	Epoch:650
+	T.B_Acc_score:0.967, V.B_Acc_score:0.91078
+			T.Cross_Entr_loss:0.50395, V.Cross_Entr_loss:0.52970
+
+	Epoch:660
+	T.B_Acc_score:0.957, V.B_Acc_score:0.90060
+			T.Cross_Entr_loss:0.50844, V.Cross_Entr_loss:0.53492
+
+	Epoch:670
+	T.B_Acc_score:0.961, V.B_Acc_score:0.89999
+			T.Cross_Entr_loss:0.50673, V.Cross_Entr_loss:0.53545
+
+	Epoch:680
+	T.B_Acc_score:0.963, V.B_Acc_score:0.91133
+			T.Cross_Entr_loss:0.50628, V.Cross_Entr_loss:0.52941
+
+	Epoch:690
+	T.B_Acc_score:0.966, V.B_Acc_score:0.90565
+			T.Cross_Entr_loss:0.50443, V.Cross_Entr_loss:0.53165
+
+	Epoch:700
+	T.B_Acc_score:0.968, V.B_Acc_score:0.91531
+			T.Cross_Entr_loss:0.50365, V.Cross_Entr_loss:0.52849
+
+	Epoch:710
+	T.B_Acc_score:0.965, V.B_Acc_score:0.91182
+			T.Cross_Entr_loss:0.50501, V.Cross_Entr_loss:0.52982
+
+Early stopping :(
+	Epoch:712
+	T.B_Acc_score:0.96863, V.B_Acc_score:0.91636
+			T.Cross_Entr_loss:0.50336, V.Cross_Entr_loss:0.52750
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.52823, T_B_Acc_score: 0.91467
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+date and time = 19_01_2023 07:51:58
+picked channels = ['EEG P4-O2', 'ROC-LOC']
+pre-processing data...
+Counter({'control': 6, 'Bruxism': 2})
+observed min sampling_rate 256
+observed max highpass = 0.30000001192092896 
+observed min lowpass = 30
+total 30sec samples - 10396
+single sample dimention = (2, 7680)
+pathology_distribution in %
+Bruxism : 43.88%
+control : 56.12%
+X.npy, Y.npy are stored at 
+/home/tusharsingh/code_base/Ritika_Plan/Data/modified_data/..
+
+
+NOW TRAINING
+	Epoch:0
+	T.B_Acc_score:0.494, V.B_Acc_score:0.50000
+			T.Cross_Entr_loss:0.68986, V.Cross_Entr_loss:0.68653
+
+	Epoch:10
+	T.B_Acc_score:0.500, V.B_Acc_score:0.50000
+			T.Cross_Entr_loss:0.68554, V.Cross_Entr_loss:0.68557
+
+	Epoch:20
+	T.B_Acc_score:0.500, V.B_Acc_score:0.50000
+			T.Cross_Entr_loss:0.68488, V.Cross_Entr_loss:0.68491
+
+	Epoch:30
+	T.B_Acc_score:0.500, V.B_Acc_score:0.50000
+			T.Cross_Entr_loss:0.68170, V.Cross_Entr_loss:0.68269
+
+	Epoch:40
+	T.B_Acc_score:0.501, V.B_Acc_score:0.50000
+			T.Cross_Entr_loss:0.67746, V.Cross_Entr_loss:0.67982
+
+	Epoch:50
+	T.B_Acc_score:0.575, V.B_Acc_score:0.56738
+			T.Cross_Entr_loss:0.65798, V.Cross_Entr_loss:0.66304
+
+	Epoch:60
+	T.B_Acc_score:0.598, V.B_Acc_score:0.58724
+			T.Cross_Entr_loss:0.65235, V.Cross_Entr_loss:0.65620
+
+	Epoch:70
+	T.B_Acc_score:0.644, V.B_Acc_score:0.63324
+			T.Cross_Entr_loss:0.64165, V.Cross_Entr_loss:0.65017
+
+	Epoch:80
+	T.B_Acc_score:0.657, V.B_Acc_score:0.63590
+			T.Cross_Entr_loss:0.63734, V.Cross_Entr_loss:0.64613
+
+	Epoch:90
+	T.B_Acc_score:0.654, V.B_Acc_score:0.64371
+			T.Cross_Entr_loss:0.63733, V.Cross_Entr_loss:0.65111
+
+	Epoch:100
+	T.B_Acc_score:0.696, V.B_Acc_score:0.64540
+			T.Cross_Entr_loss:0.62610, V.Cross_Entr_loss:0.63903
+
+	Epoch:110
+	T.B_Acc_score:0.705, V.B_Acc_score:0.66374
+			T.Cross_Entr_loss:0.62076, V.Cross_Entr_loss:0.63850
+
+	Epoch:120
+	T.B_Acc_score:0.712, V.B_Acc_score:0.67409
+			T.Cross_Entr_loss:0.61729, V.Cross_Entr_loss:0.63186
+
+	Epoch:130
+	T.B_Acc_score:0.728, V.B_Acc_score:0.68531
+			T.Cross_Entr_loss:0.61126, V.Cross_Entr_loss:0.62782
+
+	Epoch:140
+	T.B_Acc_score:0.742, V.B_Acc_score:0.68172
+			T.Cross_Entr_loss:0.60473, V.Cross_Entr_loss:0.62769
+
+	Epoch:150
+	T.B_Acc_score:0.753, V.B_Acc_score:0.67780
+			T.Cross_Entr_loss:0.60212, V.Cross_Entr_loss:0.62754
+
+	Epoch:160
+	T.B_Acc_score:0.762, V.B_Acc_score:0.70211
+			T.Cross_Entr_loss:0.59643, V.Cross_Entr_loss:0.62440
+
+	Epoch:170
+	T.B_Acc_score:0.771, V.B_Acc_score:0.70345
+			T.Cross_Entr_loss:0.59284, V.Cross_Entr_loss:0.62412
+
+	Epoch:180
+	T.B_Acc_score:0.774, V.B_Acc_score:0.70514
+			T.Cross_Entr_loss:0.59102, V.Cross_Entr_loss:0.62030
+
+	Epoch:190
+	T.B_Acc_score:0.794, V.B_Acc_score:0.70509
+			T.Cross_Entr_loss:0.58313, V.Cross_Entr_loss:0.61901
+
+	Epoch:200
+	T.B_Acc_score:0.801, V.B_Acc_score:0.71731
+			T.Cross_Entr_loss:0.57977, V.Cross_Entr_loss:0.61623
+
+	Epoch:210
+	T.B_Acc_score:0.809, V.B_Acc_score:0.71382
+			T.Cross_Entr_loss:0.57679, V.Cross_Entr_loss:0.61341
+
+	Epoch:220
+	T.B_Acc_score:0.806, V.B_Acc_score:0.72557
+			T.Cross_Entr_loss:0.57594, V.Cross_Entr_loss:0.61359
+
+	Epoch:230
+	T.B_Acc_score:0.822, V.B_Acc_score:0.72561
+			T.Cross_Entr_loss:0.56957, V.Cross_Entr_loss:0.61139
+
+	Epoch:240
+	T.B_Acc_score:0.827, V.B_Acc_score:0.73364
+			T.Cross_Entr_loss:0.56712, V.Cross_Entr_loss:0.60978
+
+	Epoch:250
+	T.B_Acc_score:0.834, V.B_Acc_score:0.73716
+			T.Cross_Entr_loss:0.56481, V.Cross_Entr_loss:0.60764
+
+	Epoch:260
+	T.B_Acc_score:0.844, V.B_Acc_score:0.74186
+			T.Cross_Entr_loss:0.56062, V.Cross_Entr_loss:0.60418
+
+	Epoch:270
+	T.B_Acc_score:0.851, V.B_Acc_score:0.76074
+			T.Cross_Entr_loss:0.55710, V.Cross_Entr_loss:0.59839
+
+	Epoch:280
+	T.B_Acc_score:0.856, V.B_Acc_score:0.76102
+			T.Cross_Entr_loss:0.55547, V.Cross_Entr_loss:0.59752
+
+	Epoch:290
+	T.B_Acc_score:0.862, V.B_Acc_score:0.76112
+			T.Cross_Entr_loss:0.55296, V.Cross_Entr_loss:0.59855
+
+	Epoch:300
+	T.B_Acc_score:0.865, V.B_Acc_score:0.76732
+			T.Cross_Entr_loss:0.55018, V.Cross_Entr_loss:0.59451
+
+	Epoch:310
+	T.B_Acc_score:0.866, V.B_Acc_score:0.77855
+			T.Cross_Entr_loss:0.55055, V.Cross_Entr_loss:0.59140
+
+	Epoch:320
+	T.B_Acc_score:0.877, V.B_Acc_score:0.78052
+			T.Cross_Entr_loss:0.54608, V.Cross_Entr_loss:0.59036
+
+	Epoch:330
+	T.B_Acc_score:0.875, V.B_Acc_score:0.77469
+			T.Cross_Entr_loss:0.54571, V.Cross_Entr_loss:0.59106
+
+	Epoch:340
+	T.B_Acc_score:0.879, V.B_Acc_score:0.78996
+			T.Cross_Entr_loss:0.54361, V.Cross_Entr_loss:0.58716
+
+	Epoch:350
+	T.B_Acc_score:0.892, V.B_Acc_score:0.78523
+			T.Cross_Entr_loss:0.53863, V.Cross_Entr_loss:0.58857
+
+	Epoch:360
+	T.B_Acc_score:0.894, V.B_Acc_score:0.79957
+			T.Cross_Entr_loss:0.53798, V.Cross_Entr_loss:0.58224
+
+	Epoch:370
+	T.B_Acc_score:0.894, V.B_Acc_score:0.79218
+			T.Cross_Entr_loss:0.53731, V.Cross_Entr_loss:0.58622
+
+	Epoch:380
+	T.B_Acc_score:0.901, V.B_Acc_score:0.78642
+			T.Cross_Entr_loss:0.53439, V.Cross_Entr_loss:0.58625
+
+	Epoch:390
+	T.B_Acc_score:0.902, V.B_Acc_score:0.79906
+			T.Cross_Entr_loss:0.53455, V.Cross_Entr_loss:0.58104
+
+	Epoch:400
+	T.B_Acc_score:0.906, V.B_Acc_score:0.80613
+			T.Cross_Entr_loss:0.53256, V.Cross_Entr_loss:0.57717
+
+	Epoch:410
+	T.B_Acc_score:0.911, V.B_Acc_score:0.80327
+			T.Cross_Entr_loss:0.52941, V.Cross_Entr_loss:0.58030
+
+	Epoch:420
+	T.B_Acc_score:0.916, V.B_Acc_score:0.80500
+			T.Cross_Entr_loss:0.52773, V.Cross_Entr_loss:0.58079
+
+	Epoch:430
+	T.B_Acc_score:0.916, V.B_Acc_score:0.79534
+			T.Cross_Entr_loss:0.52732, V.Cross_Entr_loss:0.58531
+
+	Epoch:440
+	T.B_Acc_score:0.917, V.B_Acc_score:0.80194
+			T.Cross_Entr_loss:0.52647, V.Cross_Entr_loss:0.58117
+
+	Epoch:450
+	T.B_Acc_score:0.922, V.B_Acc_score:0.82527
+			T.Cross_Entr_loss:0.52515, V.Cross_Entr_loss:0.56939
+
+	Epoch:460
+	T.B_Acc_score:0.928, V.B_Acc_score:0.80830
+			T.Cross_Entr_loss:0.52119, V.Cross_Entr_loss:0.57693
+
+	Epoch:470
+	T.B_Acc_score:0.932, V.B_Acc_score:0.81999
+			T.Cross_Entr_loss:0.52050, V.Cross_Entr_loss:0.57424
+
+	Epoch:480
+	T.B_Acc_score:0.930, V.B_Acc_score:0.82552
+			T.Cross_Entr_loss:0.52088, V.Cross_Entr_loss:0.56987
+
+	Epoch:490
+	T.B_Acc_score:0.936, V.B_Acc_score:0.83072
+			T.Cross_Entr_loss:0.51815, V.Cross_Entr_loss:0.56714
+
+	Epoch:500
+	T.B_Acc_score:0.935, V.B_Acc_score:0.83254
+			T.Cross_Entr_loss:0.51910, V.Cross_Entr_loss:0.56586
+
+	Epoch:510
+	T.B_Acc_score:0.938, V.B_Acc_score:0.82849
+			T.Cross_Entr_loss:0.51683, V.Cross_Entr_loss:0.56800
+
+	Epoch:520
+	T.B_Acc_score:0.941, V.B_Acc_score:0.83209
+			T.Cross_Entr_loss:0.51613, V.Cross_Entr_loss:0.56628
+
+	Epoch:530
+	T.B_Acc_score:0.946, V.B_Acc_score:0.82457
+			T.Cross_Entr_loss:0.51341, V.Cross_Entr_loss:0.56990
+
+	Epoch:540
+	T.B_Acc_score:0.940, V.B_Acc_score:0.83171
+			T.Cross_Entr_loss:0.51628, V.Cross_Entr_loss:0.56595
+
+	Epoch:550
+	T.B_Acc_score:0.942, V.B_Acc_score:0.82734
+			T.Cross_Entr_loss:0.51531, V.Cross_Entr_loss:0.56820
+
+	Epoch:560
+	T.B_Acc_score:0.950, V.B_Acc_score:0.82215
+			T.Cross_Entr_loss:0.51114, V.Cross_Entr_loss:0.57216
+
+	Epoch:570
+	T.B_Acc_score:0.944, V.B_Acc_score:0.83650
+			T.Cross_Entr_loss:0.51351, V.Cross_Entr_loss:0.56284
+
+	Epoch:580
+	T.B_Acc_score:0.950, V.B_Acc_score:0.84329
+			T.Cross_Entr_loss:0.51140, V.Cross_Entr_loss:0.56138
+
+	Epoch:590
+	T.B_Acc_score:0.952, V.B_Acc_score:0.83734
+			T.Cross_Entr_loss:0.51109, V.Cross_Entr_loss:0.56267
+
+	Epoch:600
+	T.B_Acc_score:0.949, V.B_Acc_score:0.82658
+			T.Cross_Entr_loss:0.51116, V.Cross_Entr_loss:0.57047
+
+	Epoch:610
+	T.B_Acc_score:0.953, V.B_Acc_score:0.82673
+			T.Cross_Entr_loss:0.51002, V.Cross_Entr_loss:0.56911
+
+	Epoch:620
+	T.B_Acc_score:0.955, V.B_Acc_score:0.83949
+			T.Cross_Entr_loss:0.50955, V.Cross_Entr_loss:0.56316
+
+	Epoch:630
+	T.B_Acc_score:0.956, V.B_Acc_score:0.83889
+			T.Cross_Entr_loss:0.50905, V.Cross_Entr_loss:0.56423
+
+	Epoch:640
+	T.B_Acc_score:0.961, V.B_Acc_score:0.83467
+			T.Cross_Entr_loss:0.50607, V.Cross_Entr_loss:0.56579
+
+	Epoch:650
+	T.B_Acc_score:0.958, V.B_Acc_score:0.85192
+			T.Cross_Entr_loss:0.50772, V.Cross_Entr_loss:0.55637
+
+	Epoch:660
+	T.B_Acc_score:0.961, V.B_Acc_score:0.84669
+			T.Cross_Entr_loss:0.50645, V.Cross_Entr_loss:0.55902
+
+	Epoch:670
+	T.B_Acc_score:0.958, V.B_Acc_score:0.82249
+			T.Cross_Entr_loss:0.50756, V.Cross_Entr_loss:0.57191
+
+	Epoch:680
+	T.B_Acc_score:0.962, V.B_Acc_score:0.83786
+			T.Cross_Entr_loss:0.50545, V.Cross_Entr_loss:0.56516
+
+	Epoch:690
+	T.B_Acc_score:0.963, V.B_Acc_score:0.85065
+			T.Cross_Entr_loss:0.50524, V.Cross_Entr_loss:0.55919
+
+	Epoch:700
+	T.B_Acc_score:0.960, V.B_Acc_score:0.83397
+			T.Cross_Entr_loss:0.50662, V.Cross_Entr_loss:0.56702
+
+	Epoch:710
+	T.B_Acc_score:0.964, V.B_Acc_score:0.84551
+			T.Cross_Entr_loss:0.50461, V.Cross_Entr_loss:0.56168
+
+	Epoch:720
+	T.B_Acc_score:0.961, V.B_Acc_score:0.85727
+			T.Cross_Entr_loss:0.50575, V.Cross_Entr_loss:0.55313
+
+	Epoch:730
+	T.B_Acc_score:0.959, V.B_Acc_score:0.85463
+			T.Cross_Entr_loss:0.50659, V.Cross_Entr_loss:0.55647
+
+	Epoch:740
+	T.B_Acc_score:0.964, V.B_Acc_score:0.85859
+			T.Cross_Entr_loss:0.50523, V.Cross_Entr_loss:0.55478
+
+	Epoch:750
+	T.B_Acc_score:0.964, V.B_Acc_score:0.85339
+			T.Cross_Entr_loss:0.50464, V.Cross_Entr_loss:0.55680
+
+	Epoch:760
+	T.B_Acc_score:0.966, V.B_Acc_score:0.86240
+			T.Cross_Entr_loss:0.50341, V.Cross_Entr_loss:0.55400
+
+	Epoch:770
+	T.B_Acc_score:0.966, V.B_Acc_score:0.85720
+			T.Cross_Entr_loss:0.50360, V.Cross_Entr_loss:0.55572
+
+	Epoch:780
+	T.B_Acc_score:0.967, V.B_Acc_score:0.84572
+			T.Cross_Entr_loss:0.50310, V.Cross_Entr_loss:0.56212
+
+	Epoch:790
+	T.B_Acc_score:0.967, V.B_Acc_score:0.84504
+			T.Cross_Entr_loss:0.50312, V.Cross_Entr_loss:0.56287
+
+	Epoch:800
+	T.B_Acc_score:0.968, V.B_Acc_score:0.84964
+			T.Cross_Entr_loss:0.50252, V.Cross_Entr_loss:0.55891
+
+	Epoch:810
+	T.B_Acc_score:0.967, V.B_Acc_score:0.85714
+			T.Cross_Entr_loss:0.50308, V.Cross_Entr_loss:0.55485
+
+	Epoch:820
+	T.B_Acc_score:0.967, V.B_Acc_score:0.86198
+			T.Cross_Entr_loss:0.50307, V.Cross_Entr_loss:0.55197
+
+	Epoch:830
+	T.B_Acc_score:0.971, V.B_Acc_score:0.86463
+			T.Cross_Entr_loss:0.50125, V.Cross_Entr_loss:0.55144
+
+	Epoch:840
+	T.B_Acc_score:0.969, V.B_Acc_score:0.86508
+			T.Cross_Entr_loss:0.50195, V.Cross_Entr_loss:0.55276
+
+	Epoch:850
+	T.B_Acc_score:0.968, V.B_Acc_score:0.84789
+			T.Cross_Entr_loss:0.50277, V.Cross_Entr_loss:0.55899
+
+	Epoch:860
+	T.B_Acc_score:0.968, V.B_Acc_score:0.85737
+			T.Cross_Entr_loss:0.50277, V.Cross_Entr_loss:0.55434
+
+	Epoch:870
+	T.B_Acc_score:0.970, V.B_Acc_score:0.85339
+			T.Cross_Entr_loss:0.50171, V.Cross_Entr_loss:0.55692
+
+	Epoch:880
+	T.B_Acc_score:0.970, V.B_Acc_score:0.86341
+			T.Cross_Entr_loss:0.50119, V.Cross_Entr_loss:0.55140
+
+	Epoch:890
+	T.B_Acc_score:0.973, V.B_Acc_score:0.86686
+			T.Cross_Entr_loss:0.50028, V.Cross_Entr_loss:0.54991
+
+	Epoch:900
+	T.B_Acc_score:0.969, V.B_Acc_score:0.83463
+			T.Cross_Entr_loss:0.50167, V.Cross_Entr_loss:0.56655
+
+	Epoch:910
+	T.B_Acc_score:0.972, V.B_Acc_score:0.85024
+			T.Cross_Entr_loss:0.50057, V.Cross_Entr_loss:0.55896
+
+	Epoch:920
+	T.B_Acc_score:0.972, V.B_Acc_score:0.83677
+			T.Cross_Entr_loss:0.50083, V.Cross_Entr_loss:0.56535
+
+	Epoch:930
+	T.B_Acc_score:0.975, V.B_Acc_score:0.85750
+			T.Cross_Entr_loss:0.49945, V.Cross_Entr_loss:0.55579
+
+	Epoch:940
+	T.B_Acc_score:0.968, V.B_Acc_score:0.83829
+			T.Cross_Entr_loss:0.50242, V.Cross_Entr_loss:0.56578
+
+	Epoch:950
+	T.B_Acc_score:0.974, V.B_Acc_score:0.86017
+			T.Cross_Entr_loss:0.49947, V.Cross_Entr_loss:0.55285
+
+	Epoch:960
+	T.B_Acc_score:0.975, V.B_Acc_score:0.84426
+			T.Cross_Entr_loss:0.49910, V.Cross_Entr_loss:0.56256
+
+	Epoch:970
+	T.B_Acc_score:0.976, V.B_Acc_score:0.86354
+			T.Cross_Entr_loss:0.49907, V.Cross_Entr_loss:0.55215
+
+	Epoch:980
+	T.B_Acc_score:0.976, V.B_Acc_score:0.84670
+			T.Cross_Entr_loss:0.49910, V.Cross_Entr_loss:0.56154
+
+	Epoch:990
+	T.B_Acc_score:0.976, V.B_Acc_score:0.84641
+			T.Cross_Entr_loss:0.49876, V.Cross_Entr_loss:0.56178
+
+	Epoch:999
+	T.B_Acc_score:0.975, V.B_Acc_score:0.85214
+			T.Cross_Entr_loss:0.49969, V.Cross_Entr_loss:0.55884
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.53969, T_B_Acc_score: 0.88687
+----------------------------------------------------------------------------------------------------
+
+
+
+
+

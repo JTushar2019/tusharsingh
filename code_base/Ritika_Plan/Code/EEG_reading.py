@@ -1,7 +1,6 @@
 from collections import Counter, defaultdict
 import shutil
 from global_variables import *
-import scipy.io as sio
 import numpy as np
 import os
 import mne
@@ -14,11 +13,11 @@ def get_file_path_for(pathology):
     X = []
     Y = []
     for subject_file in os.scandir(data_folder_path):
-        if subject_file.name.endswith('edf') and re.search(f"{pathology}[0-9]+", subject_file.name) is not None:
-            # print(re.search(f"{pathology}[0-9]+", subject_file.name).group(0), pathology)
-            edf = mne.io.read_raw(subject_file, verbose=0)
-            temp = [x.replace("-", "") for x in edf.ch_names]
-            if set(decided_channels).issubset(temp):
+        if subject_file.name.endswith('fif') and re.search(f"{pathology}[0-9]+", subject_file.name) is not None:
+            name = f'{data_folder_path}/{subject_file.name}'
+            edf = mne.io.read_raw(name, verbose=0)
+
+            if set(decided_channels).issubset(edf.info.ch_names):
                 X.append(f'{data_folder_path}/{subject_file.name}')
                 Y.append(pathology_dict[pathology])
                 sampling_frequency = min(sampling_frequency, edf.info['sfreq'])
@@ -61,16 +60,19 @@ def modify_and_store_EEG(X, Y, pathology_distribution):
 
 
 def data_augment(x, y, store_path):
-    global window_size, stride
+    global window_size, pathology_time_overlap
+    
+    time_overlap = pathology_time_overlap[y]
+
     window_size = int(time_window * sampling_frequency)
-    stride = int(time_overlap * sampling_frequency)
+    stride = window_size - int(time_overlap * sampling_frequency)
     eeg = mne.io.read_raw(x, preload=True, verbose=False)
     eeg = eeg.pick_channels(dicided_channels_name)
     eeg = eeg.filter(highpass, lowpass, verbose=False)
     eeg = eeg.resample(sampling_frequency)
     eeg = eeg.get_data()
 
-    eeg_file_name = x.split('/')[-1].removesuffix(".edf")
+    eeg_file_name = x.split('/')[-1].removesuffix("_raw.fif")
     X = []
     for start in range(0, eeg.shape[1], stride):
         end = start + window_size
