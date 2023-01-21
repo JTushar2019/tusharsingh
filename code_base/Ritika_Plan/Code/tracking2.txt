@@ -2465,3 +2465,528 @@ Test_DATA: Cross_Entr_loss: 0.53969, T_B_Acc_score: 0.88687
 
 
 
+__________with no augmentation and weighted cross entropy loss________
+
+
+date and time = 20_01_2023 12:39:19
+picked channels = ['EEG P4-O2', 'EEG C4-P4', 'EEG F4-C4', 'EEG C4-A1', 'ROC-LOC']
+pre-processing data...
+Counter({'Nocturnal frontal lobe epilepsy': 38, 'Control': 6})
+observed min sampling_rate 256
+observed max highpass = 0.5 
+observed min lowpass = 30
+total 30sec samples - 47007
+single sample dimention = (5, 7680)
+pathology_distribution in %
+Nocturnal frontal lobe epilepsy : 85.53%
+Control : 14.47%
+X.npy, Y.npy are stored at 
+/home/tusharsingh/code_base/Ritika_Plan/Data/modified_data/..
+
+
+NOW TRAINING
+['Control', 'Nocturnal frontal lobe epilepsy']
+	Epoch:0
+		T.B_Acc_score:0.50217,     V.B_Acc_score:0.50000
+		T.Cross_Entr_loss:0.69345, V.Cross_Entr_loss:0.69324
+
+	Epoch:10
+		T.B_Acc_score:0.51446,     V.B_Acc_score:0.51285
+		T.Cross_Entr_loss:0.69097, V.Cross_Entr_loss:0.69091
+
+	Epoch:20
+		T.B_Acc_score:0.58312,     V.B_Acc_score:0.61556
+		T.Cross_Entr_loss:0.67562, V.Cross_Entr_loss:0.66547
+
+	Epoch:30
+		T.B_Acc_score:0.63273,     V.B_Acc_score:0.62906
+		T.Cross_Entr_loss:0.65416, V.Cross_Entr_loss:0.65488
+
+	Epoch:40
+		T.B_Acc_score:0.65554,     V.B_Acc_score:0.63629
+		T.Cross_Entr_loss:0.64544, V.Cross_Entr_loss:0.65182
+
+	Epoch:50
+		T.B_Acc_score:0.68023,     V.B_Acc_score:0.64021
+		T.Cross_Entr_loss:0.63507, V.Cross_Entr_loss:0.65140
+
+	Epoch:60
+		T.B_Acc_score:0.68952,     V.B_Acc_score:0.63230
+		T.Cross_Entr_loss:0.63122, V.Cross_Entr_loss:0.65344
+
+	Epoch:70
+		T.B_Acc_score:0.70474,     V.B_Acc_score:0.64383
+		T.Cross_Entr_loss:0.62444, V.Cross_Entr_loss:0.64960
+
+	Epoch:80
+		T.B_Acc_score:0.71712,     V.B_Acc_score:0.64794
+		T.Cross_Entr_loss:0.61805, V.Cross_Entr_loss:0.64821
+
+	Epoch:90
+		T.B_Acc_score:0.73065,     V.B_Acc_score:0.65467
+		T.Cross_Entr_loss:0.61276, V.Cross_Entr_loss:0.64722
+
+	Epoch:100
+		T.B_Acc_score:0.74484,     V.B_Acc_score:0.65780
+		T.Cross_Entr_loss:0.60556, V.Cross_Entr_loss:0.64578
+
+	Epoch:110
+		T.B_Acc_score:0.77485,     V.B_Acc_score:0.67131
+		T.Cross_Entr_loss:0.59288, V.Cross_Entr_loss:0.64028
+
+	Epoch:120
+		T.B_Acc_score:0.77946,     V.B_Acc_score:0.66370
+		T.Cross_Entr_loss:0.59062, V.Cross_Entr_loss:0.64225
+
+	Epoch:130
+		T.B_Acc_score:0.81244,     V.B_Acc_score:0.66755
+		T.Cross_Entr_loss:0.57607, V.Cross_Entr_loss:0.64115
+
+	Epoch:140
+		T.B_Acc_score:0.82581,     V.B_Acc_score:0.66979
+		T.Cross_Entr_loss:0.57016, V.Cross_Entr_loss:0.63856
+
+	Epoch:150
+		T.B_Acc_score:0.83942,     V.B_Acc_score:0.67508
+		T.Cross_Entr_loss:0.56339, V.Cross_Entr_loss:0.63533
+
+	Epoch:160
+		T.B_Acc_score:0.84892,     V.B_Acc_score:0.66756
+		T.Cross_Entr_loss:0.55952, V.Cross_Entr_loss:0.64039
+
+	Epoch:170
+		T.B_Acc_score:0.86615,     V.B_Acc_score:0.67195
+		T.Cross_Entr_loss:0.55152, V.Cross_Entr_loss:0.63743
+
+Early stopping :(
+	Epoch:178
+		T.B_Acc_score:0.87159, V.B_Acc_score:0.67339
+		T.Cross_Entr_loss:0.54875, V.Cross_Entr_loss:0.63954
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.62789, T_B_Acc_score: 0.66540
+confusion_matrix saved as Control_vs_Nocturnal frontal lobe epilepsy
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+__________now samples are weighted according to class imbalance and then sampled by the dataloader________
+
+
+
+date and time = 20_01_2023 15:22:11
+picked channels = {'EEG C4-P4', 'EEG P4-O2', 'ROC-LOC', 'EEG C4-A1', 'EEG F4-C4'}
+pre-processing data...
+
+['Control', 'Nocturnal frontal lobe epilepsy']
+
+observed min sampling_rate 256
+observed max highpass = 0.50 
+observed min lowpass = 30.00
+
+total 30sec samples - 47007
+single sample dimention = (5, 7680)
+pathology_distribution in %
+	Nocturnal frontal lobe epilepsy     : 85.53%
+	Control                             : 14.47%
+X.npy, Y.npy are stored at 
+/home/tusharsingh/code_base/Ritika_Plan/Data/modified_data/..
+
+
+NOW TRAINING
+['Control', 'Nocturnal frontal lobe epilepsy']
+class_weight for cross_entropy = [3.45436508 0.58462055]
+	Epoch:10
+		T.B_Acc_score:0.51786,     V.B_Acc_score:0.52618
+		T.Cross_Entr_loss:0.69064, V.Cross_Entr_loss:0.68893
+
+	Epoch:20
+		T.B_Acc_score:0.64435,     V.B_Acc_score:0.64076
+		T.Cross_Entr_loss:0.64876, V.Cross_Entr_loss:0.64787
+
+	Epoch:30
+		T.B_Acc_score:0.67750,     V.B_Acc_score:0.66179
+		T.Cross_Entr_loss:0.63499, V.Cross_Entr_loss:0.64307
+
+	Epoch:40
+		T.B_Acc_score:0.71152,     V.B_Acc_score:0.68316
+		T.Cross_Entr_loss:0.62139, V.Cross_Entr_loss:0.63131
+
+	Epoch:50
+		T.B_Acc_score:0.74786,     V.B_Acc_score:0.68435
+		T.Cross_Entr_loss:0.60581, V.Cross_Entr_loss:0.63100
+
+	Epoch:60
+		T.B_Acc_score:0.79062,     V.B_Acc_score:0.68841
+		T.Cross_Entr_loss:0.58676, V.Cross_Entr_loss:0.62932
+
+	Epoch:70
+		T.B_Acc_score:0.80708,     V.B_Acc_score:0.69284
+		T.Cross_Entr_loss:0.57853, V.Cross_Entr_loss:0.62511
+
+	Epoch:80
+		T.B_Acc_score:0.83932,     V.B_Acc_score:0.69405
+		T.Cross_Entr_loss:0.56410, V.Cross_Entr_loss:0.62653
+
+	Epoch:90
+		T.B_Acc_score:0.85663,     V.B_Acc_score:0.69874
+		T.Cross_Entr_loss:0.55599, V.Cross_Entr_loss:0.62699
+
+	Epoch:100
+		T.B_Acc_score:0.87422,     V.B_Acc_score:0.69962
+		T.Cross_Entr_loss:0.54797, V.Cross_Entr_loss:0.62543
+
+	Epoch:110
+		T.B_Acc_score:0.88559,     V.B_Acc_score:0.67008
+		T.Cross_Entr_loss:0.54268, V.Cross_Entr_loss:0.64016
+
+	Epoch:120
+		T.B_Acc_score:0.89198,     V.B_Acc_score:0.68108
+		T.Cross_Entr_loss:0.53956, V.Cross_Entr_loss:0.63220
+
+Early stopping :(
+	Epoch:127
+		T.B_Acc_score:0.89569, V.B_Acc_score:0.69629
+		T.Cross_Entr_loss:0.53750, V.Cross_Entr_loss:0.62594
+
+Training_Stats saved as Control_vs_Nocturnal frontal lobe epilepsy
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.60860, T_B_Acc_score: 0.69263
+confusion_matrix saved as Control_vs_Nocturnal frontal lobe epilepsy
+----------------------------------------------------------------------------------------------------
+
+
+
+
+Continue _training
+
+date and time = 20_01_2023 15:51:36
+picked channels = {'EEG P4-O2', 'EEG F4-C4', 'EEG C4-A1', 'EEG C4-P4', 'ROC-LOC'}
+
+
+NOW TRAINING
+['Control', 'Nocturnal frontal lobe epilepsy']
+class_weight for cross_entropy = [3.45436508 0.58462055]
+Test_DATA: Cross_Entr_loss: 0.62323, T_B_Acc_score: 0.70683
+confusion_matrix saved as Control_vs_Nocturnal frontal lobe epilepsy
+	Epoch:10
+		T.B_Acc_score:0.86271,     V.B_Acc_score:0.68850
+		T.Cross_Entr_loss:0.55386, V.Cross_Entr_loss:0.62862
+
+	Epoch:20
+		T.B_Acc_score:0.86258,     V.B_Acc_score:0.69662
+		T.Cross_Entr_loss:0.55398, V.Cross_Entr_loss:0.62573
+
+	Epoch:30
+		T.B_Acc_score:0.86627,     V.B_Acc_score:0.68197
+		T.Cross_Entr_loss:0.55269, V.Cross_Entr_loss:0.63131
+
+	Epoch:40
+		T.B_Acc_score:0.86604,     V.B_Acc_score:0.69541
+		T.Cross_Entr_loss:0.55272, V.Cross_Entr_loss:0.62649
+
+	Epoch:50
+		T.B_Acc_score:0.86574,     V.B_Acc_score:0.69834
+		T.Cross_Entr_loss:0.55276, V.Cross_Entr_loss:0.62572
+
+Early stopping :(
+	Epoch:55
+		T.B_Acc_score:0.86728, V.B_Acc_score:0.70179
+		T.Cross_Entr_loss:0.55199, V.Cross_Entr_loss:0.62388
+
+Training_Stats saved as Control_vs_Nocturnal frontal lobe epilepsy
+
+Testing model
+date and time = 20_01_2023 16:06:02
+picked channels = {'EEG P4-O2', 'EEG C4-P4', 'ROC-LOC', 'EEG F4-C4', 'EEG C4-A1'}
+
+Training with lower learning Rate
+
+
+	Epoch:10
+		T.B_Acc_score:0.86578,     V.B_Acc_score:0.69316
+		T.Cross_Entr_loss:0.55297, V.Cross_Entr_loss:0.62584
+
+	Epoch:20
+		T.B_Acc_score:0.86960,     V.B_Acc_score:0.69342
+		T.Cross_Entr_loss:0.55132, V.Cross_Entr_loss:0.62812
+
+	Epoch:30
+		T.B_Acc_score:0.86575,     V.B_Acc_score:0.70377
+		T.Cross_Entr_loss:0.55268, V.Cross_Entr_loss:0.62335
+
+	Epoch:40
+		T.B_Acc_score:0.86911,     V.B_Acc_score:0.68702
+		T.Cross_Entr_loss:0.55124, V.Cross_Entr_loss:0.62993
+
+	Epoch:50
+		T.B_Acc_score:0.86694,     V.B_Acc_score:0.69585
+		T.Cross_Entr_loss:0.55252, V.Cross_Entr_loss:0.62481
+
+Early stopping :(
+	Epoch:54
+		T.B_Acc_score:0.86649, V.B_Acc_score:0.69395
+		T.Cross_Entr_loss:0.55257, V.Cross_Entr_loss:0.62642
+
+Training_Stats saved as Control_vs_Nocturnal frontal lobe epilepsy
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.58673, T_B_Acc_score: 0.68707
+confusion_matrix saved as Control_vs_Nocturnal frontal lobe epilepsy
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+date and time = 20_01_2023 16:14:51
+picked channels = {'EEG P4-O2', 'ROC-LOC'}
+pre-processing data...
+
+['Control', 'Nocturnal frontal lobe epilepsy']
+
+observed min sampling_rate 256
+observed max highpass = 0.50 
+observed min lowpass = 30.00
+
+total 30sec samples - 47007
+single sample dimention = (2, 7680)
+pathology_distribution in %
+	Nocturnal frontal lobe epilepsy     : 85.53%
+	Control                             : 14.47%
+X.npy, Y.npy are stored at 
+/home/tusharsingh/code_base/Ritika_Plan/Data/modified_data/..
+
+
+NOW TRAINING
+['Control', 'Nocturnal frontal lobe epilepsy']
+class_weight for cross_entropy = [3.45436508 0.58462055]
+date and time = 20_01_2023 16:16:58
+picked channels = {'ROC-LOC', 'EEG P4-O2'}
+
+
+NOW TRAINING
+['Control', 'Nocturnal frontal lobe epilepsy']
+class_weight for cross_entropy = [3.45436508 0.58462055]
+	Epoch:10
+		T.B_Acc_score:0.51001,     V.B_Acc_score:0.51320
+		T.Cross_Entr_loss:0.69094, V.Cross_Entr_loss:0.69038
+
+	Epoch:20
+		T.B_Acc_score:0.51340,     V.B_Acc_score:0.51280
+		T.Cross_Entr_loss:0.69041, V.Cross_Entr_loss:0.69054
+
+	Epoch:30
+		T.B_Acc_score:0.51369,     V.B_Acc_score:0.51428
+		T.Cross_Entr_loss:0.68995, V.Cross_Entr_loss:0.69028
+
+	Epoch:40
+		T.B_Acc_score:0.58402,     V.B_Acc_score:0.58025
+		T.Cross_Entr_loss:0.67376, V.Cross_Entr_loss:0.67588
+
+	Epoch:50
+		T.B_Acc_score:0.62399,     V.B_Acc_score:0.58902
+		T.Cross_Entr_loss:0.65956, V.Cross_Entr_loss:0.67627
+
+	Epoch:60
+		T.B_Acc_score:0.66179,     V.B_Acc_score:0.61335
+		T.Cross_Entr_loss:0.64416, V.Cross_Entr_loss:0.66497
+
+	Epoch:70
+		T.B_Acc_score:0.68830,     V.B_Acc_score:0.60590
+		T.Cross_Entr_loss:0.63246, V.Cross_Entr_loss:0.66579
+
+	Epoch:80
+		T.B_Acc_score:0.70270,     V.B_Acc_score:0.60859
+		T.Cross_Entr_loss:0.62539, V.Cross_Entr_loss:0.66422
+
+	Epoch:90
+		T.B_Acc_score:0.72166,     V.B_Acc_score:0.59544
+		T.Cross_Entr_loss:0.61710, V.Cross_Entr_loss:0.67195
+
+	Epoch:100
+		T.B_Acc_score:0.73831,     V.B_Acc_score:0.59903
+		T.Cross_Entr_loss:0.60913, V.Cross_Entr_loss:0.66781
+
+	Epoch:110
+		T.B_Acc_score:0.75217,     V.B_Acc_score:0.60003
+		T.Cross_Entr_loss:0.60350, V.Cross_Entr_loss:0.67052
+
+	Epoch:120
+		T.B_Acc_score:0.76531,     V.B_Acc_score:0.61386
+		T.Cross_Entr_loss:0.59760, V.Cross_Entr_loss:0.66648
+
+	Epoch:130
+		T.B_Acc_score:0.78081,     V.B_Acc_score:0.59291
+		T.Cross_Entr_loss:0.59105, V.Cross_Entr_loss:0.67123
+
+Early stopping :(
+	Epoch:132
+		T.B_Acc_score:0.78379, V.B_Acc_score:0.60081
+		T.Cross_Entr_loss:0.58947, V.Cross_Entr_loss:0.66928
+
+Training_Stats saved as Control_vs_Nocturnal frontal lobe epilepsy
+
+Testing model
+Test_DATA: Cross_Entr_loss: 0.63888, T_B_Acc_score: 0.63402
+confusion_matrix saved as Control_vs_Nocturnal frontal lobe epilepsy
+----------------------------------------------------------------------------------------------------
+
+
+
+
+
+date and time = 20_01_2023 16:39:09
+picked channels = {'ROC-LOC', 'EEG P4-O2'}
+pre-processing data...
+
+['Control', 'Nocturnal frontal lobe epilepsy']
+
+observed min sampling_rate 256
+observed max highpass = 0.50 
+observed min lowpass = 30.00
+
+total 30sec samples - 53809
+single sample dimention = (2, 7680)
+pathology_distribution in %
+	Nocturnal frontal lobe epilepsy     : 74.71%   overlapping : 0 Sec
+	Control                             : 25.29%   overlapping : 15 Sec
+X.npy, Y.npy are stored at 
+/home/tusharsingh/code_base/Ritika_Plan/Data/modified_data/..
+
+
+date and time = 20_01_2023 16:43:09
+picked channels = {'EEG P4-O2', 'ROC-LOC'}
+
+
+NOW TRAINING
+['Control', 'Nocturnal frontal lobe epilepsy']
+class_weight for cross_entropy = [1.97739968 0.66921623]
+	Epoch:10
+		T.B_Acc_score:0.51036,     V.B_Acc_score:0.51946
+		T.Cross_Entr_loss:0.69082, V.Cross_Entr_loss:0.69093
+
+	Epoch:20
+		T.B_Acc_score:0.51141,     V.B_Acc_score:0.51087
+		T.Cross_Entr_loss:0.69043, V.Cross_Entr_loss:0.69069
+
+	Epoch:30
+		T.B_Acc_score:0.53772,     V.B_Acc_score:0.54124
+		T.Cross_Entr_loss:0.68534, V.Cross_Entr_loss:0.68807
+
+	Epoch:40
+		T.B_Acc_score:0.59618,     V.B_Acc_score:0.58659
+		T.Cross_Entr_loss:0.66988, V.Cross_Entr_loss:0.67191
+
+	Epoch:50
+		T.B_Acc_score:0.64341,     V.B_Acc_score:0.62588
+		T.Cross_Entr_loss:0.65128, V.Cross_Entr_loss:0.65942
+
+	Epoch:60
+		T.B_Acc_score:0.66269,     V.B_Acc_score:0.64369
+		T.Cross_Entr_loss:0.64369, V.Cross_Entr_loss:0.65091
+
+	Epoch:70
+		T.B_Acc_score:0.67719,     V.B_Acc_score:0.63995
+		T.Cross_Entr_loss:0.63625, V.Cross_Entr_loss:0.65201
+
+	Epoch:80
+		T.B_Acc_score:0.69197,     V.B_Acc_score:0.65742
+		T.Cross_Entr_loss:0.62970, V.Cross_Entr_loss:0.64328
+
+	Epoch:90
+		T.B_Acc_score:0.70469,     V.B_Acc_score:0.66006
+		T.Cross_Entr_loss:0.62434, V.Cross_Entr_loss:0.64298
+
+	Epoch:100
+		T.B_Acc_score:0.71809,     V.B_Acc_score:0.68235
+		T.Cross_Entr_loss:0.61833, V.Cross_Entr_loss:0.63397
+
+	Epoch:110
+		T.B_Acc_score:0.71563,     V.B_Acc_score:0.68938
+		T.Cross_Entr_loss:0.61897, V.Cross_Entr_loss:0.63137
+
+	Epoch:120
+		T.B_Acc_score:0.73072,     V.B_Acc_score:0.68182
+		T.Cross_Entr_loss:0.61199, V.Cross_Entr_loss:0.63291
+
+	Epoch:130
+		T.B_Acc_score:0.74077,     V.B_Acc_score:0.68059
+		T.Cross_Entr_loss:0.60868, V.Cross_Entr_loss:0.63257
+
+	Epoch:140
+		T.B_Acc_score:0.74591,     V.B_Acc_score:0.69746
+		T.Cross_Entr_loss:0.60582, V.Cross_Entr_loss:0.62704
+
+	Epoch:150
+		T.B_Acc_score:0.75349,     V.B_Acc_score:0.71068
+		T.Cross_Entr_loss:0.60175, V.Cross_Entr_loss:0.62204
+
+	Epoch:160
+		T.B_Acc_score:0.75792,     V.B_Acc_score:0.69924
+		T.Cross_Entr_loss:0.60045, V.Cross_Entr_loss:0.62616
+
+	Epoch:170
+		T.B_Acc_score:0.76612,     V.B_Acc_score:0.69904
+		T.Cross_Entr_loss:0.59649, V.Cross_Entr_loss:0.62391
+
+	Epoch:180
+		T.B_Acc_score:0.77112,     V.B_Acc_score:0.71731
+		T.Cross_Entr_loss:0.59408, V.Cross_Entr_loss:0.61887
+
+	Epoch:190
+		T.B_Acc_score:0.77464,     V.B_Acc_score:0.70018
+		T.Cross_Entr_loss:0.59216, V.Cross_Entr_loss:0.62392
+
+	Epoch:200
+		T.B_Acc_score:0.78211,     V.B_Acc_score:0.71237
+		T.Cross_Entr_loss:0.58968, V.Cross_Entr_loss:0.61930
+
+	Epoch:210
+		T.B_Acc_score:0.78813,     V.B_Acc_score:0.71055
+		T.Cross_Entr_loss:0.58632, V.Cross_Entr_loss:0.62169
+
+	Epoch:220
+		T.B_Acc_score:0.78838,     V.B_Acc_score:0.72162
+		T.Cross_Entr_loss:0.58629, V.Cross_Entr_loss:0.61443
+
+	Epoch:230
+		T.B_Acc_score:0.79719,     V.B_Acc_score:0.71437
+		T.Cross_Entr_loss:0.58271, V.Cross_Entr_loss:0.61813
+
+	Epoch:240
+		T.B_Acc_score:0.80007,     V.B_Acc_score:0.71766
+		T.Cross_Entr_loss:0.58100, V.Cross_Entr_loss:0.61597
+
+	Epoch:250
+		T.B_Acc_score:0.80372,     V.B_Acc_score:0.71421
+		T.Cross_Entr_loss:0.57987, V.Cross_Entr_loss:0.61940
+
+	Epoch:260
+		T.B_Acc_score:0.81213,     V.B_Acc_score:0.74020
+		T.Cross_Entr_loss:0.57530, V.Cross_Entr_loss:0.60693
+
+	Epoch:270
+		T.B_Acc_score:0.81042,     V.B_Acc_score:0.73728
+		T.Cross_Entr_loss:0.57663, V.Cross_Entr_loss:0.61016
+
+	Epoch:280
+		T.B_Acc_score:0.81333,     V.B_Acc_score:0.73992
+		T.Cross_Entr_loss:0.57512, V.Cross_Entr_loss:0.60828
+
+	Epoch:290
+		T.B_Acc_score:0.81039,     V.B_Acc_score:0.73826
+		T.Cross_Entr_loss:0.57597, V.Cross_Entr_loss:0.60951
+
+	Epoch:300
+		T.B_Acc_score:0.82041,     V.B_Acc_score:0.75366
+		T.Cross_Entr_loss:0.57192, V.Cross_Entr_loss:0.60368
+
+	Epoch:310
+		T.B_Acc_score:0.82642,     V.B_Acc_score:0.75425
+		T.Cross_Entr_loss:0.56917, V.Cross_Entr_loss:0.60360
+
+

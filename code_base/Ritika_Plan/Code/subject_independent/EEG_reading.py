@@ -6,6 +6,7 @@ import os
 import mne
 import re
 import concurrent.futures
+from sklearn.model_selection import train_test_split
 
 
 def get_file_path_for(pathology):
@@ -30,25 +31,37 @@ def get_file_path_for(pathology):
 def complete_data_path():
     X = []
     Y = []
-    for each in pathology_dict.keys():
+    :for each in pathology_dict.keys()
         x, y = get_file_path_for(each)
         X.extend(x)
         Y.extend(y)
-    return X, Y
+
+    print(f'Total subject distribution \n\t{Counter(Y)}')
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, Y, train_size=split_ratio, random_state=123, stratify=Y)
+
+    print(f'Train distribution \n\t{Counter(y_train)}')
+    print(f'Test distribution  \n\t{Counter(y_test)}')
+
+    print(
+        f"\ntraining on {str([x.split('/')[-1].removesuffix('_raw.fif') for x in X_train])}")
+    print(
+        f"\ntesting on {str([x.split('/')[-1].removesuffix('_raw.fif') for x in X_test])}\n")
+
+    return X_train, X_test, y_train, y_test
 
 
-def modify_and_store_EEG(X, Y, pathology_distribution):
+def modify_and_store_EEG(X, Y, pathology_distribution, augment=False):
     store_path = temp_folder_path
-    if os.path.exists(store_path):
-        shutil.rmtree(store_path)
-    os.mkdir(store_path)
+
     new_X, new_Y = [], []
 
     with concurrent.futures.ProcessPoolExecutor(max_workers=int(max(1, os.cpu_count()*0.80))) as executor:
         futures = []
         for x, y in zip(X, Y):
             futures.append(executor.submit(
-                data_augment, x, y, store_path))
+                data_augment, x, y, augment, store_path))
         for future in concurrent.futures.as_completed(futures):
             x = future.result()[0]
             y = future.result()[1]
@@ -59,10 +72,12 @@ def modify_and_store_EEG(X, Y, pathology_distribution):
     return new_X, new_Y
 
 
-def data_augment(x, y, store_path):
+def data_augment(x, y, augment, store_path):
     global window_size, pathology_time_overlap
-    
+
     time_overlap = pathology_time_overlap[y]
+    if not augment:
+        time_overlap = False
 
     window_size = int(time_window * sampling_frequency)
     stride = window_size - int(time_overlap * sampling_frequency)
@@ -89,34 +104,60 @@ def data_augment(x, y, store_path):
 
 def preprocess_whole_data():
     print("pre-processing data...")
-    X, Y = complete_data_path()
-    print(Counter(Y))
+
+    if os.path.exists(temp_folder_path):
+        shutil.rmtree(temp_folder_path)
+    os.mkdir(temp_folder_path)
+
+    X_train, X_test, y_train, y_test = complete_data_path()
     print(f'observed min sampling_rate {sampling_frequency}')
     print(
-        f'observed max highpass = {highpass} \nobserved min lowpass = {lowpass}')
+        f'observed max highpass = {highpass:0.2f} \nobserved min lowpass = {lowpass:0.2f}\n')
 
-    pathology_distribution = defaultdict(int)
-    X, Y = modify_and_store_EEG(X, Y, pathology_distribution)
-    X = np.array(X)
-    Y = np.array(Y)
+    train_pathology_distribution = defaultdict(int)
+    X_train, y_train = modify_and_store_EEG(
+        X_train, y_train, train_pathology_distribution, augment=True)
 
-    print(f'total 30sec samples - {X.shape[0]}')
-    temp = np.load(X[0])
+    X_train = np.array(X_train)
+    y_train = np.array(y_train)
+
+    test_pathology_distribution = defaultdict(int)
+    X_test, y_test = modify_and_store_EEG(
+        X_test, y_test, test_pathology_distribution, augment=False)
+
+    X_test = np.array(X_test)
+    y_test = np.array(y_test)
+
+    print(
+        f'total 30sec samples for Train: {X_train.shape[0]}       Test: {X_test.shape[0]}')
+
+    temp = np.load(X_train[0])
+
     print(f'single sample dimention = {temp.shape}')
-    print(f'pathology_distribution in %')
-    for each in pathology_distribution:
-        pathology_distribution[each] = 100 * (pathology_distribution[each] / X.shape[0])    
-        print(f"{each} : {pathology_distribution[each]:0.2f}%")
 
+    print(f'\npathology_distribution in Train and Test in %\n')
+
+    for each in train_pathology_distribution:
+        train_pathology_distribution[each] = 100 * \
+            (train_pathology_distribution[each] / X_train.shape[0])
+        test_pathology_distribution[each] = 100 * \
+            (test_pathology_distribution[each] / X_test.shape[0])
+
+        print(
+            f"{each} :\n\t\tTrain: {train_pathology_distribution[each]:0.2f}%  over_sampling: {pathology_time_overlap[each]} Sec  Test : {test_pathology_distribution[each]:0.2f}%")
 
     working_data_path = f'{data_folder_path}/..'
-    with open(f'{working_data_path}/X.npy', 'wb') as f:
-        np.save(f, X)
-    with open(f'{working_data_path}/Y.npy', 'wb') as f:
-        np.save(f, Y)
+    with open(f'{working_data_path}/X_train.npy', 'wb') as f:
+        np.save(f, X_train)
+    with open(f'{working_data_path}/Y_train.npy', 'wb') as f:
+        np.save(f, y_train)
 
-    print(f'X.npy, Y.npy are stored at \n{working_data_path}')
-    return X, Y
+    with open(f'{working_data_path}/X_test.npy', 'wb') as f:
+        np.save(f, X_test)
+    with open(f'{working_data_path}/Y_test.npy', 'wb') as f:
+        np.save(f, y_test)
+
+    print(f'\nTrain and Test list are stored at \n{working_data_path}')
 
 
 if __name__ == '__main__':

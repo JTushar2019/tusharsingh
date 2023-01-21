@@ -9,7 +9,7 @@ class EEG_Dataset(Dataset):
     def __init__(self, X, Y, type, test = False):
         if test:
             X, Y = get_test_preprocessed_data(
-                X,Y,test_pre_process, EEG_Image)
+                X,Y, test_pre_process, EEG_Image)
         else:
             X, Y = get_train_preprocessed_data(
                 X,Y, train_pre_process, EEG_Image)
