@@ -171,7 +171,7 @@ if __name__ == '__main__':
     import os, sys
     from datetime import datetime
 
-    logging_file = open('/home/tusharsingh/code_base/Ritika_Plan/Data/Progress_tracking.txt', "a")
+    logging_file = open(logging_part, "a")
     now = datetime.now()
     dt_string = now.strftime("%d_%m_%Y %H:%M:%S")
     sys.stdout = logging_file

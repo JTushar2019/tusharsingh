@@ -85,18 +85,34 @@ def data_augment(x, y, augmentation, store_path):
     return X, Y
 
 def over_sampling(X_train, Y_train):
-    augmented_X_train = []
-    augmented_Y_train = []
 
     l, f = np.unique(Y_train, return_counts = True)
+
+    avarage = int(np.mean(f))
+
     min_class = l[np.argmin(f)]
-    difference = np.max(f) - np.min(f)
-    print(f'train_augmeted samples  -    {difference}   {100 * difference // X_train.shape[0]:0.2f}% of original')
+    max_class = l[np.argmax(f)]
 
-    X_train_min_class = X_train[Y_train == min_class]
+    difference = avarage - np.min(f)
 
-    name = 'augmented_X_'
-    for i in range(difference):
+
+
+    index = (Y_train == min_class)
+    X_train_min_class = X_train[index]
+    Y_train_min_class = Y_train[index]
+
+    X_train_max_class = X_train[~index]
+    Y_train_max_class = Y_train[~index]
+
+    random_indices = np.random.choice(X_train_max_class.shape[0], size=avarage, replace=False)
+
+    X_train_max_class = X_train_max_class[random_indices]
+    Y_train_max_class = Y_train_max_class[random_indices]
+
+    augmented_X_train = []
+    augmented_Y_train = []
+    name = 'augmented_min_X_'
+    for i in range(difference + (int(avarage * 0.6))):
         a,b = [np.load(x) for x in np.random.choice(X_train_min_class, size=2, replace=True)]
         new = np.concatenate([a,b], axis = 1)
         start = a.shape[1] // 2
@@ -108,18 +124,47 @@ def over_sampling(X_train, Y_train):
             np.save(f, new)
         augmented_X_train.append(this_name)
         augmented_Y_train.append(min_class)
-    
+
     augmented_X_train = np.array(augmented_X_train)
     augmented_Y_train = np.array(augmented_Y_train)
 
-    if augmented_Y_train.shape[0] > 0:
-        Y_train = np.concatenate([Y_train, augmented_Y_train])
-        X_train = np.concatenate([X_train, augmented_X_train])
+    if augmented_X_train.shape[0] > 0:
+        X_train_min_class = np.concatenate([X_train_min_class, augmented_X_train])
+        Y_train_min_class = np.concatenate([Y_train_min_class, augmented_Y_train])
 
+
+    augmented_X_train = []
+    augmented_Y_train = []
+    name = 'augmented_max_X_'
+    for i in range(int(avarage * 0.6)):
+        a,b = [np.load(x) for x in np.random.choice(X_train_max_class, size=2, replace=True)]
+        new = np.concatenate([a,b], axis = 1)
+        start = a.shape[1] // 2
+        end = start + time_window * sampling_frequency
+        new = new[:, start: end]
+
+        this_name = f'{temp_folder_path}/{name}_{i}.npy'
+        with open(this_name, 'wb') as f:
+            np.save(f, new)
+        augmented_X_train.append(this_name)
+        augmented_Y_train.append(max_class)
+
+    augmented_X_train = np.array(augmented_X_train)
+    augmented_Y_train = np.array(augmented_Y_train)
+
+    if augmented_X_train.shape[0] > 0:
+        X_train_max_class = np.concatenate([X_train_max_class, augmented_X_train])
+        Y_train_max_class = np.concatenate([Y_train_max_class, augmented_Y_train])
+    
+    X_train = np.concatenate([X_train_max_class, X_train_min_class])
+    Y_train = np.concatenate([Y_train_max_class, Y_train_min_class])
+
+
+    random_indices = np.random.permutation(Y_train.shape[0])
 
     print(f'now_total_train 30sec samples -    {Y_train.shape[0]}')
-
-    return X_train, Y_train
+    print(f'train_augmeted samples  -    {difference}   {100 * (difference + (avarage // 3)) // X_train.shape[0]:0.2f}% of NEW size')
+    return X_train[random_indices], Y_train[random_indices]
 
 
 def preprocess_whole_data():
@@ -151,7 +196,7 @@ def preprocess_whole_data():
     with open(f'{working_data_path}/Y_test.npy', 'wb') as f:
         np.save(f, Y_test)
 
-    X_train, X_val, Y_train, Y_val = train_test_split(X_train, Y_train, train_size = split_ratio, random_state = 123, stratify = Y_train)
+    X_train, X_val, Y_train, Y_val = train_test_split(X_train, Y_train, train_size = 0.9, random_state = 123, stratify = Y_train)
 
     with open(f'{working_data_path}/X_val.npy', 'wb') as f:
         np.save(f, X_val)

@@ -11,14 +11,14 @@ import torch
 def train_model(model, train_loader, val_loader, device, lr=1e-3, max_epoc=100, patience=30):
 
     one_hot_labels = sorted(list(pathology_dict.values()))
-    temp_model = f'{saved_model_path}/Temp_params_{"_vs_".join(one_hot_labels)}.pt'
+    # temp_model = f'{saved_model_path}/Temp_params_{"_vs_".join(one_hot_labels)}.pt'
     
     best_loss = 10
     
-    # warm start
-    if os.path.exists(temp_model):
-        model.load_state_dict(torch.load(temp_model))
-        best_loss = test_model(model, val_loader, device)[1]
+    # # warm start
+    # if os.path.exists(temp_model):
+    #     model.load_state_dict(torch.load(temp_model))
+    #     best_loss = test_model(model, val_loader, device)[1]
 
 
     train_loss_track = []
@@ -28,10 +28,11 @@ def train_model(model, train_loader, val_loader, device, lr=1e-3, max_epoc=100, 
     
     best_model_wts = copy.deepcopy(model.state_dict())
     model.to(device)
-    optimizer = optim.Adam(model.parameters(), lr=lr, foreach = True)
+    optimizer = optim.Adam(model.parameters(), lr=lr, foreach = True, amsgrad= True)
     loss = nn.CrossEntropyLoss(reduction='sum')
     temp_patience = patience
 
+    pic_name = "_vs_".join(one_hot_labels) + '_' + "_".join(decided_channels)
 
     for ep in range(1, max_epoc + 1):
 
@@ -84,7 +85,7 @@ def train_model(model, train_loader, val_loader, device, lr=1e-3, max_epoc=100, 
         val_loss_track.append(validation_loss)
         val_acc_track.append(validation_acc)
 
-        if ep % 10 == 0 or ep == max_epoc:
+        if ep % 30 == 0 or ep == max_epoc:
             print(f'\tEpoch:{ep}\n\t\tT.B_Acc_score:{training_acc:.5f},     V.B_Acc_score:{validation_acc:.5f}')
             print(f'\t\tT.Cross_Entr_loss:{training_loss:.5f}, V.Cross_Entr_loss:{validation_loss:.5f}\n')
 
@@ -101,7 +102,7 @@ def train_model(model, train_loader, val_loader, device, lr=1e-3, max_epoc=100, 
             best_loss = validation_loss
             patience = temp_patience
             best_model_wts = copy.deepcopy(model.state_dict())                
-            torch.save(best_model_wts, f'{saved_model_path}/Temp_params_{"_vs_".join(one_hot_labels)}.pt')
+            torch.save(best_model_wts, f'{saved_model_path}/Temp_params_{pic_name}.pt')
 
 
     fig, (ax1, ax2) = plt.subplots(2)
@@ -117,7 +118,6 @@ def train_model(model, train_loader, val_loader, device, lr=1e-3, max_epoc=100, 
 
     plt.tight_layout()
 
-    pic_name = "_vs_".join(one_hot_labels)
     print(f'Training_Stats saved as {pic_name}\n')
 
     plt.savefig(f'{confusion_matrix_path}/stats_{pic_name}.png')
@@ -156,7 +156,7 @@ def test_model(model, test_loader, device):
     disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=one_hot_labels)
     disp.plot()
 
-    pic_name = "_vs_".join(one_hot_labels)
+    pic_name = "_vs_".join(one_hot_labels) + "_".join(decided_channels)
     print(f'confusion_matrix saved as {pic_name}')
     plt.savefig(f'{confusion_matrix_path}/{pic_name}.png', bbox_inches = 'tight')
     # plt.show()

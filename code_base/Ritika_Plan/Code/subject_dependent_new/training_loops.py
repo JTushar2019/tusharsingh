@@ -38,7 +38,7 @@ def train_model(model, train_loader, val_loader, weights, device, lr=1e-3, max_e
     best_model_wts = copy.deepcopy(model.state_dict())
     model.to(device)
     weights = torch.from_numpy(weights).to(device)
-    optimizer = optim.Adam(model.parameters(), lr=lr, foreach = True)
+    optimizer = optim.Adam(model.parameters(), lr=lr, foreach = True, amsgrad= True)
 
     if weighted_cross_entropy:
         loss = nn.CrossEntropyLoss(weight= weights,reduction='sum')
@@ -47,7 +47,7 @@ def train_model(model, train_loader, val_loader, weights, device, lr=1e-3, max_e
 
     temp_patience = patience
 
-    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience = 20, cooldown = 50, verbose = True)
+    # scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience = 10, verbose = True)
 
     for ep in range(1, max_epoc + 1):
 
@@ -94,14 +94,12 @@ def train_model(model, train_loader, val_loader, weights, device, lr=1e-3, max_e
 
         validation_acc = balanced_accuracy_score(realY, predictedY)
         validation_loss = val_loss / len(val_loader.dataset)
-        scheduler.step(val_loss)
+        # scheduler.step(val_loss)
 
         val_loss_track.append(validation_loss)
         val_acc_track.append(validation_acc)
 
-        if ep % 10 == 0 or ep == max_epoc:
-            print(f'\tEpoch:{ep}\n\t\tT.B_Acc_score:{training_acc:.5f},     V.B_Acc_score:{validation_acc:.5f}')
-            print(f'\t\tT.Cross_Entr_loss:{training_loss:.5f}, V.Cross_Entr_loss:{validation_loss:.5f}\n')
+        # if ep % 10 == 0 or ep == max_epoc:
 
 
         if validation_loss > best_loss :
@@ -113,6 +111,10 @@ def train_model(model, train_loader, val_loader, weights, device, lr=1e-3, max_e
                 print(f'\t\tT.Cross_Entr_loss:{training_loss:.5f}, V.Cross_Entr_loss:{validation_loss:.5f}\n')
                 break
         else:
+
+            print(f'\tEpoch:{ep}\n\t\tT.B_Acc_score:{training_acc:.5f},     V.B_Acc_score:{validation_acc:.5f}')
+            print(f'\t\tT.Cross_Entr_loss:{training_loss:.5f}, V.Cross_Entr_loss:{validation_loss:.5f}\n')
+            
             best_loss = validation_loss
             patience = temp_patience
             best_model_wts = copy.deepcopy(model.state_dict())                

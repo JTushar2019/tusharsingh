@@ -52,21 +52,21 @@ class Model(nn.Module):
         #  )
 
         self.fullyConnected = nn.Sequential(
-            nn.Dropout(0.2),
+            nn.Dropout(0.3),
             # nn.LazyLinear(64),
             nn.Linear(176,64),
             nn.LeakyReLU(),
-            nn.Dropout(p = 0.2),
+            nn.Dropout(p = 0.3),
             nn.Linear(64,num_classes),
             nn.Sigmoid(),
             nn.Softmax(dim=-1)            
         )
     
-        # Initialization
-        # self.seq_layer1.apply(self.weights_init)
-        # self.seq_layer2.apply(self.weights_init)
-        # # self.seq_layer3.apply(self.weights_init)
-        # self.fullyConnected.apply(self.weights_init)
+        #  Initialization
+        self.seq_layer1.apply(self.weights_init)
+        self.seq_layer2.apply(self.weights_init)
+        # self.seq_layer3.apply(self.weights_init)
+        self.fullyConnected.apply(self.weights_init)
 
 
     def weights_init(self, m):

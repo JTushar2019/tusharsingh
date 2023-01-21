@@ -8,7 +8,7 @@ import sys
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
-def final_running():
+def final_running(max_epoc=1000):
     logging_file = open(tracking_file_path, "a")
     temp = sys.stdout
     sys.stdout = logging_file
@@ -21,7 +21,7 @@ def final_running():
     model = Model()
 
     print('\n\nTRAINING')
-    model = train_model(model, train_loader, val_loader, weights, device, lr = 1e-3, max_epoc=1000, patience=100)
+    model = train_model(model, train_loader, val_loader, weights, device, lr = 1e-3, max_epoc= max_epoc, patience=50)
 
     print("Testing model")
     score, loss = test_model(model, test_loader, weights, device)
@@ -36,5 +36,4 @@ def final_running():
 
 
 if __name__ == "__main__":
-    # preprocess_and_record()
-    final_running()
+    final_running(max_epoc=200)
