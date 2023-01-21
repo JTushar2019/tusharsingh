@@ -3,12 +3,11 @@ import torch
 from global_variables import *
 
 class Model(nn.Module):
-    def __init__(self):
+    def __init__(self, sfeq, decided_channels, pathology_dict):
         super(Model, self).__init__()
 
         inputchannel = len(decided_channels)
         num_classes = len(pathology_dict)
-        sfeq = sampling_frequency
         
         self.seq_layer1 = nn.Sequential(
             nn.Conv1d(inputchannel, 128, sfeq, sfeq // 16),
@@ -77,7 +76,7 @@ if __name__ == '__main__':
     os.environ["CUDA_VISIBLE_DEVICES"] = "2"
     import torchinfo
     model = Model()
-    x = torchinfo.summary(model, (len(decided_channels), 7680), batch_dim = 0, col_names = ("input_size", "output_size", "num_params", "kernel_size"), verbose = 0)
+    x = torchinfo.summary(model, (1, 3000), batch_dim = 0, col_names = ("input_size", "output_size", "num_params", "kernel_size"), verbose = 0)
     print(x)
     print(model)
 

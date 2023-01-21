@@ -13,7 +13,7 @@ from sklearn.utils.class_weight import compute_class_weight
 working_data_path = f'{data_folder_path}/..'
 
 
-def train_val_test_split(split_ratio=0.8):
+def train_val_test_split(pathology_dict, split_ratio=0.8):
     if not os.path.exists(f'{working_data_path}/X_train.npy'):
         preprocess_whole_data()
     else:
@@ -69,8 +69,8 @@ class EEG_Dataset(Dataset):
         return eeg, self.Y[idx]
 
 
-def EEG_Dataloaders(split_ratio = 0.8, batch_size = 512):
-    X_train, X_val, X_test, y_train, y_val, y_test = train_val_test_split(split_ratio)
+def EEG_Dataloaders(pathology_dict, split_ratio = 0.8, batch_size = 512):
+    X_train, X_val, X_test, y_train, y_val, y_test = train_val_test_split(pathology_dict, split_ratio)
     
     train_data_set = EEG_Dataset(X_train, y_train)
     train = DataLoader(train_data_set, batch_size=batch_size, shuffle= True, num_workers=10)
@@ -84,10 +84,10 @@ def EEG_Dataloaders(split_ratio = 0.8, batch_size = 512):
     return train, val, test
 
 
-if __name__ == '__main__':
-    X_train, X_val, X_test, y_train, y_val, y_test = train_val_test_split()
-    print(y_train.shape, y_val.shape, y_test.shape)
-    print(X_train.shape, X_val.shape, X_test.shape)
-    print(X_train[0])
-    train_data_loader, val_data_loader, test_data_loader  = EEG_Dataloaders()
-    print(train_data_loader)
+# if __name__ == '__main__':
+#     X_train, X_val, X_test, y_train, y_val, y_test = train_val_test_split()
+#     print(y_train.shape, y_val.shape, y_test.shape)
+#     print(X_train.shape, X_val.shape, X_test.shape)
+#     print(X_train[0])
+#     train_data_loader, val_data_loader, test_data_loader  = EEG_Dataloaders()
+#     print(train_data_loader)

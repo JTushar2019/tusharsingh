@@ -1,7 +1,3 @@
-sampling_frequency = 256
-highpass = 0.3
-lowpass = 30
-
 time_window = 30
 
 batch_size = 512
@@ -14,20 +10,7 @@ confusion_matrix_path = '/home/tusharsingh/code_base/Ritika_Plan/Data/conf_chann
 saved_model_path = '/home/tusharsingh/code_base/Ritika_Plan/Data/conf_channel_specific/saved_models'
 logging_part = '/home/tusharsingh/code_base/Ritika_Plan/Data/conf_channel_specific/log.txt'
 
-channels = ['EEG C3-P3', 'EEG C4-A1', 'EEG C4-P4', 'EEG F3-C3', 'EEG F4-C4', 'EEG F7-T3', 'EEG F8-T4', 'EEG FP1-F3', 'EEG Fp2-F4', 'EEG P3-O1', 'EEG P4-O2', 'EEG T3-T5', 'EEG T4-T6', 'EMG1-EMG2', 'ROC-LOC']
-
-decided_channels = set(['EEG C3-P3'])
-
-pathology_dict = {
-    'brux': 'BRUX',
-    # 'ins': 'INS',                           #done
-    'n': 'Normal',         
-    # 'narco':  'NARCO',                      #done
-    # 'nfle': 'NFLE',   #done
-    # 'plm': 'PLM',             #done
-    # 'rbd': 'RBD',              #done
-    # 'sdb': 'SDB'
-}
+# decided_channels = set(['EEG F3-C3'])
 
 pathology_time_overlap = {
     'BRUX': 0,
@@ -38,6 +21,17 @@ pathology_time_overlap = {
     'PLM': 0,
     'RBD': 0,
     'SDB': 0
+}
+
+channels = {
+    # 'brux': ['EEG C3-P3', 'EEG C4-A1', 'EEG C4-P4', 'EEG F3-C3', 'EEG F4-C4', 'EEG F7-T3', 'EEG F8-T4', 'EEG FP1-F3', 'EEG Fp2-F4', 'EEG P3-O1', 'EEG P4-O2', 'EEG T3-T5', 'EEG T4-T6', 'ROC-LOC'],
+    'brux': ['ROC-LOC'],
+    'ins': ['EEG C3-P3', 'EEG C4-A1', 'EEG C4-P4', 'EEG F3-C3', 'EEG F4-C4', 'EEG F7-T3', 'EEG F8-T4', 'EEG FP1-F3', 'EEG Fp2-F4', 'EEG P3-O1', 'EEG P4-O2', 'ROC-LOC'], 
+    'narco':  ['EEG C3-P3', 'EEG C4-A1', 'EEG C4-P4', 'EEG F3-C3', 'EEG F4-C4', 'EEG FP1-F3', 'EEG Fp2-F4', 'EEG P3-O1', 'EEG P4-O2', 'ROC-LOC'], 
+    'nfle': ['EEG C3-P3', 'EEG C4-A1', 'EEG C4-P4', 'EEG F3-C3', 'EEG F4-C4', 'EEG F7-T3', 'EEG F8-T4', 'EEG FP1-F3', 'EEG Fp2-F4', 'EEG P3-O1', 'EEG P4-O2', 'EEG T3-T5', 'EEG T4-T6', 'ROC-LOC'],
+    'plm': ['EEG C3-P3', 'EEG C4-A1', 'EEG C4-P4', 'EEG F3-C3', 'EEG F4-C4', 'EEG F7-T3', 'EEG F8-T4', 'EEG FP1-F3', 'EEG Fp2-F4', 'EEG P3-O1', 'EEG P4-O2', 'EEG T3-T5', 'EEG T4-T6', 'ROC-LOC'],  
+    'rbd': ['EEG C3-P3', 'EEG C4-A1', 'EEG C4-P4', 'EEG F3-C3', 'EEG F4-C4', 'EEG F7-T3', 'EEG F8-T4', 'EEG FP1-F3', 'EEG Fp2-F4', 'EEG P3-O1', 'EEG P4-O2', 'EEG T3-T5', 'EEG T4-T6', 'ROC-LOC'],  
+    'sdb': ['EEG C4-A1', 'EEG C4-P4', 'EEG F4-C4', 'EEG Fp2-F4', 'EEG P4-O2', 'ROC-LOC', 'EEG F2-F4']
 }
 
 

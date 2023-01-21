@@ -8,17 +8,19 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 import torch
 
 
-def train_model(model, train_loader, val_loader, device, lr=1e-3, max_epoc=100, patience=30):
+def train_model(model,pathology_dict, decided_channels, train_loader, val_loader, device, lr=1e-3, max_epoc=100, patience=30):
 
     one_hot_labels = sorted(list(pathology_dict.values()))
-    # temp_model = f'{saved_model_path}/Temp_params_{"_vs_".join(one_hot_labels)}.pt'
+    pic_name = "_vs_".join(one_hot_labels) + '_' + "_".join(decided_channels)
+    
+    temp_model = f'{saved_model_path}/Temp_params_{pic_name}.pt'
     
     best_loss = 10
     
-    # # warm start
-    # if os.path.exists(temp_model):
-    #     model.load_state_dict(torch.load(temp_model))
-    #     best_loss = test_model(model, val_loader, device)[1]
+    # warm start
+    if os.path.exists(temp_model):
+        model.load_state_dict(torch.load(temp_model))
+        best_loss = test_model(model, pathology_dict, decided_channels, val_loader, device)[1]
 
 
     train_loss_track = []
@@ -32,8 +34,7 @@ def train_model(model, train_loader, val_loader, device, lr=1e-3, max_epoc=100, 
     loss = nn.CrossEntropyLoss(reduction='sum')
     temp_patience = patience
 
-    pic_name = "_vs_".join(one_hot_labels) + '_' + "_".join(decided_channels)
-
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, 'min', patience = 10, verbose = True)
     for ep in range(1, max_epoc + 1):
 
         training_loss = 0
@@ -81,11 +82,13 @@ def train_model(model, train_loader, val_loader, device, lr=1e-3, max_epoc=100, 
 
         validation_acc = balanced_accuracy_score(realY, predictedY)
         validation_loss = val_loss / len(val_loader.dataset)
-
+        
+        scheduler.step(validation_loss)
+        
         val_loss_track.append(validation_loss)
         val_acc_track.append(validation_acc)
 
-        if ep % 30 == 0 or ep == max_epoc:
+        if ep % 50 == 0 or ep == max_epoc:
             print(f'\tEpoch:{ep}\n\t\tT.B_Acc_score:{training_acc:.5f},     V.B_Acc_score:{validation_acc:.5f}')
             print(f'\t\tT.Cross_Entr_loss:{training_loss:.5f}, V.Cross_Entr_loss:{validation_loss:.5f}\n')
 
@@ -102,7 +105,7 @@ def train_model(model, train_loader, val_loader, device, lr=1e-3, max_epoc=100, 
             best_loss = validation_loss
             patience = temp_patience
             best_model_wts = copy.deepcopy(model.state_dict())                
-            torch.save(best_model_wts, f'{saved_model_path}/Temp_params_{pic_name}.pt')
+            # torch.save(best_model_wts, f'{saved_model_path}/Temp_params_{pic_name}.pt')
 
 
     fig, (ax1, ax2) = plt.subplots(2)
@@ -121,12 +124,13 @@ def train_model(model, train_loader, val_loader, device, lr=1e-3, max_epoc=100, 
     print(f'Training_Stats saved as {pic_name}\n')
 
     plt.savefig(f'{confusion_matrix_path}/stats_{pic_name}.png')
+    plt.close()
 
 
     return model
 
 
-def test_model(model, test_loader, device):
+def test_model(model,pathology_dict, decided_channels, test_loader, device):
 
     model.to(device)
     model.eval()

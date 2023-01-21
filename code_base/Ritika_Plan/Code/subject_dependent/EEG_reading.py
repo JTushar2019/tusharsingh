@@ -2,14 +2,19 @@ from collections import Counter, defaultdict
 import shutil
 from global_variables import *
 import numpy as np
-import os
+import os, pickle
 import mne
 import re
 import concurrent.futures
 from sklearn.model_selection import train_test_split
 
 
-def get_file_path_for(pathology):
+sampling_frequency = 256
+highpass = 0.3
+lowpass = 30
+
+
+def get_file_path_for(pathology, decided_channels, pathology_dict):
     global sampling_frequency, highpass, lowpass
     X = []
     Y = []
@@ -17,7 +22,7 @@ def get_file_path_for(pathology):
         if subject_file.name.endswith('fif') and re.search(f"{pathology}[0-9]+", subject_file.name) is not None:
             name = f'{data_folder_path}/{subject_file.name}'
             edf = mne.io.read_raw(name, verbose=0)
-            if decided_channels.issubset(edf.info.ch_names):
+            if set(decided_channels).issubset(set(edf.info.ch_names)):
                 X.append(f'{data_folder_path}/{subject_file.name}')
                 Y.append(pathology_dict[pathology])
                 sampling_frequency = min(sampling_frequency, edf.info['sfreq'])
@@ -26,17 +31,17 @@ def get_file_path_for(pathology):
     return X, Y
 
 
-def complete_data_path():
+def complete_data_path(decided_channels, pathology_dict):
     X = []
     Y = []
     for each in pathology_dict.keys():
-        x, y = get_file_path_for(each)
+        x, y = get_file_path_for(each, decided_channels, pathology_dict)
         X.extend(x)
         Y.extend(y)
     return X, Y
 
 
-def modify_and_store_EEG(X, Y, augment, pathology_distribution):
+def modify_and_store_EEG(decided_channels, X, Y, pathology_distribution):
     store_path = temp_folder_path
     if os.path.exists(store_path):
         shutil.rmtree(store_path)
@@ -47,7 +52,7 @@ def modify_and_store_EEG(X, Y, augment, pathology_distribution):
         futures = []
         for x, y in zip(X, Y):
             futures.append(executor.submit(
-                data_augment, x, y, augment, store_path))
+                data_augment, decided_channels, x, y, store_path))
         for future in concurrent.futures.as_completed(futures):
             x = future.result()[0]
             y = future.result()[1]
@@ -55,28 +60,30 @@ def modify_and_store_EEG(X, Y, augment, pathology_distribution):
             new_X.extend(x)
             new_Y.extend(y)
 
+    # for x,y in zip(X,Y):
+    #     x, y = data_augment(decided_channels, x, y, store_path)
+    #     pathology_distribution[y[0]] += len(x)
+    #     new_X.extend(x)
+    #     new_Y.extend(y)
+
+
     return new_X, new_Y
 
 
-def data_augment(x, y, augmentation, store_path):
-    global window_size, pathology_time_overlap
-    
-    time_overlap = pathology_time_overlap[y]
-    if not augmentation:
-        time_overlap = 0
-
+def data_augment(decided_channels, x, y, store_path):
+    global window_size
 
     window_size = int(time_window * sampling_frequency)
-    stride = window_size - int(time_overlap * sampling_frequency)
     eeg = mne.io.read_raw(x, preload=True, verbose=False)
-    eeg = eeg.pick_channels(decided_channels)
-    eeg = eeg.filter(highpass, lowpass, verbose=False)
+    # print(eeg.info.ch_names)
+    eeg = eeg.filter(highpass, lowpass, verbose=False, picks = decided_channels)
+    eeg = eeg.pick_channels(decided_channels, ordered = True)
     eeg = eeg.resample(sampling_frequency)
     eeg = eeg.get_data()
 
     eeg_file_name = x.split('/')[-1].removesuffix("_raw.fif")
     X = []
-    for start in range(0, eeg.shape[1], stride):
+    for start in range(0, eeg.shape[1], window_size):
         end = start + window_size
         if end >= eeg.shape[1]:
             continue
@@ -89,7 +96,7 @@ def data_augment(x, y, augmentation, store_path):
     return X, Y
 
 
-def preprocess_whole_data():
+def preprocess_whole_data(decided_channels, pathology_dict):
 
     if os.path.exists(temp_folder_path):
         shutil.rmtree(temp_folder_path)
@@ -97,14 +104,14 @@ def preprocess_whole_data():
 
 
     print("pre-processing data...")
-    X, Y = complete_data_path()
+    X, Y = complete_data_path(decided_channels, pathology_dict)
     print(f'\n{list(Counter(Y))}\n')
     print(f'observed min sampling_rate {sampling_frequency}')
     print(
         f'observed max highpass = {highpass:0.2f} \nobserved min lowpass = {lowpass:0.2f}\n')
 
     pathology_distribution = defaultdict(int)
-    X, Y = [np.array(each) for each in modify_and_store_EEG(X, Y, False, pathology_distribution)]
+    X, Y = [np.array(each) for each in modify_and_store_EEG(decided_channels, X, Y, pathology_distribution)]
     
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y.reshape(-1,1), train_size = split_ratio, random_state = 123, stratify = Y.reshape(-1,1))
 
@@ -130,7 +137,7 @@ def preprocess_whole_data():
         a,b = [np.load(x) for x in np.random.choice(X_train_min_class, size=2, replace=True)]
         new = np.concatenate([a,b], axis = 1)
         start = a.shape[1] // 2
-        end = start + time_window * sampling_frequency
+        end = int(start + time_window * sampling_frequency)
         new = new[:, start: end]
 
         this_name = f'{temp_folder_path}/{name}_{i}.npy'
@@ -165,17 +172,13 @@ def preprocess_whole_data():
         np.save(f, Y_train)
 
     print(f'X and Y are stored at \n{working_data_path}')
+
+    with open(f'{saved_model_path}/sampling_frequency.pickle', 'wb') as handle:
+        pickle.dump(sampling_frequency, handle)
     
 
 if __name__ == '__main__':
-    import os, sys
-    from datetime import datetime
+    pass
 
-    logging_file = open(logging_part, "a")
-    now = datetime.now()
-    dt_string = now.strftime("%d_%m_%Y %H:%M:%S")
-    sys.stdout = logging_file
-    print("date and time =", dt_string)
-    print(f'picked channels = {decided_channels}')
 
-    preprocess_whole_data()
+
